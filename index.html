@@ -17,12 +17,9 @@
 	<script>
 
 		const locationFile = 'data/directory/downtownwest.geojson'
-		const zoomThreshold = 18
-		const imgSource = 'img'
-		const featureIds = ['concat', ['get', 'api_id'], '|']
-		let currentActiveCategory = 'all';
-		let popupOpen = false;
+		const featureIds = ['concat', ['get', 'name'], '|']
 		let locationData;
+		let currentPopup = null;
 
 		var map = new maplibregl.Map({
 			container: 'map',
@@ -64,10 +61,23 @@
 				'data': pointsData,
 				'cluster': true,
 				'clusterRadius': 30,
+				'clusterMaxZoom': 18,
 				'clusterMinPoints': 2,
-				'clusterMaxZoom': zoomThreshold,
 				'clusterProperties': {
 					'featureIds': ['concat', featureIds]
+				}
+			});
+
+			// Add bia outline
+			map.addLayer({
+				'id': 'toronto-bia',
+				'source': 'toronto_bia',
+				"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
+				'type': 'line',
+				'paint': {
+					'line-color': 'hsl(0, 0%, 40%)',
+					'line-width': 5,
+					'line-opacity': ['interpolate', ['linear'], ['zoom'], 14, 0.3, 17, 0.3, 18, 0],
 				}
 			});
 
@@ -99,23 +109,10 @@
 						10
 					],
 					'fill-extrusion-base': 0,
-					'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.5, 17, 0.5, 18, 0]
+					'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.3, 17, 0.3, 18, 0]
 				},
 				'minzoom': 15
 			}, 'highway-name-minor');
-
-			// Add neighborhood outlines
-			map.addLayer({
-				'id': 'toronto-bia',
-				'source': 'toronto_bia',
-				"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
-				'type': 'line',
-				'paint': {
-					'line-color': 'hsl(0, 0%, 20%)',
-					'line-width': 3,
-					'line-opacity': ['interpolate', ['linear'], ['zoom'], 14, 1, 17, 1, 18, 0],
-				}
-			});
 
 			// Add point halos
 			map.addLayer({
@@ -139,14 +136,50 @@
 				source: 'places',
 				filter: ['!', ['has', 'point_count']],
 				paint: {
-					'circle-radius': 6,
-					'circle-color': 'hsl(0, 0%, 20%)',
+					'circle-radius': 10,
+					'circle-color': [
+						"case",
+						["==", ["get", "business_type"], "accomodations"], "#000000",
+						["==", ["get", "business_type"], "attractions"], "#dd9933",
+						["==", ["get", "business_type"], "bakery"], "#9ad66f",
+						["==", ["get", "business_type"], "bars"], "#841d1d",
+						["==", ["get", "business_type"], "comedy"], "#eeee22",
+						["==", ["get", "business_type"], "grocery"], "#ddb982",
+						["==", ["get", "business_type"], "night-clubs-entertainment-venues"], "#8224e3",
+						["==", ["get", "business_type"], "pubs-bars"], "#841d1d",
+						["==", ["get", "business_type"], "quick-serve"], "#eded78",
+						["==", ["get", "business_type"], "restaurants"], "#dd5454",
+						["==", ["get", "business_type"], "retail"], "#9ad66f",
+						["==", ["get", "business_type"], "services"], "#5b90bf",
+						"hsl(0, 0%, 0%)"
+					],
 					'circle-stroke-width': 0,
 					'circle-stroke-color': 'hsl(180, 21%, 5%)'
 				}
 			});
 
-			// Add cluster circle halos
+			// Add point symbols
+			map.addLayer({
+				id: 'points-symbols',
+				type: 'symbol',
+				source: 'places',
+				filter: ['!', ['has', 'point_count']],
+				layout: {
+					"icon-size": 0.5,
+					"symbol-placement": "point",
+					"icon-image": ["match", ["get", "business_type"], "restaurants", "icon-restaurant", "retail", "icon-shop", "services", "icon-community", "quick-serve", "icon-doityourself", "night-clubs-entertainment-venues", "icon-nightclub", "accommodations", "icon-chalet", "bakery", "icon-bakery", "pubs-bars", "icon-bar", "attractions", "icon-monument", "grocery", "icon-greengrocer", "bar", "icon-bar", "comedy", "icon-theatre", "unknown" ],
+					"icon-anchor": "center",
+					"icon-allow-overlap": false,
+					"icon-ignore-placement": false,
+					"icon-optional": false
+				},
+				paint: {
+					"icon-opacity": 1,
+					"icon-color": 'hsl(0, 0%, 100%)'
+				}
+			});
+
+			// Add cluster halos
 			map.addLayer({
 				id: 'clusters-halo',
 				type: 'circle',
@@ -173,7 +206,7 @@
 				}
 			});
 
-			// Add cluster circles
+			// Add clusters
 			map.addLayer({
 				id: 'clusters',
 				type: 'circle',
@@ -183,9 +216,9 @@
 					'circle-color': [
 						'step',
 						['get', 'point_count'],
-						'hsl(0, 0%, 20%)',
-						10, 'hsl(0, 0%, 20%)',
-						25, 'hsl(0, 0%, 20%)'
+						'hsl(0, 0%, 50%)',
+						10, 'hsl(0, 0%, 50%)',
+						25, 'hsl(0, 0%, 50%)'
 					],
 					'circle-radius': [
 						'step',
@@ -199,7 +232,7 @@
 				}
 			});
 
-			// Add cluster count
+			// Add cluster counts
 			map.addLayer({
 				id: 'cluster-count',
 				type: 'symbol',
@@ -210,7 +243,7 @@
 					'text-font': ['montserrat-semibold'],
 					'text-size': 14,
 					'text-anchor': 'center',
-					'text-offset': [0, 0.13],
+					'text-offset': [0, 0.01],
 					'text-allow-overlap': true,
 					'text-ignore-placement': true
 				},
@@ -236,12 +269,12 @@
 				map.getCanvas().style.cursor = '';
 			});
 
-			map.once('idle', () => {
-				//updateInfoBox();
-				//updatePopup();
-			});
+			// map.once('idle', () => {
+
+			// });
 
 		});
+
 
 	</script>
 </body>
