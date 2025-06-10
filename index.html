@@ -49,19 +49,19 @@
 			// Add building source
 			map.addSource('toronto_buildings', {
 				type: 'vector',
-				tiles: ['https://map-city.github.io/toronto-bia/data/toronto_buildings/{z}/{x}/{y}.pbf']
+				tiles: ['https://mapcity.io/toronto-bia/data/toronto_buildings/{z}/{x}/{y}.pbf']
 			});
 
 			// Add neighborhood source
 			map.addSource('toronto_neighborhoods', {
 				type: 'vector',
-				tiles: ['https://map-city.github.io/toronto-bia/data/toronto_neighborhoods/{z}/{x}/{y}.pbf']
+				tiles: ['https://mapcity.io/toronto-bia/data/toronto_neighborhoods/{z}/{x}/{y}.pbf']
 			});
 
 			// Add neighborhood centroids
 			map.addSource('toronto_neighborhoods_centroids', {
-				'type': 'geojson',
-				'data': 'https://map-city.github.io/toronto-bia/data/toronto_neighborhoods_centroids.geojson'
+				type: 'geojson',
+				data: 'https://mapcity.io/toronto-bia/data/toronto_neighborhoods_centroids.geojson'
 			});
 
 			// Add event source
@@ -134,7 +134,7 @@
 				layout: {
 					'text-field': ['get', 'area_name'],
 					'text-size': ['interpolate', ['exponential', 1.1], ['zoom'], 10, 1, 18, 50],
-					'text-font': ['volksans-regular'],
+					'text-font': ['montserrat-semibold'],
 					'text-max-width': 5,
 					'text-line-height': 1,
 					'text-allow-overlap': true,
@@ -243,7 +243,7 @@
 				filter: ['has', 'point_count'],
 				layout: {
 					'text-field': '{point_count_abbreviated}',
-					'text-font': ['volksans-regular'],
+					'text-font': ['montserrat-semibold'],
 					'text-size': 14,
 					'text-anchor': 'center',
 					'text-offset': [0, 0.13],

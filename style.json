@@ -4,8 +4,8 @@
 	"metadata": {
 		"maputnik:renderer": "mbgljs"
 	},
-	"glyphs": "https://map-city.github.io/toronto-bia/assets/fonts/{fontstack}/{range}.pbf",
-	"sprite": "https://map-city.github.io/toronto-bia/assets/sprites/sprites",
+	"glyphs": "https://mapcity.io/toronto-bia/assets/fonts/{fontstack}/{range}.pbf",
+	"sprite": "https://mapcity.io/toronto-bia/assets/sprites/sprites",
 	"sources": {
 		"osm": {
 			"type": "vector",
@@ -552,7 +552,7 @@
 				"text-transform": "uppercase",
 				"text-rotation-alignment": "map",
 				"text-font": [
-					"volksans-regular"
+					"montserrat-semibold"
 				],
 				"text-letter-spacing": 0.2,
 				"symbol-placement": "line",
@@ -610,7 +610,7 @@
 				"text-transform": "uppercase",
 				"text-rotation-alignment": "map",
 				"text-font": [
-					"volksans-regular"
+					"montserrat-semibold"
 				],
 				"text-letter-spacing": 0.2,
 				"symbol-placement": "line",
@@ -781,7 +781,7 @@
 					"unknown"
 				],
 				"text-font": [
-					"volksans-regular"
+					"montserrat-semibold"
 				],
 				"text-size": 10,
 				"text-field": [
@@ -873,7 +873,7 @@
 				"icon-size": 0.5,
 				"symbol-placement": "point",
 				"text-font": [
-					"volksans-regular"
+					"montserrat-semibold"
 				],
 				"text-size": 10,
 				"icon-anchor": "bottom",
@@ -934,7 +934,7 @@
 				"icon-size": 0.5,
 				"symbol-placement": "point",
 				"text-font": [
-					"volksans-regular"
+					"montserrat-semibold"
 				],
 				"text-size": 10,
 				"icon-anchor": "bottom",
