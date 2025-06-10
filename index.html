@@ -27,12 +27,12 @@
 		var map = new maplibregl.Map({
 			container: 'map',
 			style: 'style.json',
-			center: [-79.37773, 43.64429],
+			center: [-79.39253, 43.64397],
 			pixelRatio: 1,
-			zoom: 13,
-			//minZoom: 12,
-			//maxZoom: 18,
-			bearing: 0,
+			zoom: 15,
+			minZoom: 14,
+			maxZoom: 18,
+			bearing: -16,
 			pitch: 40,
 			hash: true
 		});
@@ -46,26 +46,20 @@
 			// Set locationData
 			locationData = pointsData.features;
 
-			// Add building source
+			// Add buildings source
 			map.addSource('toronto_buildings', {
 				type: 'vector',
 				tiles: ['https://mapcity.io/toronto-bia/data/toronto_buildings/{z}/{x}/{y}.pbf']
 			});
 
-			// Add neighborhood source
-			map.addSource('toronto_neighborhoods', {
-				type: 'vector',
-				tiles: ['https://mapcity.io/toronto-bia/data/toronto_neighborhoods/{z}/{x}/{y}.pbf']
+			// Add bia source
+			map.addSource('toronto_bia', {
+				'type': 'geojson',
+				'data': 'https://mapcity.io/toronto-bia/data/opendata-to/BusinessImprovementAreas-4326.geojson'
 			});
 
-			// Add neighborhood centroids
-			map.addSource('toronto_neighborhoods_centroids', {
-				type: 'geojson',
-				data: 'https://mapcity.io/toronto-bia/data/toronto_neighborhoods_centroids.geojson'
-			});
-
-			// Add event source
-			map.addSource('events', {
+			// Add places source
+			map.addSource('places', {
 				'type': 'geojson',
 				'data': pointsData,
 				'cluster': true,
@@ -77,31 +71,15 @@
 				}
 			});
 
-			// Add neighborhood outlines
-			map.addLayer({
-				'id': 'neighborhoods-outlines',
-				'source': 'toronto_neighborhoods',
-				'source-layer': 'toronto_neighborhoods',
-				'type': 'line',
-				'paint': {
-					'line-color': 'hsl(227, 89%, 90%)',
-					'line-width': ['interpolate', ['exponential', 1.5], ['zoom'], 11, 1, 18, 20],
-					'line-opacity': ['interpolate', ['linear'], ['zoom'], 11, 0, 12, 0.1, 14, 0.2, 15, 0]
-				},
-				"minzoom": 11,
-				"maxzoom": 15
-			});
-
 			// Add building outlines
 			map.addLayer({
 				'id': 'buildings-outline',
 				'source': 'toronto_buildings',
 				'source-layer': 'toronto_buildings',
-				'type': 'line',
+				'type': 'fill',
 				'paint': {
-					'line-color': 'hsl(280, 10%, 40%)',
-					'line-width': 2,
-					'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
+					'fill-color': 'hsl(0, 0%, 85%)',
+					'fill-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
 				},
 				'minzoom': 16
 			}, 'highway-name-minor');
@@ -113,7 +91,7 @@
 				'source-layer': 'toronto_buildings',
 				'type': 'fill-extrusion',
 				'paint': {
-					'fill-extrusion-color': 'hsl(280, 10%, 40%)',
+					'fill-extrusion-color': 'hsl(0, 0%, 85%)',
 					'fill-extrusion-height': [
 						'case',
 						['!=', ['get', 'max_height'], null], ['get', 'max_height'],
@@ -121,60 +99,48 @@
 						10
 					],
 					'fill-extrusion-base': 0,
-					'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.7, 17, 0.7, 18, 0]
+					'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.5, 17, 0.5, 18, 0]
 				},
 				'minzoom': 15
 			}, 'highway-name-minor');
 
-			// Add neighborhood labels
+			// Add neighborhood outlines
 			map.addLayer({
-				id: 'neighborhoods-labels',
-				type: 'symbol',
-				source: 'toronto_neighborhoods_centroids',
-				layout: {
-					'text-field': ['get', 'area_name'],
-					'text-size': ['interpolate', ['exponential', 1.1], ['zoom'], 10, 1, 18, 50],
-					'text-font': ['montserrat-semibold'],
-					'text-max-width': 5,
-					'text-line-height': 1,
-					'text-allow-overlap': true,
-					'text-ignore-placement': true,
-					//'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
-					'text-rotation-alignment': 'viewport',
-					'text-pitch-alignment': 'viewport'
-				},
-				paint: {
-					'text-color': 'hsl(227, 89%, 90%)',
-					'text-opacity': ['interpolate', ['linear'], ['zoom'], 11, 0, 12, 0.8, 14, 0.8, 16, 0]
-				},
-				"minzoom": 11,
-				"maxzoom": 16
+				'id': 'toronto-bia',
+				'source': 'toronto_bia',
+				"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
+				'type': 'line',
+				'paint': {
+					'line-color': 'hsl(0, 0%, 20%)',
+					'line-width': 3,
+					'line-opacity': ['interpolate', ['linear'], ['zoom'], 14, 1, 17, 1, 18, 0],
+				}
 			});
 
-			// Add event point halos
+			// Add point halos
 			map.addLayer({
 				id: 'points-halo',
 				type: 'circle',
-				source: 'events',
+				source: 'places',
 				filter: ['!', ['has', 'point_count']],
 				paint: {
 					'circle-radius': 16,
-					'circle-color': 'hsl(232, 76%, 84%)',
-					'circle-opacity': 0.3,
+					'circle-color': 'hsl(0, 0%, 100%)',
+					'circle-opacity': 0.5,
 					'circle-stroke-width': 0,
 					'circle-stroke-color': 'hsl(180, 21%, 5%)'
 				}
 			});
 
-			// Add event points
+			// Add points
 			map.addLayer({
 				id: 'points',
 				type: 'circle',
-				source: 'events',
+				source: 'places',
 				filter: ['!', ['has', 'point_count']],
 				paint: {
 					'circle-radius': 6,
-					'circle-color': 'hsl(232, 76%, 84%)',
+					'circle-color': 'hsl(0, 0%, 20%)',
 					'circle-stroke-width': 0,
 					'circle-stroke-color': 'hsl(180, 21%, 5%)'
 				}
@@ -184,17 +150,17 @@
 			map.addLayer({
 				id: 'clusters-halo',
 				type: 'circle',
-				source: 'events',
+				source: 'places',
 				filter: ['has', 'point_count'],
 				paint: {
 					'circle-color': [
 						'step',
 						['get', 'point_count'],
-						'hsl(232, 76%, 84%)',
-						10, 'hsl(232, 76%, 84%)',
-						25, 'hsl(232, 76%, 84%)'
+						'hsl(0, 0%, 100%)',
+						10, 'hsl(0, 0%, 100%)',
+						25, 'hsl(0, 0%, 100%)'
 					],
-					'circle-opacity': 0.3,
+					'circle-opacity': 0.5,
 					'circle-radius': [
 						'step',
 						['get', 'point_count'],
@@ -204,23 +170,22 @@
 					],
 					'circle-stroke-width': 0,
 					'circle-stroke-color': 'hsl(180, 21%, 5%)',
-				},
-				'maxzoom': zoomThreshold + 1
+				}
 			});
 
 			// Add cluster circles
 			map.addLayer({
 				id: 'clusters',
 				type: 'circle',
-				source: 'events',
+				source: 'places',
 				filter: ['has', 'point_count'],
 				paint: {
 					'circle-color': [
 						'step',
 						['get', 'point_count'],
-						'hsl(232, 76%, 84%)',
-						10, 'hsl(232, 76%, 84%)',
-						25, 'hsl(232, 76%, 84%)'
+						'hsl(0, 0%, 20%)',
+						10, 'hsl(0, 0%, 20%)',
+						25, 'hsl(0, 0%, 20%)'
 					],
 					'circle-radius': [
 						'step',
@@ -231,15 +196,14 @@
 					],
 					'circle-stroke-width': 0,
 					'circle-stroke-color': 'hsl(180, 21%, 5%)',
-				},
-				'maxzoom': zoomThreshold + 1
+				}
 			});
 
 			// Add cluster count
 			map.addLayer({
 				id: 'cluster-count',
 				type: 'symbol',
-				source: 'events',
+				source: 'places',
 				filter: ['has', 'point_count'],
 				layout: {
 					'text-field': '{point_count_abbreviated}',
@@ -251,9 +215,8 @@
 					'text-ignore-placement': true
 				},
 				paint: {
-					'text-color': 'hsl(180, 21%, 5%)'
-				},
-				'maxzoom': zoomThreshold + 1
+					'text-color': 'hsl(0, 0%, 100%)'
+				}
 			});
 
 			map.setLight({
