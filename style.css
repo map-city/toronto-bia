@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+#map {
+    position: relative;
+}
+
+.maplibregl-map {
+    color: #666;
+    font-size: 8px;
+}
+
+.maplibregl-popup-content {
+    padding: 0 5px;
+    margin: -1px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    pointer-events: none !important;
+}
+
+.maplibregl-popup-content h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.maplibregl-popup-close-button {
+    display: none !important;
+}
+
+h3 {
+    font-family: 'Montserrat';
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0px;
+}
