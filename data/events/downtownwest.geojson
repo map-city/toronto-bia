@@ -1,0 +1,2689 @@
+{
+    "type": "FeatureCollection",
+    "name": "Downtown West BIA - Events",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Moving Forest",
+                "host": "The Bentway",
+                "venue": "The Bentway, Toronto",
+                "address": "The Bentway, Toronto, ON M5V 1B2, Canada",
+                "description": "Follow their eight-week journey throughout the city – from The Bentway, to YZD at Downsview, to the Waterfront – enjoying pop-up readings and performances along the way.\nNL Architects’ Moving Forest (Amsterdam, NL) calls attention to the...",
+                "website": "https://nowplayingtoronto.com/event/moving-forest/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/event-featured-moving-forest-1747169946-1620x1080.jpeg",
+                "dates": [
+                    "2025-06-13T12:00:00",
+                    "2025-06-14T12:00:00",
+                    "2025-06-15T12:00:00",
+                    "2025-06-16T12:00:00",
+                    "2025-06-17T12:00:00",
+                    "2025-06-18T12:00:00",
+                    "2025-06-19T12:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.40673639739379,
+                    43.63765813652167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "imagineNATIVE Film + Media Arts Festival",
+                "host": "imagineNATIVE Film + Media Arts Festival",
+                "venue": "TIFF Lightbox, Toronto",
+                "address": "TIFF Lightbox, 350 King Street West, Toronto, ON M5V 3X5, Canada",
+                "description": "Visit the world’s largest Indigenous film festival! The 25th anniversary imagineNATIVE Film + Media Arts Festival runs from June 3-8, 2025 (Toronto) and June 9-15, 2025 (online). The Festival features screenings of Indigenous-made films, a free...",
+                "website": "https://nowplayingtoronto.com/event/imaginenative-film-media-arts-festival/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/event-featured-imaginenative-film-media-arts-festival-1745876256.jpeg",
+                "dates": [
+                    "2025-06-13T12:00:00",
+                    "2025-06-14T12:00:00",
+                    "2025-06-15T12:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.3905334,
+                    43.6467198
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "A Transit Through Time",
+                "host": "Toronto Union",
+                "venue": "Union Station, Toronto",
+                "address": "Union Station, 140 Bay Street, Toronto, ON M5J 2L5, Canada",
+                "description": "The exhibition located in the West Wing is a co-curatorial project in collaboration with MakeRoom Inc. Union’s relationship with MakeRoom Inc was born out of a shared mission to create spaces for local artists that are inclusive, diverse and...",
+                "website": "https://nowplayingtoronto.com/event/a-transit-through-time/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/02/event-featured-a-transit-through-time-1738687325.png",
+                "dates": [
+                    "2025-06-13T09:00:00",
+                    "2025-06-14T09:00:00",
+                    "2025-06-15T09:00:00",
+                    "2025-06-16T09:00:00",
+                    "2025-06-17T09:00:00",
+                    "2025-06-18T09:00:00",
+                    "2025-06-19T09:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38013965704317,
+                    43.6447101
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Sounds of the Ocean at Arcadia Earth!",
+                "host": "Arcadia Earth",
+                "venue": "Arcadia Earth, Toronto",
+                "address": "Toronto, ON, Canada",
+                "description": "This award-winning, 10-minute immersive experience will transport guests into the mesmerizing world of the deep blue.\nExperience Highlights:\nImmerse Yourself: Lounge on soft seating as the ethereal songs and sounds of whales and dolphins...",
+                "website": "https://nowplayingtoronto.com/event/sounds-of-the-ocean-at-arcadia-earth/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/event-featured-sounds-of-the-ocean-at-arcadia-earth-1748378691.png",
+                "dates": [
+                    "2025-06-13T12:00:00",
+                    "2025-06-14T12:00:00",
+                    "2025-06-15T12:00:00",
+                    "2025-06-18T12:00:00",
+                    "2025-06-19T12:00:00",
+                    "2025-06-20T12:00:00",
+                    "2025-06-21T12:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.3839347,
+                    43.6534817
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Grand National Tour: Kendrick Lamar and SZA",
+                "host": "Live Nation",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Grand National Tour: Kendrick Lamar and SZA",
+                "website": "https://nowplayingtoronto.com/event/grand-national-tour-kendrick-lamar-and-sza/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/00abe3c8-7939-4399-8f3c-a65c89fb9f7c_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-06-13T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Sand Flight",
+                "host": "Toronto Dance Theatre",
+                "venue": "The Bentway, Toronto",
+                "address": "The Bentway, Toronto, ON M5V 1B2, Canada",
+                "description": "A new creation by Ingri Fiksdal and Jonas Corell Petersen (Oslo, Norway)\nIn a future-Toronto, an immense sand dune appears under the Gardiner Expressway, encroaching on the concrete columns that support the busy highway above. As the city heats...",
+                "website": "https://nowplayingtoronto.com/event/sand-flight/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/event-featured-sand-flight-1745871120-1440x1080.jpeg",
+                "dates": [
+                    "2025-06-13T07:00:00",
+                    "2025-06-14T02:00:00",
+                    "2025-06-15T02:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.40673639739379,
+                    43.63765813652167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Anna Karenina",
+                "host": "The National Ballet of Canada",
+                "venue": "Four Seasons Centre for the Performing Arts, Toronto",
+                "address": "Four Seasons Centre for the Performing Arts, 145 Queen Street West, Toronto, ON M5H 2N6, Canada",
+                "description": "An alluring new Anna Karenina enters The National Ballet of Canada repertoire with this North American premiere and first creative partnership with Christian Spuck. One of Europe’s foremost choreographers, Spuck distills Leo Tolstoy’s...",
+                "website": "https://nowplayingtoronto.com/event/anna-karenina/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/event-featured-anna-karenina-1746108235.png",
+                "dates": [
+                    "2025-06-13T07:30:00",
+                    "2025-06-14T07:30:00",
+                    "2025-06-15T02:30:00",
+                    "2025-06-18T07:30:00",
+                    "2025-06-19T07:30:00",
+                    "2025-06-20T07:30:00",
+                    "2025-06-21T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38552704789961,
+                    43.65059825
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Come Closer",
+                "host": "Opera 5",
+                "venue": "Factory Theatre, Toronto",
+                "address": "Factory Theatre, 125 Bathurst Street, Toronto, ON M5V 2R2, Canada",
+                "description": "Join Opera 5 for the world premiere of Come Closer – a new Canadian opera by composer Ryan Trew and librettist Rachel Krehm based on Rachel’s experience of losing her sister Elizabeth to addiction. Full of nostalgia, joy, connection, and...",
+                "website": "https://nowplayingtoronto.com/event/come-closer/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/event-featured-come-closer-1747016263-1080x1080.png",
+                "dates": [
+                    "2025-06-13T07:30:00",
+                    "2025-06-14T07:30:00",
+                    "2025-06-18T07:30:00",
+                    "2025-06-19T07:30:00",
+                    "2025-06-21T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.4028205,
+                    43.6455029
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Peyman Salimi featuring Zoe Guigueno / Dastgamachine",
+                "host": "Link Music Lab",
+                "venue": "Adelaide Hall, Toronto",
+                "address": "Richmond-Adelaide Centre, Toronto, ON M5H, Canada",
+                "description": "Peyman Salimi and Zoe Guigueno play in Toronto joined by drummer Stefan Hegerat. With a bag of new songs, their set will move between quiet, stripped-down moments and upbeat, groove-heavy songs that mix guitar, bass, synths, and vocals in Persian...",
+                "website": "https://nowplayingtoronto.com/event/peyman-salimi-featuring-zoe-guigueno-dastgamachine/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/06/event-featured-peyman-salimi-featuring-zoe-guigueno-dastgamachine-1749243039.jpeg",
+                "dates": [
+                    "2025-06-13T09:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.383545,
+                    43.649921
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "The Toronto Tattoo Show / nix 2025",
+                "host": "Toronto International Tattoo Show nix",
+                "venue": "Metro Toronto Convention Centre - North Building, Toronto",
+                "address": "Metro Toronto Convention Centre - North Building, PATH, Toronto, ON M5V 3C7, Canada",
+                "description": "Every year, more than 500 national and international tattoo artists join thousands of fans and collectors in downtown Toronto for what is one of the world’s legendary tattoo shows.​ This 3 days international tattoo festival celebrates tattoo...",
+                "website": "https://nowplayingtoronto.com/event/the-toronto-tattoo-show-nix-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/11/event-featured-the-toronto-tattoo-show-nix-2025-1730843251.jpeg",
+                "dates": [
+                    "2025-06-14T11:00:00",
+                    "2025-06-15T11:00:00",
+                    "2025-06-13T03:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38669247414063,
+                    43.64383755
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Siavash Ghomayshi Farewell Tour",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Siavash Ghomayshi Farewell Tour",
+                "website": "https://nowplayingtoronto.com/event/siavash-ghomayshi-farewell-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/02/76d7a884-89cf-4632-b7be-b8144239d357_350151_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-06-14T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "The Oddities and Curiosities Expo",
+                "host": "The Oddities & Curiosities Expo",
+                "venue": "Metro Toronto Convention Centre - North Building, Toronto",
+                "address": "Metro Toronto Convention Centre - North Building, PATH, Toronto, ON M5V 3C7, Canada",
+                "description": "The Oddities and Curiosities Expo is a one-of-a-kind traveling showcase that brings together hundreds of oddity vendors and artists from across the country, creating a playground for the strange and unusual. Here, the weird, wonderful, and...",
+                "website": "https://nowplayingtoronto.com/event/the-oddities-and-curiosities-expo/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/event-featured-the-oddities-and-curiosities-expo-1747610456-1900x1080.jpeg",
+                "dates": [
+                    "2025-06-15T10:00:00",
+                    "2025-06-14T10:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38669247414063,
+                    43.64383755
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Disney's The Lion King",
+                "host": "Mirvish Productions",
+                "venue": "Princess of Wales Theatre, Toronto",
+                "address": "Princess of Wales Theatre, 300 King Street West, Toronto, ON M5V 1J2, Canada",
+                "description": "More than 120 million people around the world have experienced the phenomenon of Disney’s THE LION KING, and now you can, too, at the Princess of Wales Theatre in Toronto.  Winner of six Tony Awards®, including Best Musical, this landmark...",
+                "website": "https://nowplayingtoronto.com/event/disneys-the-lion-king/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/lionking-share.jpg",
+                "dates": [
+                    "2025-06-15T02:00:00",
+                    "2025-06-22T02:00:00",
+                    "2025-06-29T02:00:00",
+                    "2025-07-06T02:00:00",
+                    "2025-07-13T02:00:00",
+                    "2025-07-20T02:00:00",
+                    "2025-07-27T02:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38923988074488,
+                    43.6470405
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Elegies",
+                "host": "Opera 5",
+                "venue": "Factory Theatre, Toronto",
+                "address": "Factory Theatre, 125 Bathurst Street, Toronto, ON M5V 2R2, Canada",
+                "description": "Finn pays tribute to his family members, friends and even pet dogs that have died, through touching stories that will make you laugh, cry, and hug your loved ones a little closer. Community is vital when grieving and we invite you into ours as we...",
+                "website": "https://nowplayingtoronto.com/event/elegies/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/event-featured-elegies-1747017122-1080x1080.png",
+                "dates": [
+                    "2025-06-15T02:30:00",
+                    "2025-06-17T07:30:00",
+                    "2025-06-20T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.4028205,
+                    43.6455029
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Arizona Diamondbacks Jun 17, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Arizona Diamondbacks",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-arizona-diamondbacks-jun-17-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-21.jpg",
+                "dates": [
+                    "2025-06-17T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "TRIVIA NIGHT @ STACKT MARKET Jun 18, 2025",
+                "host": "QE Trivia",
+                "venue": "Stackt Market, Toronto",
+                "address": "Toronto, ON, Canada",
+                "description": "WHAT TO EXPECT\nYour host\nAri Issac isn’t just a trivia host—she’s the ringmaster of pop culture chaos, the curator of your game night nostalgia, and the ultimate hype queen of useless knowledge. As the creator of QE Trivia, she’s built a...",
+                "website": "https://nowplayingtoronto.com/event/trivia-night-stackt-market-jun-18-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/06/event-featured-trivia-night-stackt-market-1748756205.png",
+                "dates": [
+                    "2025-06-18T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.3839347,
+                    43.6534817
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Arizona Diamondbacks Jun 18, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Arizona Diamondbacks",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-arizona-diamondbacks-jun-18-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-20.jpg",
+                "dates": [
+                    "2025-06-18T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Arizona Diamondbacks Jun 19, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Arizona Diamondbacks",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-arizona-diamondbacks-jun-19-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-57.jpg",
+                "dates": [
+                    "2025-06-19T03:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Chicago White Sox Jun 20, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Chicago White Sox",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-chicago-white-sox-jun-20-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-46.jpg",
+                "dates": [
+                    "2025-06-20T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Night at the Aqueerium",
+                "host": "Ripley's Aquarium of Canada",
+                "venue": "Ripley's Aquarium of Canada, Toronto",
+                "address": "Ripley's Aquarium of Canada, 288 Bremner Boulevard, Toronto, ON M5J 3A8, Canada",
+                "description": "Get ready to flip your fins and WERK those gills, Night at the Aqueerium is back and bolder than ever!\nKick off Pride SEA-son on Friday June 20th, with the most fabulous event under the sea, featuring Toronto’s hottest drag performers,...",
+                "website": "https://nowplayingtoronto.com/event/night-at-the-aqueerium-2/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/event-featured-night-at-the-aqueerium-1747323192.png",
+                "dates": [
+                    "2025-06-20T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.3861266102009,
+                    43.64248355
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Chicago White Sox Jun 21, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Chicago White Sox",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-chicago-white-sox-jun-21-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-06-21T03:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Jeremy Dutcher",
+                "host": "Toronto Symphony Orchestra",
+                "venue": "Roy Thomson Hall, Toronto",
+                "address": "Roy Thomson Hall, 60 Simcoe Street, Toronto, ON M5J 2S9, Canada",
+                "description": "Jeremy Dutcher, the indelible Two-Spirit artist and cultural ambassador from the Tobique First Nation, returns to the TSO! Renowned for his groundbreaking album Wolastoqiyik Lintuwakonawa, which earned him the 2018 Polaris Music Prize and the...",
+                "website": "https://nowplayingtoronto.com/event/an-evening-with-audra-mcdonald/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/08/event-featured-jeremy-dutcher-1724178489.jpeg",
+                "dates": [
+                    "2025-06-21T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.3863389868835,
+                    43.64655855
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Chicago White Sox Jun 22, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Chicago White Sox",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-chicago-white-sox-jun-22-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-26.jpg",
+                "dates": [
+                    "2025-06-22T01:37:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Brews N' Chews",
+                "host": "stackt market",
+                "venue": "Stackt Market, Toronto",
+                "address": "Toronto, ON, Canada",
+                "description": "Our iconic monthly pup meetup is back in the Bark Yard all summer long! Come hang out every second and fourth Wednesday until November!\nBring your furry friends along for a tail-wagging good time including:⁠\n⁠👉Fun tunes\n⁠👉 Happy hour...",
+                "website": "https://nowplayingtoronto.com/event/brews-n-chews/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/06/event-featured-brews-n-chews-1749140337.jpeg",
+                "dates": [
+                    "2025-06-25T05:00:00",
+                    "2025-07-09T05:00:00",
+                    "2025-07-23T05:00:00",
+                    "2025-08-13T05:00:00",
+                    "2025-08-27T05:00:00",
+                    "2025-09-10T05:00:00",
+                    "2025-09-24T05:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.3839347,
+                    43.6534817
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "TRIVIA NIGHT @ STACKT MARKET Jun 25, 2025",
+                "host": "QE Trivia",
+                "venue": "Stackt Market, Toronto",
+                "address": "Toronto, ON, Canada",
+                "description": "WHAT TO EXPECT\nYour host\nAri Issac isn’t just a trivia host—she’s the ringmaster of pop culture chaos, the curator of your game night nostalgia, and the ultimate hype queen of useless knowledge. As the creator of QE Trivia, she’s built a...",
+                "website": "https://nowplayingtoronto.com/event/trivia-night-stackt-market-jun-25-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/06/event-featured-trivia-night-stackt-market-1748756370.png",
+                "dates": [
+                    "2025-06-25T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.3839347,
+                    43.6534817
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Giggles Pride Comedy Show! Jun 26, 2025",
+                "host": "Toastr Toronto",
+                "venue": "Yuk Yuk's, Toronto",
+                "address": "Yuk Yuk's, Waterfront Communities-The Island, Toronto, ON M5V 1V6, Canada",
+                "description": "Hiiiiii!\nGiggles is back with a fantastic comedic showcase!  Kick off Pride weekend not with glitter but with opinionsssss presented hilariously.\nWe’re delighted to host you at Yuk Yuk’s Toronto this time — a spanning room made for comedy...",
+                "website": "https://nowplayingtoronto.com/event/giggles-pride-comedy-show-jun-26-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/event-featured-giggles-pride-comedy-show-1748443503.png",
+                "dates": [
+                    "2025-06-26T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.388272,
+                    43.64977
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "BALTHVS",
+                "host": "MRG Live",
+                "venue": "Adelaide Hall, Toronto",
+                "address": "Richmond-Adelaide Centre, Toronto, ON M5H, Canada",
+                "description": "Formed in 2020, BALTHVS has grown in just five years to become Colombia’s leading alternative international act. With over 45 million streams on digital platforms, more than 10,000 vinyl records sold, and nine international tours under their...",
+                "website": "https://nowplayingtoronto.com/event/balthvs/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/event-featured-balthvs-1747851099.png",
+                "dates": [
+                    "2025-06-27T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.383545,
+                    43.649921
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Spring Into Spice Cultural Food & Wine Festival",
+                "host": "Spice Food & Wine Group",
+                "venue": "Steam Whistle Brewing, Toronto",
+                "address": "Steam Whistle Brewing, Lake Shore Boulevard West, Toronto, ON M5J 2Y7, Canada",
+                "description": "Spring Into Spice THE SOCIAL\nJUNE 28TH - 12:00 PM to 8:00 PM\n45 CULTURAL FOOD TENTS + WINE KIOSKS\nLocation: Steam Whistle properties (255 Bremner Blvd, Toronto, ON M5V 3M9)\nThis is an indoor/outdoor event\nWhat better way to spread the Spice...",
+                "website": "https://nowplayingtoronto.com/event/spring-into-spice-cultural-food-wine-festival/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/event-featured-spring-into-spice-cultural-food-wine-festival-1748201091.png",
+                "dates": [
+                    "2025-06-28T12:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.3852891,
+                    43.6409691
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Harris Live in Canada",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Harris Live in Canada",
+                "website": "https://nowplayingtoronto.com/event/harris-live-in-canada/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/03/5fefbd1c-973b-4b0e-9b2e-d78e4ce37548_106111_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-06-28T06:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "THE FRENCH CONNECTION",
+                "host": "Kindred Spirits Orchestra",
+                "venue": "Glenn Gould Studio, Toronto",
+                "address": "Glenn Gould Studio, PATH, Toronto, ON M5V 3J4, Canada",
+                "description": "Bizet’s second Carmen Suite includes several well-known tunes from the eponymous opera, including the Habanera, with its characteristic snaking chromatic lines representing Carmen’s seductive wiles, and the rousing Toreador song. Valses...",
+                "website": "https://nowplayingtoronto.com/event/the-french-connection/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/10/event-featured-the-french-connection-1729203276-1080x1080.jpeg",
+                "dates": [
+                    "2025-06-28T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.3878073,
+                    43.6444031
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. New York Yankees Jun 30, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. New York Yankees",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-new-york-yankees-jun-30-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2021/11/1280px-Major_League_Baseball_logo.svg_.png",
+                "dates": [
+                    "2025-06-30T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. New York Yankees Jul 1, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. New York Yankees",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-new-york-yankees-jul-1-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2021/11/1280px-Major_League_Baseball_logo.svg_.png",
+                "dates": [
+                    "2025-07-01T03:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. New York Yankees Jul 2, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. New York Yankees",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-new-york-yankees-jul-2-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-39.jpg",
+                "dates": [
+                    "2025-07-02T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. New York Yankees Jul 3, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. New York Yankees",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-new-york-yankees-jul-3-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-27.jpg",
+                "dates": [
+                    "2025-07-03T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Los Angeles Angels Jul 4, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Los Angeles Angels",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-los-angeles-angels-jul-4-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-4.jpg",
+                "dates": [
+                    "2025-07-04T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Los Angeles Angels Jul 5, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Los Angeles Angels",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-los-angeles-angels-jul-5-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-11.jpg",
+                "dates": [
+                    "2025-07-05T03:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Los Angeles Angels Jul 6, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Los Angeles Angels",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-los-angeles-angels-jul-6-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-71.jpg",
+                "dates": [
+                    "2025-07-06T01:37:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "ImportFest 2025",
+                "host": "ImportFest Inc.",
+                "venue": "Metro Toronto Convention Centre - North Building, Toronto",
+                "address": "Metro Toronto Convention Centre - North Building, PATH, Toronto, ON M5V 3C7, Canada",
+                "description": "Canada’s \"BIGGEST & BADDEST\" Car Show returns in 2025! Come meet hundreds of tuners and see their modified cars from across Canada and the USA at ImportFest Toronto Car Show presented by Nitto Tires, showcasing sleek design and engineering...",
+                "website": "https://nowplayingtoronto.com/event/importfest-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/02/event-featured-importfest-2025-1740495381-863x1080.png",
+                "dates": [
+                    "2025-07-12T11:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38669247414063,
+                    43.64383755
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Wu-Tang Forever: The Final Chamber",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Wu-Tang Forever: The Final Chamber",
+                "website": "https://nowplayingtoronto.com/event/wu-tang-forever-the-final-chamber/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/02/878cdbab-7490-46bb-9684-4df255efb006_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-07-14T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. San Francisco Giants Jul 18, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. San Francisco Giants",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-san-francisco-giants-jul-18-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-68.jpg",
+                "dates": [
+                    "2025-07-18T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. San Francisco Giants Jul 19, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. San Francisco Giants",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-san-francisco-giants-jul-19-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-33.jpg",
+                "dates": [
+                    "2025-07-19T03:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Great Gable - 'Small Fry' Album Tour",
+                "host": "MRG Live",
+                "venue": "Adelaide Hall, Toronto",
+                "address": "Richmond-Adelaide Centre, Toronto, ON M5H, Canada",
+                "description": "WA rock band Great Gable are no strangers to traversing the globe. However, their new record, Small Fry, is a distinctly home state affair. Their first recording stint at home in Perth since 2018, and their first time at Blackbird Studios with...",
+                "website": "https://nowplayingtoronto.com/event/great-gable-small-fry-album-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/event-featured-great-gable-small-fry-album-tour-1733506884.jpeg",
+                "dates": [
+                    "2025-07-19T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.383545,
+                    43.649921
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. San Francisco Giants Jul 20, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. San Francisco Giants",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-san-francisco-giants-jul-20-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-38.jpg",
+                "dates": [
+                    "2025-07-20T01:37:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. New York Yankees Jul 21, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. New York Yankees",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-new-york-yankees-jul-21-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-36.jpg",
+                "dates": [
+                    "2025-07-21T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. New York Yankees Jul 22, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. New York Yankees",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-new-york-yankees-jul-22-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-40.jpg",
+                "dates": [
+                    "2025-07-22T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. New York Yankees Jul 23, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. New York Yankees",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-new-york-yankees-jul-23-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-64.jpg",
+                "dates": [
+                    "2025-07-23T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Tyler, The Creator - CHROMAKOPIA: THE WORLD TOUR",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Tyler, The Creator - CHROMAKOPIA: THE WORLD TOUR",
+                "website": "https://nowplayingtoronto.com/event/tyler-the-creator-chromakopia-the-world-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/10/04ee9987-d0dd-41f6-a169-afc7727293a3_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-07-24T07:30:00",
+                    "2025-07-25T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "DAVIDO - THE 5IVE ALIVE TOUR",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "DAVIDO - THE 5IVE ALIVE TOUR",
+                "website": "https://nowplayingtoronto.com/event/davido-the-5ive-alive-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/51ea0129-4d0c-4730-980f-d64451fab06d_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-07-26T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "The Weeknd: After Hours Til Dawn Tour With Playboi Carti And Mike Dean",
+                "host": "Live Nation",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "The Weeknd: After Hours Til Dawn Tour With Playboi Carti And Mike Dean",
+                "website": "https://nowplayingtoronto.com/event/the-weeknd-after-hours-til-dawn-tour-with-playboi-carti-and-mike-dean/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/02/779d1731-4094-4a97-bc16-1341dcb41966_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-07-27T07:00:00",
+                    "2025-07-28T07:00:00",
+                    "2025-08-07T07:00:00",
+                    "2025-08-08T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Kansas City Royals Aug 1, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Kansas City Royals",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-kansas-city-royals-aug-1-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-1.jpg",
+                "dates": [
+                    "2025-08-01T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Kansas City Royals Aug 2, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Kansas City Royals",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-kansas-city-royals-aug-2-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-7.jpg",
+                "dates": [
+                    "2025-08-02T03:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Kansas City Royals Aug 3, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Kansas City Royals",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-kansas-city-royals-aug-3-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-62.jpg",
+                "dates": [
+                    "2025-08-03T01:37:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Ado: Hibana World Tour 2025",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Ado: Hibana World Tour 2025",
+                "website": "https://nowplayingtoronto.com/event/ado-hibana-world-tour-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/11/c3807156-ace6-4471-8212-3b3428854a2b_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-03T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "KATY PERRY - THE LIFETIMES TOUR Aug 5, 2025",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "KATY PERRY - THE LIFETIMES TOUR",
+                "website": "https://nowplayingtoronto.com/event/katy-perry-the-lifetimes-tour-aug-5-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/02/45cd38bc-e750-43c9-a1a6-fe6f0ac8f65c_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-05T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "KATY PERRY - THE LIFETIMES TOUR Aug 6, 2025",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "KATY PERRY - THE LIFETIMES TOUR",
+                "website": "https://nowplayingtoronto.com/event/katy-perry-the-lifetimes-tour-aug-6-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/02/45cd38bc-e750-43c9-a1a6-fe6f0ac8f65c_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-06T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "LINKIN PARK: From Zero World Tour - 2025",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "LINKIN PARK: From Zero World Tour - 2025",
+                "website": "https://nowplayingtoronto.com/event/linkin-park-from-zero-world-tour-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/11/2bf320fe-338c-4210-b500-f24f0e26e1c4_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-08T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Chicago Cubs Aug 12, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Chicago Cubs",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-chicago-cubs-aug-12-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-5.jpg",
+                "dates": [
+                    "2025-08-12T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "A.R. Rahman",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "A.R. Rahman",
+                "website": "https://nowplayingtoronto.com/event/a-r-rahman/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/03/1a0685b8-039e-421f-a0d7-49138010fe3b_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-12T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Chicago Cubs Aug 13, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Chicago Cubs",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-chicago-cubs-aug-13-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-56.jpg",
+                "dates": [
+                    "2025-08-13T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Chicago Cubs Aug 14, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Chicago Cubs",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-chicago-cubs-aug-14-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-63.jpg",
+                "dates": [
+                    "2025-08-14T03:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Ricky Gervais",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Ricky Gervais",
+                "website": "https://nowplayingtoronto.com/event/ricky-gervais/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/02/2aad2586-808f-4ba8-ac3c-ce289c9126dc_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-14T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Stevie Nicks Aug 15, 2025",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Stevie Nicks",
+                "website": "https://nowplayingtoronto.com/event/stevie-nicks-aug-15-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/6605bcb7-f17b-4159-84c7-9df2c9b20a0f_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-15T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Texas Rangers Aug 15, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Texas Rangers",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-texas-rangers-aug-15-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-32.jpg",
+                "dates": [
+                    "2025-08-15T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Texas Rangers Aug 16, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Texas Rangers",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-texas-rangers-aug-16-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-16.jpg",
+                "dates": [
+                    "2025-08-16T03:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Disney Descendants/Zombies: Worlds Collide Tour",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Disney Descendants/Zombies: Worlds Collide Tour",
+                "website": "https://nowplayingtoronto.com/event/disney-descendants-zombies-worlds-collide-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/11/42757d87-5092-4f27-9a77-5d1e9ef0f910_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-16T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "The Aggrolites",
+                "host": "MRG Live",
+                "venue": "Adelaide Hall, Toronto",
+                "address": "Richmond-Adelaide Centre, Toronto, ON M5H, Canada",
+                "description": "The year is 2002. Vocalist Jesse Wagner and organist Roger Rivas, each fresh out of their own bands, come together to form dirty reggae quintet the Aggrolites. With a sound that is equal parts Kingston and Motown, the band turns the heads of...",
+                "website": "https://nowplayingtoronto.com/event/the-aggrolites/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/06/event-featured-the-aggrolites-1749489450.jpeg",
+                "dates": [
+                    "2025-08-16T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.383545,
+                    43.649921
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Texas Rangers Aug 17, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Texas Rangers",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-texas-rangers-aug-17-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-18.jpg",
+                "dates": [
+                    "2025-08-17T01:37:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Tate McRae: Miss Possessive Tour",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Tate McRae: Miss Possessive Tour",
+                "website": "https://nowplayingtoronto.com/event/tate-mcrae-miss-possessive-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/11/5b6cd42e-0897-4e9e-95ff-3aeca18148dc_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-19T07:00:00",
+                    "2025-08-20T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "JONAS BROTHERS - JONAS20:  LIVING THE DREAM TOUR",
+                "host": "Live Nation",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "JONAS BROTHERS - JONAS20: LIVING THE DREAM TOUR",
+                "website": "https://nowplayingtoronto.com/event/jonas-brothers-jonas20-living-the-dream-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/03/28d5e64a-5f43-4286-8640-18f7a9392bcd_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-21T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "My Chemical Romance: The Black Parade",
+                "host": "Live Nation",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "My Chemical Romance: The Black Parade",
+                "website": "https://nowplayingtoronto.com/event/my-chemical-romance-the-black-parade/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/11/1aea6f3e-eb49-44e9-9c3c-10286221091f_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-22T06:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Nine Inch Nails - Peel It Back Tour 2025",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Nine Inch Nails - Peel It Back Tour 2025",
+                "website": "https://nowplayingtoronto.com/event/nine-inch-nails-peel-it-back-tour-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/01/fc59ad2d-314b-4cd2-b840-cfc8370248ec_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-23T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Zakir Khan Live",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Zakir Khan",
+                "website": "https://nowplayingtoronto.com/event/zakir-khan-live/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/01/472984fc-c14d-46a4-928c-17dc7d1a132c_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-24T07:00:00",
+                    "2025-08-24T02:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Minnesota Twins Aug 25, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Minnesota Twins",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-minnesota-twins-aug-25-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-76.jpg",
+                "dates": [
+                    "2025-08-25T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Minnesota Twins Aug 26, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Minnesota Twins",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-minnesota-twins-aug-26-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-47.jpg",
+                "dates": [
+                    "2025-08-26T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Minnesota Twins Aug 27, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Minnesota Twins",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-minnesota-twins-aug-27-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-55.jpg",
+                "dates": [
+                    "2025-08-27T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Milwaukee Brewers Aug 29, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Milwaukee Brewers",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-milwaukee-brewers-aug-29-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-73.jpg",
+                "dates": [
+                    "2025-08-29T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Benson Boone: American Heart World Tour",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Benson Boone: American Heart World Tour",
+                "website": "https://nowplayingtoronto.com/event/benson-boone-american-heart-world-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/7962cdde-90c4-4b4d-a991-1c8b682573aa_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-29T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Milwaukee Brewers Aug 30, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Milwaukee Brewers",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-milwaukee-brewers-aug-30-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-50.jpg",
+                "dates": [
+                    "2025-08-30T03:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "2025 BABYMONSTER 1ST WORLD TOUR [HELLO MONSTERS]",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "2025 BABYMONSTER 1ST WORLD TOUR [HELLO MONSTERS]",
+                "website": "https://nowplayingtoronto.com/event/2025-babymonster-1st-world-tour-hello-monsters/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/03/8a8770df-2f1a-46c9-a3d1-49562788571d_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-08-30T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Milwaukee Brewers Aug 31, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Milwaukee Brewers",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-milwaukee-brewers-aug-31-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-53.jpg",
+                "dates": [
+                    "2025-08-31T01:37:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Dua Lipa - Radical Optimism Tour",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Dua Lipa - Radical Optimism Tour",
+                "website": "https://nowplayingtoronto.com/event/dua-lipa-radical-optimism-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/09/a5f1ccdd-c52e-4b8f-81c3-cba81a5b5453_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-09-01T07:30:00",
+                    "2025-09-02T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Morgan Wallen: I'm The Problem Tour",
+                "host": "Live Nation",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Morgan Wallen: I'm The Problem Tour",
+                "website": "https://nowplayingtoronto.com/event/morgan-wallen-im-the-problem-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/01/b889729a-9af0-4a79-8c38-1b1ac86a868c_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-09-04T07:00:00",
+                    "2025-09-05T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Rage",
+                "host": "Abbozzo Gallery",
+                "venue": "401 Richmond, Toronto",
+                "address": "401 Richmond Street West, Toronto, ON M5V 1X6, Canada",
+                "description": "R[age], a gallery show that explores the tension between aging, identity, and a society obsessed with youth and technology. Inspired by Dylan Thomas’ poem Do not go gentle into that good night, this exhibition challenges the notion that growing...",
+                "website": "https://nowplayingtoronto.com/event/rage/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/03/event-featured-rage-1742560473.jpeg",
+                "dates": [
+                    "2025-09-05T11:00:00",
+                    "2025-09-06T11:00:00",
+                    "2025-09-09T11:00:00",
+                    "2025-09-10T11:00:00",
+                    "2025-09-11T11:00:00",
+                    "2025-09-12T11:00:00",
+                    "2025-09-13T11:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.3948262767638,
+                    43.64781935
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Shubh - The Supreme Tour",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Shubh - The Supreme Tour",
+                "website": "https://nowplayingtoronto.com/event/shubh-the-supreme-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/a333e9a1-85fb-41ac-9e31-b8e21b68ab14_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-09-05T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Haim - I quit tour 2025",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Haim - I quit tour 2025",
+                "website": "https://nowplayingtoronto.com/event/haim-i-quit-tour-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/99723269-0b8f-4544-85f5-5240bfcc52d2_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-09-06T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Houston Astros Sep 9, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Houston Astros",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-houston-astros-sep-9-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-17.jpg",
+                "dates": [
+                    "2025-09-09T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Houston Astros Sep 10, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Houston Astros",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-houston-astros-sep-10-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-35.jpg",
+                "dates": [
+                    "2025-09-10T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Lady Gaga: The MAYHEM Ball",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Lady Gaga: The MAYHEM Ball",
+                "website": "https://nowplayingtoronto.com/event/lady-gaga-the-mayhem-ball/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/03/bfebdc5b-8708-4687-a8a3-30cfcdc09a10_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-09-10T08:00:00",
+                    "2025-09-11T08:00:00",
+                    "2025-09-13T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Houston Astros Sep 11, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Houston Astros",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-houston-astros-sep-11-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-29.jpg",
+                "dates": [
+                    "2025-09-11T03:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Baltimore Orioles Sep 12, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Baltimore Orioles",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-baltimore-orioles-sep-12-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-19.jpg",
+                "dates": [
+                    "2025-09-12T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Baltimore Orioles Sep 13, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Baltimore Orioles",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-baltimore-orioles-sep-13-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-66.jpg",
+                "dates": [
+                    "2025-09-13T03:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Baltimore Orioles Sep 14, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Baltimore Orioles",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-baltimore-orioles-sep-14-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-31.jpg",
+                "dates": [
+                    "2025-09-14T01:37:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Kali Uchis - The Sincerely, Tour",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Kali Uchis - The Sincerely, Tour",
+                "website": "https://nowplayingtoronto.com/event/kali-uchis-the-sincerely-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/3bfe9606-bf32-4f64-9633-0002cf20a1da_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-09-17T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Gabriel Iglesias: The 1976 Tour",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Gabriel Iglesias",
+                "website": "https://nowplayingtoronto.com/event/gabriel-iglesias-the-1976-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/06/0254a274-223d-4e5d-a956-6ec499a2cd23_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-09-19T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "AEW Presents All Out",
+                "host": "AEW",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "AEW Present All Out\nAll Elite Wrestling in Action\nFounded by CEO, GM and Head of Creative Tony Khan in 2019, All Elite Wrestling is a red-hot professional wrestling promotion that presents more than 100 live events a year around the world and...",
+                "website": "https://nowplayingtoronto.com/event/aew-presents-all-out/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/d671e13e-4684-40dd-8827-3dba976db972_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-09-20T06:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "SPIRIT BOX: The Psychic Experience",
+                "host": "Raising Energy",
+                "venue": "Factory Theatre, Toronto",
+                "address": "Factory Theatre, 125 Bathurst Street, Toronto, ON M5V 2R2, Canada",
+                "description": "Tradition meets technology… and the choice is yours.\nWhat if you could touch the other side?\n​What if you could hear your loved ones one more time?\nWhat if there was no wall between the worlds.\nWhat if...for just one moment...\nthe other...",
+                "website": "https://nowplayingtoronto.com/event/spirit-box-the-psychic-experience/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/event-featured-spirit-box-the-psychic-experience-1748636176-863x1080.png",
+                "dates": [
+                    "2025-09-20T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.4028205,
+                    43.6455029
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "The World of Hans Zimmer - A New Dimension",
+                "host": "Semmel Concerts",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "The World Of Hans Zimmer",
+                "website": "https://nowplayingtoronto.com/event/the-world-of-hans-zimmer-a-new-dimension/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/dc4d9e0e-4ee8-454b-8c1e-250150bba4cd_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-09-21T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Boston Red Sox Sep 23, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Boston Red Sox",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-boston-red-sox-sep-23-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-24.jpg",
+                "dates": [
+                    "2025-09-23T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Lorde: Ultrasound",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Lorde: Ultrasound",
+                "website": "https://nowplayingtoronto.com/event/lorde-ultrasound/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/04ff2283-c1bf-417a-b845-b3685ab578cf_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-09-24T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Boston Red Sox Sep 24, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Boston Red Sox",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-boston-red-sox-sep-24-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-9.jpg",
+                "dates": [
+                    "2025-09-24T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Boston Red Sox Sep 25, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Boston Red Sox",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-boston-red-sox-sep-25-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-3.jpg",
+                "dates": [
+                    "2025-09-25T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Tampa Bay Rays Sep 26, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Tampa Bay Rays",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-tampa-bay-rays-sep-26-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-30.jpg",
+                "dates": [
+                    "2025-09-26T07:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Tampa Bay Rays Sep 27, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Tampa Bay Rays",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-tampa-bay-rays-sep-27-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-6.jpg",
+                "dates": [
+                    "2025-09-27T03:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "ROMÉO ET JULIETTE",
+                "host": "Canadian Opera Company",
+                "venue": "Four Seasons Centre for the Performing Arts, Toronto",
+                "address": "Four Seasons Centre for the Performing Arts, 145 Queen Street West, Toronto, ON M5H 2N6, Canada",
+                "description": "The COC is excited to open its 2025/2026 season with Gounod’s Roméo et Juliette, appearing on the COC stage for the first time in 30 years. Based on Shakespeare’s classic romantic tragedy, director Amy Lane’s (Faust, Don Giovanni) bold and...",
+                "website": "https://nowplayingtoronto.com/event/romeo-et-juliette/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/event-featured-romeo-et-juliette-1745602308-1792x1080.jpeg",
+                "dates": [
+                    "2025-09-27T07:30:00",
+                    "2025-10-05T02:00:00",
+                    "2025-10-08T07:30:00",
+                    "2025-10-10T07:30:00",
+                    "2025-10-14T07:30:00",
+                    "2025-10-16T07:30:00",
+                    "2025-10-18T04:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38552704789961,
+                    43.65059825
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Toronto Blue Jays vs. Tampa Bay Rays Sep 28, 2025",
+                "host": "Major League Baseball",
+                "venue": "Rogers Centre, Toronto",
+                "address": "Rogers Centre, 1 Blue Jays Way, Toronto, ON M5V 1J1, Canada",
+                "description": "Toronto Blue Jays vs. Tampa Bay Rays",
+                "website": "https://nowplayingtoronto.com/event/toronto-blue-jays-vs-tampa-bay-rays-sep-28-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2024/12/fa06b34f-1ba4-40e4-bedb-0f0970ea1b7f_1343191_RETINA_LANDSCAPE_16_9-51.jpg",
+                "dates": [
+                    "2025-09-28T03:07:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38919761915824,
+                    43.641659849999996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Bryan Adams: Roll with the Punches w/ guest The Sheepdogs",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Bryan Adams: Roll with the Punches w/ guest The Sheepdogs",
+                "website": "https://nowplayingtoronto.com/event/bryan-adams-roll-with-the-punches-w-guest-the-sheepdogs/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/eec4659a-b582-47b3-b4d6-a9dfa6324414_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-10-03T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "MANÁ: VIVIR SIN AIRE TOUR",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "MANÁ: VIVIR SIN AIRE TOUR",
+                "website": "https://nowplayingtoronto.com/event/mana-vivir-sin-aire-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/03/c0c89575-7a66-4c1c-aab7-8fa9b723c552_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-10-04T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "ORFEO ED EURIDICE",
+                "host": "Canadian Opera Company",
+                "venue": "Four Seasons Centre for the Performing Arts, Toronto",
+                "address": "Four Seasons Centre for the Performing Arts, 145 Queen Street West, Toronto, ON M5H 2N6, Canada",
+                "description": "The COC’s fall season continues with the return of Robert Carsen’s boldly minimalist production of Gluck’s Orfeo ed Euridice. In this operatic treatment of the haunting Greek myth, the divinely gifted Orpheus begs the gods for the return of...",
+                "website": "https://nowplayingtoronto.com/event/orfeo-ed-euridice/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/event-featured-orfeo-ed-euridice-1745603233-1623x1080.jpeg",
+                "dates": [
+                    "2025-10-09T07:30:00",
+                    "2025-10-11T07:30:00",
+                    "2025-10-15T07:30:00",
+                    "2025-10-17T07:30:00",
+                    "2025-10-19T02:00:00",
+                    "2025-10-21T07:30:00",
+                    "2025-10-25T04:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38552704789961,
+                    43.65059825
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Ice Cube: Truth to Power - Four Decades of Attitude",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Ice Cube: Truth to Power - Four Decades of Attitude",
+                "website": "https://nowplayingtoronto.com/event/ice-cube-truth-to-power-four-decades-of-attitude/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/2ed1364a-8491-4e4e-a842-365683c73326_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-10-09T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "High Fade",
+                "host": "MRG Live",
+                "venue": "Adelaide Hall, Toronto",
+                "address": "Richmond-Adelaide Centre, Toronto, ON M5H, Canada",
+                "description": "On a three-man crusade to set dance floors alight with their inimitable brand of razor-sharp funk and disco, Edinburgh’s High Fade has captured the attention of a rapidly growing global audience that includes members of Rage Against The...",
+                "website": "https://nowplayingtoronto.com/event/high-fade/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/event-featured-high-fade-1747150732.jpeg",
+                "dates": [
+                    "2025-10-19T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.383545,
+                    43.649921
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "Laufey: A Matter Of Time (North America)",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "Laufey: A Matter Of Time (North America)",
+                "website": "https://nowplayingtoronto.com/event/laufey-a-matter-of-time-north-america/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/dcb5ffb5-d421-4b2a-8c62-f98af27a55de_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-10-19T07:30:00",
+                    "2025-10-20T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "The Beaches - No Hard Feelings Tour",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "The Beaches - No Hard Feelings Tour",
+                "website": "https://nowplayingtoronto.com/event/the-beaches-no-hard-feelings-tour/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/05/c0644fae-b377-4bc1-ab48-6d418a69424c_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-11-06T08:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "SABRINA CARPENTER: SHORT N' SWEET TOUR Nov 10 & 11, 2025",
+                "host": "Live Nation",
+                "venue": "Scotiabank Arena, Toronto",
+                "address": "Scotiabank Arena, 40 Bay Street, Toronto, ON M5J 3B2, Canada",
+                "description": "SABRINA CARPENTER: SHORT N' SWEET TOUR",
+                "website": "https://nowplayingtoronto.com/event/sabrina-carpenter-short-n-sweet-tour-nov-10-11-2025/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/02/0077a6e2-a82d-4d67-bd68-c47aa3212e89_RETINA_LANDSCAPE_16_9.jpg",
+                "dates": [
+                    "2025-11-10T07:00:00",
+                    "2025-11-11T07:00:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.37907772483726,
+                    43.64343375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "RIGOLETTO",
+                "host": "Canadian Opera Company",
+                "venue": "Four Seasons Centre for the Performing Arts, Toronto",
+                "address": "Four Seasons Centre for the Performing Arts, 145 Queen Street West, Toronto, ON M5H 2N6, Canada",
+                "description": "The COC starts off the New Year with Verdi’s monumental hit, Rigoletto, in a production helmed by Christopher Alden. In this beloved opera examining power dynamics and relationships, the court jester Rigoletto is desperate to hide his daughter...",
+                "website": "https://nowplayingtoronto.com/event/rigoletto/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/event-featured-rigoletto-1745604466-1920x1065.jpeg",
+                "dates": [
+                    "2026-01-24T07:30:00",
+                    "2026-01-28T07:30:00",
+                    "2026-02-06T07:30:00",
+                    "2026-02-08T02:00:00",
+                    "2026-02-10T07:30:00",
+                    "2026-02-12T07:30:00",
+                    "2026-02-14T04:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38552704789961,
+                    43.65059825
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "THE BARBER OF SEVILLE",
+                "host": "Canadian Opera Company",
+                "venue": "Four Seasons Centre for the Performing Arts, Toronto",
+                "address": "Four Seasons Centre for the Performing Arts, 145 Queen Street West, Toronto, ON M5H 2N6, Canada",
+                "description": "Chase away the winter blues with a trip to Spain when Rossini’s playful, irreverent comic opera The Barber of Seville returns to the COC. The story follows Count Almaviva, who is hopelessly in love with Rosina, whose overprotective guardian...",
+                "website": "https://nowplayingtoronto.com/event/the-barber-of-seville/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/event-featured-the-barber-of-seville-1745605033-1685x1080.jpeg",
+                "dates": [
+                    "2026-02-05T07:30:00",
+                    "2026-02-07T07:30:00",
+                    "2026-02-11T07:30:00",
+                    "2026-02-13T07:30:00",
+                    "2026-02-15T02:00:00",
+                    "2026-02-17T07:30:00",
+                    "2026-02-19T07:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38552704789961,
+                    43.65059825
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "BLUEBEARD’S CASTLE/ERWARTUNG",
+                "host": "Canadian Opera Company",
+                "venue": "Four Seasons Centre for the Performing Arts, Toronto",
+                "address": "Four Seasons Centre for the Performing Arts, 145 Queen Street West, Toronto, ON M5H 2N6, Canada",
+                "description": "Spring at the COC kicks off with the return of Bluebeard’s Castle/Erwartung, a bold double-bill of one-act psychological thrillers from renowned director Robert Lepage. In Bartók’s Symbolist fairytale Bluebeard’s Castle, the title...",
+                "website": "https://nowplayingtoronto.com/event/bluebeards-castle-erwartung/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/event-featured-bluebeards-castle-erwartung-1745605586-1622x1080.jpeg",
+                "dates": [
+                    "2026-04-25T07:30:00",
+                    "2026-04-29T07:30:00",
+                    "2026-05-08T07:30:00",
+                    "2026-05-10T02:00:00",
+                    "2026-05-12T07:30:00",
+                    "2026-05-14T07:30:00",
+                    "2026-05-16T04:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38552704789961,
+                    43.65059825
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "event": "WERTHER",
+                "host": "Canadian Opera Company",
+                "venue": "Four Seasons Centre for the Performing Arts, Toronto",
+                "address": "Four Seasons Centre for the Performing Arts, 145 Queen Street West, Toronto, ON M5H 2N6, Canada",
+                "description": "The Canadian Opera Company’s 2025/2026 season closes with Massenet’s Werther, the company’s first staging of the opera in an all-new co-production with Opéra de Montréal and Vancouver Opera. Based on Goethe’s classic tragedy, this rare...",
+                "website": "https://nowplayingtoronto.com/event/werther/",
+                "img": "https://nowplayingtoronto.com/wp-content/uploads/sites/nowplayingtoronto.com/images/2025/04/event-featured-werther-1745606224.jpeg",
+                "dates": [
+                    "2026-05-07T07:30:00",
+                    "2026-05-09T07:30:00",
+                    "2026-05-13T07:30:00",
+                    "2026-05-15T07:30:00",
+                    "2026-05-17T02:00:00",
+                    "2026-05-19T07:30:00",
+                    "2026-05-23T04:30:00"
+                ]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.38552704789961,
+                    43.65059825
+                ]
+            }
+        }
+    ]
+}
