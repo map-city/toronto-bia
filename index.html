@@ -31,7 +31,7 @@
 			style: 'greymode.json',
 			center: [-79.39253, 43.64397],
 			pixelRatio: 1,
-			zoom: 15,
+			zoom: 16.5,
 			minZoom: minZoom,
 			maxZoom: maxZoom,
 			bearing: -16,
@@ -293,37 +293,38 @@
 		});
 
 		const mapDiv = document.getElementById('map');
-const toggleButton = document.getElementById('map-toggle');
-const icon = toggleButton.querySelector('i');
+		const toggleButton = document.getElementById('map-toggle');
+		const icon = toggleButton.querySelector('i');
 
-let isInset = false; // map starts full screen
+		let isInset = false; // map starts full screen
 
-// Set initial icon to "collapse" since map is full screen initially
-icon.className = 'fas fa-down-left-and-up-right-to-center';
+		// Set initial icon to "collapse" since map is full screen initially
+		icon.className = 'fas fa-down-left-and-up-right-to-center';
 
-toggleButton.addEventListener('click', () => {
-  const center = map.getCenter();
-  const zoom = map.getZoom();
+		toggleButton.addEventListener('click', () => {
+			const center = map.getCenter();
+			const zoom = map.getZoom();
 
-  isInset = !isInset;
-  mapDiv.classList.toggle('inset', isInset);
+			isInset = !isInset;
+			mapDiv.classList.toggle('inset', isInset);
 
-  // Swap icon to show the action on click:
-  // inset: show expand icon (to go full screen)
-  // full screen: show collapse icon (to go inset)
-  icon.className = isInset
-    ? 'fas fa-up-right-and-down-left-from-center'
-    : 'fas fa-down-left-and-up-right-to-center';
+			// Swap icon to show the action on click:
+			// inset: show expand icon (to go full screen)
+			// full screen: show collapse icon (to go inset)
+			icon.className = isInset
+				? 'fas fa-up-right-and-down-left-from-center'
+				: 'fas fa-down-left-and-up-right-to-center';
 
-  setTimeout(() => {
-    map.resize();
-    map.easeTo({
-      center,
-      zoom: isInset ? zoom + 1.5 : zoom - 1.5,
-      duration: 300
-    });
-  }, 410); // match CSS transition duration
-});
+			// setTimeout(() => {
+			// 	map.resize();
+			// 	map.easeTo({
+			// 		center,
+			// 		//zoom: isInset ? 17 : zoom,
+			// 		duration: 100
+			// 	});
+			// }, 410); // match CSS transition duration
+
+		});
 
 		// Define your color map
 		const colorsSpectral = {
