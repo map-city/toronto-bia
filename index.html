@@ -12,7 +12,10 @@
 </head>
 
 <body>
-	<div id="map"></div>
+	<div id="map-container">
+		<div id="map"></div>
+		<div id="map-toggle"><i class="fas fa-up-right-and-down-left-from-center"></i></div>
+	</div>
 
 	<script>
 
@@ -25,7 +28,7 @@
 
 		var map = new maplibregl.Map({
 			container: 'map',
-			style: 'style.json',
+			style: 'greymode.json',
 			center: [-79.39253, 43.64397],
 			pixelRatio: 1,
 			zoom: 15,
@@ -71,39 +74,41 @@
 			});
 
 			// Add bia outline
-			map.addLayer({
-				'id': 'toronto-bia',
-				'source': 'toronto_bia',
-				"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
-				'type': 'line',
-				'paint': {
-					'line-color': 'hsl(0, 0%, 40%)',
-					'line-width': 5,
-					'line-opacity': ['interpolate', ['linear'], ['zoom'], minZoom, 0.3, maxZoom - 1, 0.3, maxZoom, 0],
-				}
-			});
+			// map.addLayer({
+			// 	'id': 'toronto-bia',
+			// 	'source': 'toronto_bia',
+			// 	"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
+			// 	'type': 'line',
+			// 	'paint': {
+			// 		'line-color': 'hsl(0, 0%, 40%)',
+			// 		'line-width': 5,
+			// 		'line-opacity': ['interpolate', ['linear'], ['zoom'], minZoom, 0.3, maxZoom - 1, 0.3, maxZoom, 0],
+			// 	}
+			// });
 
 			// Add building outlines
 			map.addLayer({
 				'id': 'buildings-outline',
 				'source': 'toronto_buildings',
 				'source-layer': 'toronto_buildings',
-				'type': 'fill',
+				'type': 'line',
 				'paint': {
-					'fill-color': 'hsl(0, 0%, 85%)',
-					'fill-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, maxZoom, 1]
+					'line-color': 'hsl(280, 10%, 40%)',
+					'line-width': 2,
+					'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
 				},
 				'minzoom': 16
 			}, 'highway-name-minor');
 
-			// Add 3d buildings
+			// Add 3d buildings (purple)
 			map.addLayer({
 				'id': 'buildings',
 				'source': 'toronto_buildings',
 				'source-layer': 'toronto_buildings',
 				'type': 'fill-extrusion',
 				'paint': {
-					'fill-extrusion-color': 'hsl(0, 0%, 100%)',
+					//'fill-extrusion-color': 'hsl(280, 10%, 40%)', // purple
+					'fill-extrusion-color': 'hsl(0, 0%, 100%)', // white
 					'fill-extrusion-height': [
 						'case',
 						['!=', ['get', 'max_height'], null], ['get', 'max_height'],
@@ -111,84 +116,10 @@
 						10
 					],
 					'fill-extrusion-base': 0,
-					'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.3, 17, 0.3, maxZoom, 0]
+					'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.7, 17, 0.7, 18, 0]
 				},
 				'minzoom': 15
 			}, 'highway-name-minor');
-
-			// Add point halo
-			// map.addLayer({
-			// 	id: 'points-halo',
-			// 	type: 'circle',
-			// 	source: 'places',
-			// 	filter: ['!', ['has', 'point_count']],
-			// 	paint: {
-			// 		'circle-radius': 20,
-			// 		'circle-color': 'hsl(51, 100%, 50%)',
-			// 		'circle-opacity': 0.1,
-			// 		'circle-stroke-width': 0,
-			// 		'circle-stroke-color': 'hsl(0, 0%, 100%)',
-			// 		'circle-pitch-alignment': 'viewport'
-			// 	}
-			// });
-
-			// Add points
-			map.addLayer({
-				id: 'points',
-				type: 'circle',
-				source: 'places',
-				filter: ['!', ['has', 'point_count']],
-				paint: {
-					'circle-radius': 12,
-					'circle-color': categoryColor,
-					'circle-opacity': 1,
-					'circle-stroke-width': 0,
-					'circle-stroke-color': 'hsla(0, 0%, 100%, 0)'
-				}
-			});
-
-			// Add point symbols
-			map.addLayer({
-				id: 'points-symbols',
-				type: 'symbol',
-				source: 'places',
-				filter: ['!', ['has', 'point_count']],
-				layout: {
-					"icon-size": 0.6,
-					"symbol-placement": "point",
-					"icon-image": ["match", ["get", "business_type"], "restaurants", "icon-restaurant", "retail", "icon-shop", "services", "icon-community", "quick-serve", "icon-doityourself", "night-clubs-entertainment-venues", "icon-nightclub", "accommodations", "icon-town_hall", "bakery", "icon-bakery", "pubs-bars", "icon-bar", "attractions", "icon-monument", "grocery", "icon-greengrocer", "bar", "icon-bar", "comedy", "icon-theatre", "unknown"],
-					"icon-anchor": "center",
-					"icon-allow-overlap": true,
-					"icon-ignore-placement": false,
-					"icon-optional": false
-				},
-				paint: {
-					"icon-opacity": 1,
-					"icon-color": 'hsl(0, 0%, 100%)',
-				}
-			});
-
-			// Add point labels
-			map.addLayer({
-				id: 'points-labels',
-				type: 'symbol',
-				source: 'places',
-				filter: ['!', ['has', 'point_count']],
-				layout: {
-					'text-field': '{name}',
-					'text-font': ['montserrat-semibold'],
-					'text-size': 11,
-					'text-line-height': 0.9,
-					'text-offset': [0, 1.6],
-					'text-anchor': 'top'
-				},
-				paint: {
-					'text-color': categoryColor,
-					'text-halo-color': 'hsla(0, 0%, 100%, 0.5)',
-					'text-halo-width': 1
-				},
-				minzoom: maxZoom - 2
-			});
 
 			// Add cluster halos
 			// map.addLayer({
@@ -218,51 +149,125 @@
 			// });
 
 			// Add clusters
-			map.addLayer({
-				id: 'clusters',
-				type: 'circle',
-				source: 'places',
-				filter: ['has', 'point_count'],
-				paint: {
-					'circle-color': [
-						'step',
-						['get', 'point_count'],
-						'hsl(0, 0%, 40%)',
-						10, 'hsl(0, 0%, 40%)',
-						25, 'hsl(0, 0%, 40%)'
-					],
-					'circle-radius': [
-						'step',
-						['get', 'point_count'],
-						10,
-						10, 12,
-						25, 16
-					],
-					'circle-opacity': 1,
-					'circle-stroke-width': 0,
-					'circle-stroke-color': 'hsl(0, 0%, 40%)',
-				}
-			});
+			// map.addLayer({
+			// 	id: 'clusters',
+			// 	type: 'circle',
+			// 	source: 'places',
+			// 	filter: ['has', 'point_count'],
+			// 	paint: {
+			// 		'circle-color': [
+			// 			'step',
+			// 			['get', 'point_count'],
+			// 			'hsl(0, 0%, 40%)',
+			// 			10, 'hsl(0, 0%, 40%)',
+			// 			25, 'hsl(0, 0%, 40%)'
+			// 		],
+			// 		'circle-radius': [
+			// 			'step',
+			// 			['get', 'point_count'],
+			// 			10,
+			// 			10, 12,
+			// 			25, 16
+			// 		],
+			// 		'circle-opacity': 1,
+			// 		'circle-stroke-width': 0,
+			// 		'circle-stroke-color': 'hsl(0, 0%, 40%)',
+			// 	}
+			// });
 
-			// Add cluster counts
-			map.addLayer({
-				id: 'cluster-count',
-				type: 'symbol',
-				source: 'places',
-				filter: ['has', 'point_count'],
-				layout: {
-					'text-field': '{point_count_abbreviated}',
-					'text-font': ['montserrat-semibold'],
-					'text-size': 14,
-					'text-anchor': 'center',
-					'text-offset': [0, 0.01],
-					'text-allow-overlap': true,
-					'text-ignore-placement': true
-				},
-				paint: {
-					'text-color': 'hsl(0, 0%, 100%)'
-				}
-			});
+			// // Add cluster counts
+			// map.addLayer({
+			// 	id: 'cluster-count',
+			// 	type: 'symbol',
+			// 	source: 'places',
+			// 	filter: ['has', 'point_count'],
+			// 	layout: {
+			// 		'text-field': '{point_count_abbreviated}',
+			// 		'text-font': ['montserrat-semibold'],
+			// 		'text-size': 14,
+			// 		'text-anchor': 'center',
+			// 		'text-offset': [0, 0.01],
+			// 		'text-allow-overlap': true,
+			// 		'text-ignore-placement': true
+			// 	},
+			// 	paint: {
+			// 		'text-color': 'hsl(0, 0%, 100%)'
+			// 	}
+			// });
+
+			// Add point halo
+			// map.addLayer({
+			// 	id: 'points-halo',
+			// 	type: 'circle',
+			// 	source: 'places',
+			// 	filter: ['!', ['has', 'point_count']],
+			// 	paint: {
+			// 		'circle-radius': 20,
+			// 		'circle-color': 'hsl(51, 100%, 50%)',
+			// 		'circle-opacity': 0.1,
+			// 		'circle-stroke-width': 0,
+			// 		'circle-stroke-color': 'hsl(0, 0%, 100%)',
+			// 		'circle-pitch-alignment': 'viewport'
+			// 	}
+			// });
+
+			// Add points
+			// map.addLayer({
+			// 	id: 'points',
+			// 	type: 'circle',
+			// 	source: 'places',
+			// 	filter: ['!', ['has', 'point_count']],
+			// 	paint: {
+			// 		'circle-radius': 12,
+			// 		'circle-color': categoryColor,
+			// 		'circle-opacity': 1,
+			// 		'circle-stroke-width': 0,
+			// 		'circle-stroke-color': 'hsla(0, 0%, 100%, 0)'
+			// 	}
+			// });
+
+			// // Add point symbols
+			// map.addLayer({
+			// 	id: 'points-symbols',
+			// 	type: 'symbol',
+			// 	source: 'places',
+			// 	filter: ['!', ['has', 'point_count']],
+			// 	layout: {
+			// 		"icon-size": 0.6,
+			// 		"symbol-placement": "point",
+			// 		"icon-image": ["match", ["get", "business_type"], "restaurants", "icon-restaurant", "retail", "icon-shop", "services", "icon-community", "quick-serve", "icon-doityourself", "night-clubs-entertainment-venues", "icon-nightclub", "accommodations", "icon-town_hall", "bakery", "icon-bakery", "pubs-bars", "icon-bar", "attractions", "icon-monument", "grocery", "icon-greengrocer", "bar", "icon-bar", "comedy", "icon-theatre", "unknown"],
+			// 		"icon-anchor": "center",
+			// 		"icon-allow-overlap": true,
+			// 		"icon-ignore-placement": false,
+			// 		"icon-optional": false
+			// 	},
+			// 	paint: {
+			// 		"icon-opacity": 1,
+			// 		"icon-color": 'hsl(0, 0%, 100%)',
+			// 	}
+			// });
+
+			// // Add point labels
+			// map.addLayer({
+			// 	id: 'points-labels',
+			// 	type: 'symbol',
+			// 	source: 'places',
+			// 	filter: ['!', ['has', 'point_count']],
+			// 	layout: {
+			// 		'text-field': '{name}',
+			// 		'text-font': ['montserrat-semibold'],
+			// 		'text-size': 11,
+			// 		'text-line-height': 0.9,
+			// 		'text-offset': [0, 1.6],
+			// 		'text-anchor': 'top'
+			// 	},
+			// 	paint: {
+			// 		'text-color': categoryColor,
+			// 		'text-halo-color': 'hsla(0, 0%, 100%, 0.5)',
+			// 		'text-halo-width': 1
+			// 	},
+			// 	minzoom: maxZoom - 2
+			// });
 
 			map.setLight({
 				'anchor': 'viewport',
@@ -287,36 +292,69 @@
 
 		});
 
+		const mapDiv = document.getElementById('map');
+const toggleButton = document.getElementById('map-toggle');
+const icon = toggleButton.querySelector('i');
+
+let isInset = false; // map starts full screen
+
+// Set initial icon to "collapse" since map is full screen initially
+icon.className = 'fas fa-down-left-and-up-right-to-center';
+
+toggleButton.addEventListener('click', () => {
+  const center = map.getCenter();
+  const zoom = map.getZoom();
+
+  isInset = !isInset;
+  mapDiv.classList.toggle('inset', isInset);
+
+  // Swap icon to show the action on click:
+  // inset: show expand icon (to go full screen)
+  // full screen: show collapse icon (to go inset)
+  icon.className = isInset
+    ? 'fas fa-up-right-and-down-left-from-center'
+    : 'fas fa-down-left-and-up-right-to-center';
+
+  setTimeout(() => {
+    map.resize();
+    map.easeTo({
+      center,
+      zoom: isInset ? zoom + 1.5 : zoom - 1.5,
+      duration: 300
+    });
+  }, 410); // match CSS transition duration
+});
+
 		// Define your color map
 		const colorsSpectral = {
-	accommodations: "hsl(338, 86%, 34%)", // #9e0142
-	attractions: "hsl(352, 65%, 55%)",    // #d53e4f
-	bakery: "hsl(14, 85%, 62%)",          // #f46d43
-	bars: "hsl(28, 96%, 67%)",            // #fdae61
-	comedy: "hsl(49, 97%, 75%)",          // #fee08b
-	grocery: "hsl(60, 100%, 85%)",        // #ffffbf
-	"night-clubs-entertainment-venues": "hsl(84, 68%, 77%)", // #e6f598
-	"pubs-bars": "hsl(139, 40%, 73%)",    // #abdda4
-	"quick-serve": "hsl(168, 44%, 59%)",  // #66c2a5
-	restaurants: "hsl(202, 58%, 46%)",    // #3288bd
-	retail: "hsl(250, 37%, 47%)",         // #5e4fa2
-	services: "hsl(0, 0%, 20%)"           // fallback or neutral
-};
+			accommodations: "hsl(338, 86%, 34%)", // #9e0142
+			attractions: "hsl(352, 65%, 55%)",    // #d53e4f
+			bakery: "hsl(14, 85%, 62%)",          // #f46d43
+			bars: "hsl(28, 96%, 67%)",            // #fdae61
+			comedy: "hsl(49, 97%, 75%)",          // #fee08b
+			grocery: "hsl(60, 100%, 85%)",        // #ffffbf
+			"night-clubs-entertainment-venues": "hsl(84, 68%, 77%)", // #e6f598
+			"pubs-bars": "hsl(139, 40%, 73%)",    // #abdda4
+			"quick-serve": "hsl(168, 44%, 59%)",  // #66c2a5
+			restaurants: "hsl(202, 58%, 46%)",    // #3288bd
+			retail: "hsl(250, 37%, 47%)",         // #5e4fa2
+			services: "hsl(0, 0%, 20%)"           // fallback or neutral
+		};
 
-const colorsWiki = {
-  accommodations:   "hsl(200, 60%, 45%)",  // deep sky blue
-  attractions:      "hsl(160, 60%, 55%)",  // teal-green
-  bakery:          "hsl(120, 60%, 65%)",  // light green
-  bars:            "hsl(80, 60%, 65%)",   // yellow-green
-  comedy:          "hsl(40, 60%, 65%)",   // warm amber
-  grocery:         "hsl(20, 60%, 55%)",   // orange
-  "night-clubs-entertainment-venues": "hsl(0, 60%, 55%)",   // pure red
-  "pubs-bars":     "hsl(320, 60%, 55%)",  // magenta
-  "quick-serve":   "hsl(280, 60%, 55%)",  // purple
-  restaurants:     "hsl(240, 60%, 55%)",  // blue
-  retail:         "hsl(200, 60%, 55%)",   // cyan
-  services:       "hsl(160, 60%, 45%)"    // cool teal
-};
+		const colorsWiki = {
+			accommodations: "hsl(200, 60%, 45%)",  // deep sky blue
+			attractions: "hsl(160, 60%, 55%)",  // teal-green
+			bakery: "hsl(120, 60%, 65%)",  // light green
+			bars: "hsl(80, 60%, 65%)",   // yellow-green
+			comedy: "hsl(40, 60%, 65%)",   // warm amber
+			grocery: "hsl(20, 60%, 55%)",   // orange
+			"night-clubs-entertainment-venues": "hsl(0, 60%, 55%)",   // pure red
+			"pubs-bars": "hsl(320, 60%, 55%)",  // magenta
+			"quick-serve": "hsl(280, 60%, 55%)",  // purple
+			restaurants: "hsl(240, 60%, 55%)",  // blue
+			retail: "hsl(200, 60%, 55%)",   // cyan
+			services: "hsl(160, 60%, 45%)"    // cool teal
+		};
 
 		// Generate the expression
 		const categoryColor = ["case"];
