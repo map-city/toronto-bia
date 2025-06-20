@@ -315,14 +315,14 @@
 				? 'fas fa-up-right-and-down-left-from-center'
 				: 'fas fa-down-left-and-up-right-to-center';
 
-			// setTimeout(() => {
-			// 	map.resize();
-			// 	map.easeTo({
-			// 		center,
-			// 		//zoom: isInset ? 17 : zoom,
-			// 		duration: 100
-			// 	});
-			// }, 410); // match CSS transition duration
+			setTimeout(() => {
+				map.resize();
+				map.easeTo({
+					center,
+					//zoom: isInset ? 17 : zoom,
+					duration: 100
+				});
+			}, 100); // match CSS transition duration
 
 		});
 
