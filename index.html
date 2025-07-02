@@ -48,6 +48,12 @@
 			// Set locationData
 			locationData = pointsData.features;
 
+			// Add grid toronto
+			map.addSource('toronto_grid_lines', {
+				type: 'vector',
+				tiles: ['https://mapcity.io/toronto-bia/data/toronto_grid_lines/{z}/{x}/{y}.pbf']
+			});
+
 			// Add buildings source
 			map.addSource('toronto_buildings', {
 				type: 'vector',
@@ -87,39 +93,39 @@
 			// });
 
 			// Add building outlines
-			map.addLayer({
-				'id': 'buildings-outline',
-				'source': 'toronto_buildings',
-				'source-layer': 'toronto_buildings',
-				'type': 'line',
-				'paint': {
-					'line-color': 'hsl(280, 10%, 40%)',
-					'line-width': 2,
-					'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
-				},
-				'minzoom': 16
-			}, 'highway-name-minor');
+			// map.addLayer({
+			// 	'id': 'buildings-outline',
+			// 	'source': 'toronto_buildings',
+			// 	'source-layer': 'toronto_buildings',
+			// 	'type': 'line',
+			// 	'paint': {
+			// 		'line-color': 'hsl(280, 10%, 40%)',
+			// 		'line-width': 2,
+			// 		'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
+			// 	},
+			// 	'minzoom': 16
+			// }, 'highway-name-minor');
 
-			// Add 3d buildings (purple)
-			map.addLayer({
-				'id': 'buildings',
-				'source': 'toronto_buildings',
-				'source-layer': 'toronto_buildings',
-				'type': 'fill-extrusion',
-				'paint': {
-					//'fill-extrusion-color': 'hsl(280, 10%, 40%)', // purple
-					'fill-extrusion-color': 'hsl(0, 0%, 100%)', // white
-					'fill-extrusion-height': [
-						'case',
-						['!=', ['get', 'max_height'], null], ['get', 'max_height'],
-						['!=', ['get', 'avg_height'], null], ['get', 'avg_height'],
-						10
-					],
-					'fill-extrusion-base': 0,
-					'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.7, 17, 0.7, 18, 0]
-				},
-				'minzoom': 15
-			}, 'highway-name-minor');
+			// // Add 3d buildings (purple)
+			// map.addLayer({
+			// 	'id': 'buildings',
+			// 	'source': 'toronto_buildings',
+			// 	'source-layer': 'toronto_buildings',
+			// 	'type': 'fill-extrusion',
+			// 	'paint': {
+			// 		//'fill-extrusion-color': 'hsl(280, 10%, 40%)', // purple
+			// 		'fill-extrusion-color': 'hsl(0, 0%, 100%)', // white
+			// 		'fill-extrusion-height': [
+			// 			'case',
+			// 			['!=', ['get', 'max_height'], null], ['get', 'max_height'],
+			// 			['!=', ['get', 'avg_height'], null], ['get', 'avg_height'],
+			// 			10
+			// 		],
+			// 		'fill-extrusion-base': 0,
+			// 		'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.7, 17, 0.7, 18, 0]
+			// 	},
+			// 	'minzoom': 15
+			// }, 'highway-name-minor');
 
 			// Add cluster halos
 			// map.addLayer({

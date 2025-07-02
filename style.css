@@ -41,8 +41,8 @@ body {
 
 /* Inset mode */
 #map.inset {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     top: 10px;
     right: 10px;
     border-radius: 50%;
