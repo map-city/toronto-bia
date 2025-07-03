@@ -13,7 +13,7 @@
 		},
 		"toronto_grid_polygons": {
 			"type": "vector",
-			"tiles": ["https://mapcity.io/toronto-bia/data/toronto_grid_polygons/{z}/{x}/{y}.pbf"]
+			"tiles": ["https://mapcity.io/toronto-bia/data/toronto_grid_landuse/{z}/{x}/{y}.pbf"]
 		}
 	},
 	"layers": [
@@ -21,17 +21,16 @@
 			"id": "background",
 			"type": "background",
 			"paint": {
-				"background-color": "hsl(25, 20%, 95%)"
+				"background-color": "hsl(25, 20%, 85%)"
 			}
 		},
 		{
-			"source": "toronto_grid_polygons",
-			"source-layer": "toronto_grid_polygons",
-			"id": "landuse-natural",
+			"source": "toronto_grid_landuse",
+			"source-layer": "toronto_grid_landuse",
+			"id": "landuse",
 			"type": "fill",
-			"filter": [ "!=", "natural", "NULL" ],
 			"paint": {
-				"fill-color": "hsl(110, 60%, 90%)",
+				"fill-color": "hsl(110, 60%, 80%)",
 				"fill-opacity": 1
 			}
 		},
@@ -42,7 +41,7 @@
 			"type": "line",
 			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
 			"paint": {
-				"line-color": "hsl(214, 33%, 45%)",
+				"line-color": "hsl(214, 33%, 35%)",
 				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 15, 20, 166 ],
 				"line-opacity": { "stops": [ [ 5, 0 ], [ 6, 1 ] ] }
 			},
@@ -58,7 +57,7 @@
 			"type": "line",
 			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
 			"paint": {
-				"line-color": "hsl(214, 33%, 95%)",
+				"line-color": "hsl(214, 33%, 85%)",
 				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 10, 20, 130 ],
 				"line-opacity": { "stops": [ [ 5, 0 ], [ 6, 1 ] ] }
 			},
