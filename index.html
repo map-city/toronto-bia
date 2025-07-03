@@ -21,14 +21,14 @@
 
 		const locationFile = 'data/directory/downtownwest.geojson';
 		const featureIds = ['concat', ['get', 'name'], '|'];
-		const minZoom = 14
+		const minZoom = 15;
 		const maxZoom = 18;
 		let locationData;
 		let currentPopup = null;
 
 		var map = new maplibregl.Map({
 			container: 'map',
-			style: 'greymode.json',
+			style: 'mappedin-v2.json',
 			center: [-79.39253, 43.64397],
 			pixelRatio: 1,
 			zoom: 16.5,
@@ -47,12 +47,6 @@
 
 			// Set locationData
 			locationData = pointsData.features;
-
-			// Add grid toronto
-			map.addSource('toronto_grid_lines', {
-				type: 'vector',
-				tiles: ['https://mapcity.io/toronto-bia/data/toronto_grid_lines/{z}/{x}/{y}.pbf']
-			});
 
 			// Add buildings source
 			map.addSource('toronto_buildings', {
