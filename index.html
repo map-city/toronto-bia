@@ -365,6 +365,18 @@
 		// Fallback color
 		categoryColor.push("hsl(0, 0%, 20%)");
 
+		map.on('click', (e) => {
+			const features = map.queryRenderedFeatures(e.point);
+			if (features.length > 0) {
+				features.forEach((feature, index) => {
+					console.log(`Feature ${index + 1}:`, feature);
+					console.log(`Properties:`, feature.properties); // Log only properties
+				});
+			} else {
+				console.log('No features found at this location.');
+			}
+		});
+
 	</script>
 </body>
 

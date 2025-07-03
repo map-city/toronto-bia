@@ -11,9 +11,13 @@
 			"type": "vector",
 			"tiles": ["https://mapcity.io/toronto-bia/data/toronto_grid_lines/{z}/{x}/{y}.pbf"]
 		},
-		"toronto_grid_polygons": {
+		"toronto_grid_landuse": {
 			"type": "vector",
 			"tiles": ["https://mapcity.io/toronto-bia/data/toronto_grid_landuse/{z}/{x}/{y}.pbf"]
+		},
+		"toronto_grid_polygons": {
+			"type": "vector",
+			"tiles": ["https://mapcity.io/toronto-bia/data/toronto_grid_polygons/{z}/{x}/{y}.pbf"]
 		}
 	},
 	"layers": [
@@ -25,12 +29,13 @@
 			}
 		},
 		{
-			"source": "toronto_grid_landuse",
-			"source-layer": "toronto_grid_landuse",
-			"id": "landuse",
+			"source": "toronto_grid_polygons",
+			"source-layer": "toronto_grid_polygons",
+			"id": "polygons",
 			"type": "fill",
+			"filter": [ "in", "landuse", "residential" ],
 			"paint": {
-				"fill-color": "hsl(110, 60%, 80%)",
+				"fill-color": "hsl(25, 20%, 35%)",
 				"fill-opacity": 1
 			}
 		},
