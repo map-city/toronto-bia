@@ -31,12 +31,45 @@
 		{
 			"source": "toronto_grid_polygons",
 			"source-layer": "toronto_grid_polygons",
-			"id": "polygon_lines",
+			"id": "natural",
+			"filter": [ "!=", "natural", "" ],
+			"type": "fill",
+			"paint": {
+				"fill-color": "hsl(115, 61%, 80%)",
+				"fill-opacity": 1
+			}
+		},
+		{
+			"source": "toronto_grid_polygons",
+			"source-layer": "toronto_grid_polygons",
+			"id": "landuse",
+			"filter": [ "in", "landuse", "residential" ],
+			"type": "fill",
+			"paint": {
+				"fill-color": "hsl(24, 32%, 91%)",
+				"fill-opacity": 1
+			}
+		},
+		{
+			"source": "toronto_grid_polygons",
+			"source-layer": "toronto_grid_polygons",
+			"id": "grid-lines",
 			"type": "line",
 			"paint": {
-				"line-color": "hsl(110, 40%, 70%)",
-				"line-width": 1,
+				"line-color": "hsl(0, 0%, 95%)",
+				"line-width": 5,
 				"line-opacity": 1
+			}
+		},
+		{
+			"source": "toronto_grid_polygons",
+			"source-layer": "toronto_grid_polygons",
+			"id": "natural-water",
+			"filter": [ "in", "natural", "water" ],
+			"type": "fill",
+			"paint": {
+				"fill-color": "hsl(200, 100%, 80%)",
+				"fill-opacity": 1
 			}
 		},
 		{
@@ -62,7 +95,7 @@
 			"type": "line",
 			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
 			"paint": {
-				"line-color": "hsl(214, 33%, 85%)",
+				"line-color": "hsl(210, 89%, 85%)",
 				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 15, 18, 160 ],
 				"line-opacity": 1
 			},
@@ -78,7 +111,7 @@
 			"type": "line",
 			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
 			"paint": {
-				"line-color": "hsl(214, 33%, 95%)",
+				"line-color": "hsl(210, 89%, 90%)",
 				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 10, 18, 130 ],
 				"line-opacity": 1
 			},
@@ -111,10 +144,10 @@
 				"text-ignore-placement": false
 			},
 			"paint": {
-				"icon-opacity": 1,
-				"text-opacity": 1,
 				"icon-color": "hsl(0, 0%, 50%)",
+				"icon-opacity": 1,
 				"text-color": "hsl(0, 0%, 50%)",
+				"text-opacity": 1,
 				"text-halo-color": "hsl(0, 0%, 100%)",
 				"text-halo-width": 0,
 				"text-halo-blur": 0
@@ -138,7 +171,7 @@
 				"text-size": [ "interpolate", [ "exponential", 1.5 ], [ "zoom" ], 15, 8, 18, 30 ]
 			},
 			"paint": {
-				"text-color": "hsl(0, 0%, 30%)",
+				"text-color": "hsl(0, 0%, 50%)",
 				"text-opacity": 1
 			}
 		}
