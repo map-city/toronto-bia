@@ -32,7 +32,7 @@
 			"source": "toronto_grid_polygons",
 			"source-layer": "toronto_grid_polygons",
 			"id": "natural",
-			"filter": [ "!=", "natural", "" ],
+			"filter": [ "has", "natural" ],
 			"type": "fill",
 			"paint": {
 				"fill-color": "hsl(115, 61%, 80%)",
@@ -42,11 +42,22 @@
 		{
 			"source": "toronto_grid_polygons",
 			"source-layer": "toronto_grid_polygons",
-			"id": "landuse",
-			"filter": [ "in", "landuse", "residential" ],
+			"id": "landuse-general",
+			"filter": [ "in", "landuse", "residential", "industrial", "commercial", "retail" ],
 			"type": "fill",
 			"paint": {
 				"fill-color": "hsl(24, 32%, 91%)",
+				"fill-opacity": 1
+			}
+		},
+		{
+			"source": "toronto_grid_polygons",
+			"source-layer": "toronto_grid_polygons",
+			"id": "landuse-green",
+			"filter": [ "in", "landuse", "farmland", "forest", "grass", "greenfield", "leisure", "meadow", "orchard", "recreation_ground" ],
+			"type": "fill",
+			"paint": {
+				"fill-color": "hsl(115, 61%, 80%)",
 				"fill-opacity": 1
 			}
 		},
