@@ -11,13 +11,13 @@
 			"type": "vector",
 			"tiles": ["https://mapcity.io/toronto-bia/data/toronto_grid_lines/{z}/{x}/{y}.pbf"]
 		},
-		"toronto_grid_landuse": {
-			"type": "vector",
-			"tiles": ["https://mapcity.io/toronto-bia/data/toronto_grid_landuse/{z}/{x}/{y}.pbf"]
-		},
 		"toronto_grid_polygons": {
 			"type": "vector",
 			"tiles": ["https://mapcity.io/toronto-bia/data/toronto_grid_polygons/{z}/{x}/{y}.pbf"]
+		},
+		"toronto_grid_points": {
+			"type": "vector",
+			"tiles": ["https://mapcity.io/toronto-bia/data/toronto_grid_points/{z}/{x}/{y}.pbf"]
 		}
 	},
 	"layers": [
@@ -31,12 +31,61 @@
 		{
 			"source": "toronto_grid_polygons",
 			"source-layer": "toronto_grid_polygons",
-			"id": "polygons",
+			"id": "natural",
+			"type": "fill",
+			"filter": [ "!=", "natural", "" ],
+			"paint": {
+				"fill-color": "hsl(110, 40%, 80%)",
+				"fill-opacity": 1
+			}
+		},
+		{
+			"source": "toronto_grid_polygons",
+			"source-layer": "toronto_grid_polygons",
+			"id": "landuse_residential",
 			"type": "fill",
 			"filter": [ "in", "landuse", "residential" ],
 			"paint": {
-				"fill-color": "hsl(25, 20%, 35%)",
+				"fill-color": "hsl(25, 20%, 85%)",
 				"fill-opacity": 1
+			}
+		},
+		{
+			"source": "toronto_grid_polygons",
+			"source-layer": "toronto_grid_polygons",
+			"id": "polygon_buffer",
+			"type": "line",
+			"paint": {
+				"line-color": "hsl(25, 20%, 85%)",
+				"line-width": 10,
+				"line-opacity": 1
+			}
+		},
+		{
+			"source": "toronto_grid_polygons",
+			"source-layer": "toronto_grid_polygons",
+			"id": "polygon_lines",
+			"type": "line",
+			"paint": {
+				"line-color": "hsl(110, 40%, 70%)",
+				"line-width": 2,
+				"line-opacity": 1
+			}
+		},
+		{
+			"source": "toronto_grid_lines",
+			"source-layer": "toronto_grid_lines",
+			"id": "highway-major-buffer",
+			"type": "line",
+			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
+			"paint": {
+				"line-color": "hsl(25, 20%, 85%)",
+				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 25, 18, 180 ],
+				"line-opacity": 1
+			},
+			"layout": {
+				"line-join": "round",
+				"line-cap": "round"
 			}
 		},
 		{
@@ -46,9 +95,9 @@
 			"type": "line",
 			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
 			"paint": {
-				"line-color": "hsl(214, 33%, 35%)",
-				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 15, 20, 166 ],
-				"line-opacity": { "stops": [ [ 5, 0 ], [ 6, 1 ] ] }
+				"line-color": "hsl(214, 33%, 75%)",
+				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 15, 18, 160 ],
+				"line-opacity": 1
 			},
 			"layout": {
 				"line-join": "round",
@@ -63,12 +112,67 @@
 			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
 			"paint": {
 				"line-color": "hsl(214, 33%, 85%)",
-				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 10, 20, 130 ],
-				"line-opacity": { "stops": [ [ 5, 0 ], [ 6, 1 ] ] }
+				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 10, 18, 130 ],
+				"line-opacity": 1
 			},
 			"layout": {
 				"line-join": "round",
 				"line-cap": "round"
+			}
+		},
+		{
+			"source": "toronto_grid_points",
+			"source-layer": "toronto_grid_points",
+			"id": "poi-amenity",
+			"type": "symbol",
+			"filter": [ "!=", "amenity", "" ],
+			"layout": {
+				"icon-size": 0.5,
+				"symbol-placement": "point",
+				"icon-optional": true,
+				"icon-image": [ "match", [ "get", "amenity" ], "arts_centre", "icon-art_gallery", "atm", "icon-atm", "bank", "icon-bank", "bar", "icon-bar", "bench", "icon-bench", "bicycle_rental", "icon-bicycle_share", "biergarten", "icon-beergarden", "cafe", "icon-cafe", "car_rental", "icon-car_rental", "car_sharing", "icon-car_rental", "car_wash", "icon-car_wash", "cinema", "icon-cinema", "college", "icon-college", "community_centre", "icon-community", "dentist", "icon-dentist", "doctors", "icon-doctor", "dog_park", "icon-dog_park", "drinking_water", "icon-drinking_water", "embassy", "icon-embassy", "fast_food", "icon-fast_food", "fire_station", "icon-fire_station", "fountain", "icon-fountain", "grave_yard", "icon-cemetery", "hospital", "icon-hospital", "hunting_stand", "icon-huntingstand", "library", "icon-library", "marketplace", "icon-marketplace", "nightclub", "icon-nightclub", "nursing_home", "icon-nursinghome", "pharmacy", "icon-pharmacy", "place_of_worship", "icon-place_of_worship", "playground", "icon-playground", "police", "icon-police", "post_box", "icon-postbox", "post_office", "icon-post", "prison", "icon-prison", "pub", "icon-beer", "recycling", "icon-recycling", "restaurant", "icon-restaurant", "school", "icon-school", "shelter", "icon-shelter", "telephone", "icon-telephone", "theatre", "icon-theatre", "toilets", "icon-toilet", "townhall", "icon-town_hall", "vending_machine", "icon-vendingmachine", "veterinary", "icon-veterinary", "waste_basket", "icon-waste_basket", "unknown" ],
+				"text-font": [ "montserrat-semibold" ],
+				"text-size": 10,
+				"text-field": ["get", "name"],
+				"text-max-width": 8,
+				"text-line-height": 1,
+				"icon-anchor": "bottom",
+				"text-anchor": "top",
+				"icon-allow-overlap": false,
+				"text-allow-overlap": false,
+				"icon-ignore-placement": false,
+				"text-ignore-placement": false
+			},
+			"paint": {
+				"icon-opacity": 1,
+				"text-opacity": 1,
+				"icon-color": "hsl(227, 89%, 90%)",
+				"text-color": "hsl(227, 89%, 90%)",
+				"text-halo-color": "hsl(0, 0%, 100%)",
+				"text-halo-width": 0,
+				"text-halo-blur": 0
+			}
+		},
+		{
+			"source": "toronto_grid_lines",
+			"source-layer": "toronto_grid_lines",
+			"id": "highway-name-major",
+			"type": "symbol",
+			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
+			"layout": {
+				"text-field": "{name}",
+				"text-transform": "uppercase",
+				"text-rotation-alignment": "map",
+				"text-font": [ "montserrat-semibold" ],
+				"text-letter-spacing": 0.2,
+				"symbol-placement": "line",
+				"symbol-spacing": 250,
+				"text-anchor": "center",
+				"text-size": [ "interpolate", [ "exponential", 1.5 ], [ "zoom" ], 15, 8, 18, 30 ]
+			},
+			"paint": {
+				"text-color": "hsl(0, 0%, 30%)",
+				"text-opacity": 1
 			}
 		}
 	]
