@@ -25,40 +25,7 @@
 			"id": "background",
 			"type": "background",
 			"paint": {
-				"background-color": "hsl(25, 20%, 85%)"
-			}
-		},
-		{
-			"source": "toronto_grid_polygons",
-			"source-layer": "toronto_grid_polygons",
-			"id": "natural",
-			"type": "fill",
-			"filter": [ "!=", "natural", "" ],
-			"paint": {
-				"fill-color": "hsl(110, 40%, 80%)",
-				"fill-opacity": 1
-			}
-		},
-		{
-			"source": "toronto_grid_polygons",
-			"source-layer": "toronto_grid_polygons",
-			"id": "landuse_residential",
-			"type": "fill",
-			"filter": [ "in", "landuse", "residential" ],
-			"paint": {
-				"fill-color": "hsl(25, 20%, 85%)",
-				"fill-opacity": 1
-			}
-		},
-		{
-			"source": "toronto_grid_polygons",
-			"source-layer": "toronto_grid_polygons",
-			"id": "polygon_buffer",
-			"type": "line",
-			"paint": {
-				"line-color": "hsl(25, 20%, 85%)",
-				"line-width": 10,
-				"line-opacity": 1
+				"background-color": "hsl(0, 0%, 95%)"
 			}
 		},
 		{
@@ -68,7 +35,7 @@
 			"type": "line",
 			"paint": {
 				"line-color": "hsl(110, 40%, 70%)",
-				"line-width": 2,
+				"line-width": 1,
 				"line-opacity": 1
 			}
 		},
@@ -79,7 +46,7 @@
 			"type": "line",
 			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
 			"paint": {
-				"line-color": "hsl(25, 20%, 85%)",
+				"line-color": "hsl(0, 0%, 95%)",
 				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 25, 18, 180 ],
 				"line-opacity": 1
 			},
@@ -95,7 +62,7 @@
 			"type": "line",
 			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
 			"paint": {
-				"line-color": "hsl(214, 33%, 75%)",
+				"line-color": "hsl(214, 33%, 85%)",
 				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 15, 18, 160 ],
 				"line-opacity": 1
 			},
@@ -111,7 +78,7 @@
 			"type": "line",
 			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
 			"paint": {
-				"line-color": "hsl(214, 33%, 85%)",
+				"line-color": "hsl(214, 33%, 95%)",
 				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 10, 0, 15, 10, 18, 130 ],
 				"line-opacity": 1
 			},
@@ -146,8 +113,8 @@
 			"paint": {
 				"icon-opacity": 1,
 				"text-opacity": 1,
-				"icon-color": "hsl(227, 89%, 90%)",
-				"text-color": "hsl(227, 89%, 90%)",
+				"icon-color": "hsl(0, 0%, 50%)",
+				"text-color": "hsl(0, 0%, 50%)",
 				"text-halo-color": "hsl(0, 0%, 100%)",
 				"text-halo-width": 0,
 				"text-halo-blur": 0
