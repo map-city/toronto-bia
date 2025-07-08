@@ -20,6 +20,7 @@ html,
 body {
     height: 100%;
     width: 100%;
+    background: transparent;
 }
 
 #map-container {
@@ -28,7 +29,6 @@ body {
     height: 100%;
 }
 
-/* Map: full size by default */
 #map {
     position: absolute;
     top: 0;
@@ -39,7 +39,6 @@ body {
     z-index: 1;
 }
 
-/* Inset mode */
 #map.inset {
     width: 150px;
     height: 150px;
@@ -48,7 +47,6 @@ body {
     border-radius: 50%;
 }
 
-/* Toggle button */
 #map-toggle {
     position: absolute;
     top: 20px;
@@ -60,7 +58,6 @@ body {
     cursor: pointer;
     z-index: 10;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-
     display: flex;
     align-items: center;
     justify-content: center;

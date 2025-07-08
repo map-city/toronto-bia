@@ -1,0 +1,191 @@
+{
+	"version": 8,
+	"name": "osm",
+	"metadata": {
+		"maputnik:renderer": "mbgljs",
+		"attribution": "MappedIn basemap v2"
+	},
+	"glyphs": "https://osm-studio.github.io/assets/fonts/{fontstack}/{range}.pbf",
+	"sprite": "https://osm-studio.github.io/assets/sprites/sprites",
+	"sources": {
+		"toronto_grid_lines": {
+			"type": "vector",
+			"tiles": ["https://mapcity.io/toronto-bia/data/toronto_grid_lines/{z}/{x}/{y}.pbf"]
+		},
+		"toronto_grid_polygons": {
+			"type": "vector",
+			"tiles": ["https://mapcity.io/toronto-bia/data/toronto_grid_polygons/{z}/{x}/{y}.pbf"]
+		},
+		"toronto_grid_points": {
+			"type": "vector",
+			"tiles": ["https://mapcity.io/toronto-bia/data/toronto_grid_points/{z}/{x}/{y}.pbf"]
+		}
+	},
+	"layers": [
+		{
+			"id": "background",
+			"type": "background",
+			"paint": {
+				"background-color": "hsl(0, 0%, 95%)"
+			}
+		},
+        {
+			"source": "toronto_grid_polygons",
+			"source-layer": "toronto_grid_polygons",
+			"id": "admin",
+			"filter": [ "in", "admin_level", 6 ],
+			"type": "fill",
+			"paint": {
+				"fill-color": "hsl(0, 0%, 0%)",
+				"fill-opacity": 1
+			}
+		},
+        {
+			"source": "toronto_grid_polygons",
+			"source-layer": "toronto_grid_polygons",
+			"id": "natural",
+			"filter": [ "has", "natural" ],
+			"type": "fill",
+			"paint": {
+				"fill-color": "hsl(115, 61%, 80%)",
+				"fill-opacity": 1
+			}
+		},
+		{
+			"source": "toronto_grid_polygons",
+			"source-layer": "toronto_grid_polygons",
+			"id": "landuse-general",
+			"filter": [ "in", "landuse", "residential", "industrial", "commercial", "retail" ],
+			"type": "fill",
+			"paint": {
+				"fill-color": "hsl(24, 32%, 91%)",
+				"fill-opacity": 1
+			}
+		},
+		{
+			"source": "toronto_grid_polygons",
+			"source-layer": "toronto_grid_polygons",
+			"id": "landuse-green",
+			"filter": [ "in", "landuse", "farmland", "forest", "grass", "greenfield", "leisure", "meadow", "orchard", "recreation_ground" ],
+			"type": "fill",
+			"paint": {
+				"fill-color": "hsl(115, 61%, 80%)",
+				"fill-opacity": 1
+			}
+		},
+        {
+			"source": "toronto_grid_polygons",
+			"source-layer": "toronto_grid_polygons",
+			"id": "grid-lines",
+			"type": "line",
+			"paint": {
+				"line-color": "hsl(0, 0%, 95%)",
+				"line-width": 5,
+				"line-opacity": 1
+			}
+		},
+		{
+			"source": "toronto_grid_lines",
+			"source-layer": "toronto_grid_lines",
+			"id": "streets-buffer",
+			"type": "line",
+			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
+			"paint": {
+				"line-color": "hsl(0, 0%, 95%)",
+				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 15, 25, 18, 180 ],
+				"line-opacity": 1
+			},
+			"layout": {
+				"line-join": "round",
+				"line-cap": "round"
+			}
+		},
+		{
+			"source": "toronto_grid_lines",
+			"source-layer": "toronto_grid_lines",
+			"id": "streets-outline",
+			"type": "line",
+			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
+			"paint": {
+				"line-color": "hsl(210, 89%, 85%)",
+				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 15, 15, 18, 160 ],
+				"line-opacity": 1
+			},
+			"layout": {
+				"line-join": "round",
+				"line-cap": "round"
+			}
+		},
+		{
+			"source": "toronto_grid_lines",
+			"source-layer": "toronto_grid_lines",
+			"id": "streets",
+			"type": "line",
+			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
+			"paint": {
+				"line-color": "hsl(210, 89%, 90%)",
+				"line-width": [ "interpolate", [ "exponential", 2 ], [ "zoom" ], 15, 10, 18, 130 ],
+				"line-opacity": 1
+			},
+			"layout": {
+				"line-join": "round",
+				"line-cap": "round"
+			}
+		},
+		{
+			"source": "toronto_grid_points",
+			"source-layer": "toronto_grid_points",
+			"id": "poi-amenity",
+			"type": "symbol",
+			"filter": [ "all", [ "has", "amenity" ], [ "has", "name"] ],
+			"layout": {
+				"icon-size": 0.5,
+				"symbol-placement": "point",
+				"icon-optional": false,
+				"icon-image": [ "match", [ "get", "amenity" ], "arts_centre", "icon-art_gallery", "atm", "icon-atm", "bank", "icon-bank", "bar", "icon-bar", "bench", "icon-bench", "bicycle_rental", "icon-bicycle_share", "biergarten", "icon-beergarden", "cafe", "icon-cafe", "car_rental", "icon-car_rental", "car_sharing", "icon-car_rental", "car_wash", "icon-car_wash", "cinema", "icon-cinema", "college", "icon-college", "community_centre", "icon-community", "dentist", "icon-dentist", "doctors", "icon-doctor", "dog_park", "icon-dog_park", "drinking_water", "icon-drinking_water", "embassy", "icon-embassy", "fast_food", "icon-fast_food", "fire_station", "icon-fire_station", "fountain", "icon-fountain", "grave_yard", "icon-cemetery", "hospital", "icon-hospital", "hunting_stand", "icon-huntingstand", "library", "icon-library", "marketplace", "icon-marketplace", "nightclub", "icon-nightclub", "nursing_home", "icon-nursinghome", "pharmacy", "icon-pharmacy", "place_of_worship", "icon-place_of_worship", "playground", "icon-playground", "police", "icon-police", "post_box", "icon-postbox", "post_office", "icon-post", "prison", "icon-prison", "pub", "icon-beer", "recycling", "icon-recycling", "restaurant", "icon-restaurant", "school", "icon-school", "shelter", "icon-shelter", "telephone", "icon-telephone", "theatre", "icon-theatre", "toilets", "icon-toilet", "townhall", "icon-town_hall", "vending_machine", "icon-vendingmachine", "veterinary", "icon-veterinary", "waste_basket", "icon-waste_basket", "unknown" ],
+				"text-font": [ "montserrat-semibold" ],
+				"text-size": 10,
+				"text-field": ["get", "name"],
+				"text-max-width": 8,
+				"text-line-height": 1,
+				"icon-anchor": "bottom",
+				"text-anchor": "top",
+				"icon-allow-overlap": false,
+				"text-allow-overlap": false,
+				"icon-ignore-placement": false,
+				"text-ignore-placement": false
+			},
+			"paint": {
+				"icon-color": "hsl(0, 0%, 50%)",
+				"icon-opacity": 1,
+				"text-color": "hsl(0, 0%, 50%)",
+				"text-opacity": 1,
+				"text-halo-color": "hsl(0, 0%, 100%)",
+				"text-halo-width": 0,
+				"text-halo-blur": 0
+			}
+		},
+		{
+			"source": "toronto_grid_lines",
+			"source-layer": "toronto_grid_lines",
+			"id": "highway-name-major",
+			"type": "symbol",
+			"filter": [ "in", "highway", "motorway", "trunk", "primary", "secondary", "tertiary" ],
+			"layout": {
+				"text-field": "{name}",
+				"text-transform": "uppercase",
+				"text-rotation-alignment": "map",
+				"text-font": [ "montserrat-semibold" ],
+				"text-letter-spacing": 0.2,
+				"symbol-placement": "line",
+				"symbol-spacing": 250,
+				"text-anchor": "center",
+				"text-size": [ "interpolate", [ "exponential", 1.5 ], [ "zoom" ], 15, 8, 18, 30 ]
+			},
+			"paint": {
+				"text-color": "hsl(0, 0%, 50%)",
+				"text-opacity": 1
+			}
+		}
+	]
+}
