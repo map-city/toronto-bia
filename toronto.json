@@ -1,0 +1,60 @@
+{
+	"version": 8,
+	"name": "osm",
+	"metadata": {
+		"maputnik:renderer": "mbgljs"
+	},
+	"glyphs": "https://osm-studio.github.io/assets/fonts/{fontstack}/{range}.pbf",
+	"sprite": "https://osm-studio.github.io/assets/sprites/sprites",
+	"sources": {
+		"osm": {
+			"type": "vector",
+			"url": "https://vector.openstreetmap.org/shortbread_v1/tilejson.json"
+		},
+		"toronto": {
+			"type": "vector",
+			"tiles": ["https://mapcity.io/toronto/tiles/{z}/{x}/{y}.pbf"]
+		}
+	},
+	"layers": [
+		{
+			"id": "background",
+			"type": "background",
+			"paint": {
+				"background-color": "hsl(0, 0%, 0%)"
+			}
+		},
+		{
+			"source": "toronto",
+			"id": "property-boundaries",
+			"type": "fill",
+			"source-layer": "property-boundaries",
+			"paint": {
+			  "fill-color": "hsl(0, 0%, 0%)",
+			  "fill-opacity": 1
+			},
+			"maxzoom": 18
+		},
+		{
+			"source": "toronto",
+			"id": "property-boundaries-lines",
+			"type": "line",
+			"source-layer": "property-boundaries",
+			"paint": {
+				"line-color": "hsl(200, 50%, 50%)",
+				"line-width": ["interpolate", ["linear"], ["zoom"], 13, 0.1, 14, 1]
+			}
+		},
+		{
+			"id": "roads",
+			"type": "line",
+			"source": "toronto",
+			"source-layer": "property-boundaries",
+			"filter": ["==", "$type", "LineString"],
+			"paint": {
+			  "line-color": "hsl(0, 0%, 100%)",
+			  "line-width": 2
+			}
+		}
+	]
+}

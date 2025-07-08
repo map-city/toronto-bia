@@ -21,14 +21,14 @@
 
 		const locationFile = 'data/directory/downtownwest.geojson';
 		const featureIds = ['concat', ['get', 'name'], '|'];
-		const minZoom = 15;
+		const minZoom = 10;
 		const maxZoom = 18;
 		let locationData;
 		let currentPopup = null;
 
 		var map = new maplibregl.Map({
 			container: 'map',
-			style: 'toronto-grid.json',
+			style: 'toronto.json',
 			center: [-79.39778, 43.646763],
 			pixelRatio: 1,
 			zoom: 15,
@@ -73,32 +73,32 @@
 				}
 			});
 
-			// Add bia outline
+			// // Add bia outline
 			// map.addLayer({
 			// 	'id': 'toronto-bia',
 			// 	'source': 'toronto_bia',
-			// 	"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
+			// 	//"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
 			// 	'type': 'line',
 			// 	'paint': {
-			// 		'line-color': 'hsl(0, 0%, 40%)',
+			// 		'line-color': 'hsl(20, 50%, 50%)',
 			// 		'line-width': 5,
-			// 		'line-opacity': ['interpolate', ['linear'], ['zoom'], minZoom, 0.3, maxZoom - 1, 0.3, maxZoom, 0],
+			// 		'line-opacity': 0.8,
 			// 	}
 			// });
 
 			// Add building outlines
-			// map.addLayer({
-			// 	'id': 'buildings-outline',
-			// 	'source': 'toronto_buildings',
-			// 	'source-layer': 'toronto_buildings',
-			// 	'type': 'line',
-			// 	'paint': {
-			// 		'line-color': 'hsl(280, 10%, 40%)',
-			// 		'line-width': 2,
-			// 		'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
-			// 	},
-			// 	'minzoom': 16
-			// }, 'highway-name-minor');
+			map.addLayer({
+				'id': 'buildings-outline',
+				'source': 'toronto_buildings',
+				'source-layer': 'toronto_buildings',
+				'type': 'line',
+				'paint': {
+					'line-color': 'hsl(280, 10%, 40%)',
+					'line-width': 2,
+					'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
+				},
+				'minzoom': 16
+			});
 
 			// // Add 3d buildings (purple)
 			// map.addLayer({
@@ -107,8 +107,8 @@
 			// 	'source-layer': 'toronto_buildings',
 			// 	'type': 'fill-extrusion',
 			// 	'paint': {
-			// 		//'fill-extrusion-color': 'hsl(280, 10%, 40%)', // purple
-			// 		'fill-extrusion-color': 'hsl(0, 0%, 100%)', // white
+			// 		'fill-extrusion-color': 'hsl(280, 10%, 40%)', // purple
+			// 		//'fill-extrusion-color': 'hsl(0, 0%, 100%)', // white
 			// 		'fill-extrusion-height': [
 			// 			'case',
 			// 			['!=', ['get', 'max_height'], null], ['get', 'max_height'],
@@ -119,7 +119,7 @@
 			// 		'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.7, 17, 0.7, 18, 0]
 			// 	},
 			// 	'minzoom': 15
-			// }, 'highway-name-minor');
+			// });
 
 			// Add cluster halos
 			// map.addLayer({

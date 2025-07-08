@@ -32,17 +32,6 @@
         {
 			"source": "toronto_grid_polygons",
 			"source-layer": "toronto_grid_polygons",
-			"id": "admin",
-			"filter": [ "in", "admin_level", 6 ],
-			"type": "fill",
-			"paint": {
-				"fill-color": "hsl(0, 0%, 0%)",
-				"fill-opacity": 1
-			}
-		},
-        {
-			"source": "toronto_grid_polygons",
-			"source-layer": "toronto_grid_polygons",
 			"id": "natural",
 			"filter": [ "has", "natural" ],
 			"type": "fill",
