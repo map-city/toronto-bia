@@ -21,23 +21,22 @@
 			"id": "background",
 			"type": "background",
 			"paint": {
-				"background-color": "hsl(40, 50%, 88%)"
+				"background-color": "hsl(0, 0%, 95%)"
 			}
 		},
 		{
 			"id": "propertyboundaries",
 			"source": "toronto",
 			"source-layer": "propertyboundaries",
-			"filter": ["!in", "FEATURE_TYPE", "CORRIDOR"],
 			"type": "fill",
 			"paint": {
 			  "fill-color": [
 					"case",
-					["in", ["get", "FEATURE_TYPE"], "CONDO"], "hsl(210, 40%, 85%)",
-					["in", ["get", "FEATURE_TYPE"], "CORRIDOR"], "hsl(40, 50%, 88%)",
-					["in", ["get", "FEATURE_TYPE"], "RESERVE"], "hsl(120, 30%, 85%)",
-					["in", ["get", "FEATURE_TYPE"], "COMMON"], "hsl(0, 0%, 90%)",
-					"hsl(0, 0%, 100%)"
+					["in", ["get", "FEATURE_TYPE"], "CONDO"], "hsl(24, 32%, 91%)",
+					["in", ["get", "FEATURE_TYPE"], "CORRIDOR"], "hsl(210, 89%, 90%)",
+					["in", ["get", "FEATURE_TYPE"], "RESERVE"], "hsl(24, 32%, 94%)",
+					["in", ["get", "FEATURE_TYPE"], "COMMON"], "hsl(24, 32%, 97%)",
+					"hsl(0, 0%, 95%)"
 				],
 			  "fill-opacity": 1
 			}
@@ -48,7 +47,7 @@
 			"source-layer": "propertyboundaries",
 			"type": "line",
 			"paint": {
-				"line-color": "hsl(0, 0%, 70%)",
+				"line-color": "hsl(0, 0%, 80%)",
 				"line-width": ["interpolate", ["linear"], ["zoom"], 13, 0.05, 14, 0.1, 16, 1]
 			}
 		},
@@ -59,8 +58,9 @@
 			"type": "line",
 			"paint": {
 			  "line-color": "hsl(0, 0%, 100%)",
-			  "line-width": 2
-			}
+			  "line-width": ["interpolate", ["linear"], ["zoom"], 15, 0, 16, 2]
+			},
+			"minzoom": 15
 		},
 		{
 			"id": "roads-label",

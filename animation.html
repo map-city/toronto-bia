@@ -10,14 +10,25 @@
 	<link rel="stylesheet" href="style.css">
 	<title>Toronto Downtown West</title>
 
-    <style>
-        #actionOverlay { position: absolute; top: 0; left: 0; z-index: 999; background: rgba(255, 255, 255, 0.5); cursor: pointer; border-radius: 50%; width: 100px; height: 100px; margin: 20px; }
-    </style>
+	<style>
+		#actionOverlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 999;
+			background: rgba(255, 255, 255, 0.5);
+			cursor: pointer;
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
+			margin: 20px;
+		}
+	</style>
 </head>
 
 <body>
 	<div id="map-container">
-        <div id="actionOverlay"></div>
+		<div id="actionOverlay"></div>
 		<div id="map"></div>
 		<!--<div id="map-toggle"><i class="fas fa-up-right-and-down-left-from-center"></i></div>-->
 	</div>
@@ -52,6 +63,18 @@
 
 			// Set locationData
 			locationData = pointsData.features;
+
+			// Add neighborhood source
+			map.addSource('toronto_neighborhoods', {
+				type: 'vector',
+				tiles: ['https://mapcity.io/toronto-bia/data/toronto_neighborhoods/{z}/{x}/{y}.pbf']
+			});
+
+			// Add neighborhood centroids
+			map.addSource('toronto_neighborhoods_centroids', {
+				'type': 'geojson',
+				'data': 'https://mapcity.io/toronto-bia/data/toronto_neighborhoods_centroids.geojson'
+			});
 
 			// Add buildings source
 			map.addSource('toronto_buildings', {
@@ -91,40 +114,93 @@
 			// 	}
 			// });
 
-			// // Add building outlines
-			// map.addLayer({
-			// 	'id': 'buildings-outline',
-			// 	'source': 'toronto_buildings',
-			// 	'source-layer': 'toronto_buildings',
-			// 	'type': 'line',
-			// 	'paint': {
-			// 		'line-color': 'hsl(280, 10%, 40%)',
-			// 		'line-width': 2,
-			// 		'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
-			// 	},
-			// 	'minzoom': 16
-			// });
+			// Add building outlines
+			map.addLayer({
+				'id': 'buildings-outline',
+				'source': 'toronto_buildings',
+				'source-layer': 'toronto_buildings',
+				'type': 'line',
+				'paint': {
+					'line-color': 'hsl(0, 0%, 100%)',
+					'line-width': 1.5,
+					'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
+				},
+				'minzoom': 18
+			});
 
-			// // Add 3d buildings (purple)
-			// map.addLayer({
-			// 	'id': 'buildings',
-			// 	'source': 'toronto_buildings',
-			// 	'source-layer': 'toronto_buildings',
-			// 	'type': 'fill-extrusion',
-			// 	'paint': {
-			// 		'fill-extrusion-color': 'hsl(280, 10%, 40%)', // purple
-			// 		//'fill-extrusion-color': 'hsl(0, 0%, 100%)', // white
-			// 		'fill-extrusion-height': [
-			// 			'case',
-			// 			['!=', ['get', 'max_height'], null], ['get', 'max_height'],
-			// 			['!=', ['get', 'avg_height'], null], ['get', 'avg_height'],
-			// 			10
-			// 		],
-			// 		'fill-extrusion-base': 0,
-			// 		'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.7, 17, 0.7, 18, 0]
-			// 	},
-			// 	'minzoom': 15
-			// });
+			// Add 3d buildings (purple)
+			map.addLayer({
+				'id': 'buildings',
+				'source': 'toronto_buildings',
+				'source-layer': 'toronto_buildings',
+				'type': 'fill-extrusion',
+				'paint': {
+					'fill-extrusion-color': 'hsl(0, 0%, 100%)', // white
+					'fill-extrusion-height': [
+						'case',
+						['!=', ['get', 'max_height'], null], ['get', 'max_height'],
+						['!=', ['get', 'avg_height'], null], ['get', 'avg_height'],
+						10
+					],
+					'fill-extrusion-base': 0,
+					'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.5, 17, 0.5, 18, 0]
+				},
+				'minzoom': 15
+			});
+
+			// Add neighborhood fill
+			map.addLayer({
+				'id': 'neighborhoods-fill',
+				'source': 'toronto_neighborhoods',
+				'source-layer': 'toronto_neighborhoods',
+				'type': 'fill',
+				'paint': {
+					'fill-color': '	hsl(0, 0%, 100%)',
+					'fill-opacity': ['interpolate', ['linear'], ['zoom'], 13, 0.4, 14, 0]
+				},
+				"minzoom": 10,
+				"maxzoom": 14
+			});
+
+			// Add neighborhood outline
+			map.addLayer({
+				'id': 'neighborhoods-outline',
+				'source': 'toronto_neighborhoods',
+				'source-layer': 'toronto_neighborhoods',
+				'type': 'line',
+				'paint': {
+					'line-color': '	hsl(0, 0%, 80%)',
+					'line-width': ['interpolate', ['exponential', 1.5], ['zoom'], 11, 1, 18, 20],
+					'line-opacity': ['interpolate', ['linear'], ['zoom'], 13, 0.8, 14, 0]
+				},
+				"minzoom": 10,
+				"maxzoom": 14
+			});
+
+			// Add neighborhood labels
+			map.addLayer({
+				id: 'neighborhoods-label',
+				type: 'symbol',
+				source: 'toronto_neighborhoods_centroids',
+				layout: {
+					'text-field': ['get', 'area_name'],
+					'text-size': ['interpolate', ['exponential', 1.1], ['zoom'], 10, 1, 18, 40],
+					'text-font': ['montserrat-semibold'],
+					'text-max-width': 5,
+					'text-line-height': 1,
+					'text-allow-overlap': true,
+					'text-ignore-placement': true,
+					//'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+					'text-rotation-alignment': 'viewport',
+					'text-pitch-alignment': 'viewport'
+				},
+				paint: {
+					'text-color': 'hsl(0, 0%, 70%)',
+					'text-opacity': ['interpolate', ['linear'], ['zoom'], 10, 0, 11, 1, 13, 1, 14, 0]
+				},
+				"minzoom": 10,
+				"maxzoom": 14
+			});
 
 			// Add cluster halos
 			// map.addLayer({
@@ -216,7 +292,7 @@
 			// 	}
 			// });
 
-			// Add points
+			// // Add points
 			// map.addLayer({
 			// 	id: 'points',
 			// 	type: 'circle',
@@ -296,42 +372,42 @@
 			// });
 
 		});
-</script>
+	</script>
 
-<!-- <script>
-		const mapDiv = document.getElementById('map');
-		const toggleButton = document.getElementById('map-toggle');
-		const icon = toggleButton.querySelector('i');
+	<script>
+		// const mapDiv = document.getElementById('map');
+		// const toggleButton = document.getElementById('map-toggle');
+		// const icon = toggleButton.querySelector('i');
 
-		let isInset = false; // map starts full screen
+		// let isInset = false; // map starts full screen
 
-		// Set initial icon to "collapse" since map is full screen initially
-		icon.className = 'fas fa-down-left-and-up-right-to-center';
+		// // Set initial icon to "collapse" since map is full screen initially
+		// icon.className = 'fas fa-down-left-and-up-right-to-center';
 
-		toggleButton.addEventListener('click', () => {
-			const center = map.getCenter();
-			const zoom = map.getZoom();
+		// toggleButton.addEventListener('click', () => {
+		// 	const center = map.getCenter();
+		// 	const zoom = map.getZoom();
 
-			isInset = !isInset;
-			mapDiv.classList.toggle('inset', isInset);
+		// 	isInset = !isInset;
+		// 	mapDiv.classList.toggle('inset', isInset);
 
-			// Swap icon to show the action on click:
-			// inset: show expand icon (to go full screen)
-			// full screen: show collapse icon (to go inset)
-			icon.className = isInset
-				? 'fas fa-up-right-and-down-left-from-center'
-				: 'fas fa-down-left-and-up-right-to-center';
+		// 	// Swap icon to show the action on click:
+		// 	// inset: show expand icon (to go full screen)
+		// 	// full screen: show collapse icon (to go inset)
+		// 	icon.className = isInset
+		// 		? 'fas fa-up-right-and-down-left-from-center'
+		// 		: 'fas fa-down-left-and-up-right-to-center';
 
-			setTimeout(() => {
-				map.resize();
-				map.easeTo({
-					center,
-					//zoom: isInset ? 17 : zoom,
-					duration: 100
-				});
-			}, 100); // match CSS transition duration
+		// 	setTimeout(() => {
+		// 		map.resize();
+		// 		map.easeTo({
+		// 			center,
+		// 			//zoom: isInset ? 17 : zoom,
+		// 			duration: 100
+		// 		});
+		// 	}, 100); // match CSS transition duration
 
-		});
+		// });
 
 		// Define your color map
 		const colorsSpectral = {
@@ -366,7 +442,7 @@
 
 		// Generate the expression
 		const categoryColor = ["case"];
-		for (const [type, color] of Object.entries(colorsWiki)) {
+		for (const [type, color] of Object.entries(colorsSpectral)) {
 			categoryColor.push(["==", ["get", "business_type"], type], color);
 		}
 		// Fallback color
@@ -383,8 +459,7 @@
 				console.log('No features found at this location.');
 			}
 		});
-
-	</script> -->
+	</script>
 
 	<script>
 		// animation
@@ -434,7 +509,7 @@
 					URL.revokeObjectURL(url);
 				}, 'image/png');
 			});
-			//actionIndex = 1; //rotate = 0, zoom = 1, pan = 2
+			actionIndex = 2; //rotate = 0, zoom = 1, pan = 2
 			cycleActions();
 			frameCounter++;
 		}
@@ -450,18 +525,6 @@
 			} else {
 				intervalId = setInterval(animateFrame, frameInterval);
 				console.log("Animation started");
-			}
-		});
-
-		map.on('click', (e) => {
-			const features = map.queryRenderedFeatures(e.point);
-			if (features.length > 0) {
-				features.forEach((feature, index) => {
-					console.log(`Feature ${index + 1}:`, feature);
-					console.log(`Properties:`, feature.properties); // Log only properties
-				});
-			} else {
-				console.log('No features found at this location.');
 			}
 		});
 	</script>
