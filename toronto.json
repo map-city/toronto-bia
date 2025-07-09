@@ -13,7 +13,7 @@
 		},
 		"toronto": {
 			"type": "vector",
-			"tiles": ["https://mapcity.io/toronto/tiles/{z}/{x}/{y}.pbf"]
+			"tiles": ["https://mapcity.io/tiles/toronto/{z}/{x}/{y}.pbf"]
 		}
 	},
 	"layers": [
@@ -21,40 +21,90 @@
 			"id": "background",
 			"type": "background",
 			"paint": {
-				"background-color": "hsl(0, 0%, 0%)"
+				"background-color": "hsl(40, 50%, 88%)"
 			}
 		},
 		{
+			"id": "propertyboundaries",
 			"source": "toronto",
-			"id": "property-boundaries",
+			"source-layer": "propertyboundaries",
+			"filter": ["!in", "FEATURE_TYPE", "CORRIDOR"],
 			"type": "fill",
-			"source-layer": "property-boundaries",
 			"paint": {
-			  "fill-color": "hsl(0, 0%, 0%)",
+			  "fill-color": [
+					"case",
+					["in", ["get", "FEATURE_TYPE"], "CONDO"], "hsl(210, 40%, 85%)",
+					["in", ["get", "FEATURE_TYPE"], "CORRIDOR"], "hsl(40, 50%, 88%)",
+					["in", ["get", "FEATURE_TYPE"], "RESERVE"], "hsl(120, 30%, 85%)",
+					["in", ["get", "FEATURE_TYPE"], "COMMON"], "hsl(0, 0%, 90%)",
+					"hsl(0, 0%, 100%)"
+				],
 			  "fill-opacity": 1
-			},
-			"maxzoom": 18
+			}
 		},
 		{
+			"id": "propertyboundaries-line",
 			"source": "toronto",
-			"id": "property-boundaries-lines",
+			"source-layer": "propertyboundaries",
 			"type": "line",
-			"source-layer": "property-boundaries",
 			"paint": {
-				"line-color": "hsl(200, 50%, 50%)",
-				"line-width": ["interpolate", ["linear"], ["zoom"], 13, 0.1, 14, 1]
+				"line-color": "hsl(0, 0%, 70%)",
+				"line-width": ["interpolate", ["linear"], ["zoom"], 13, 0.05, 14, 0.1, 16, 1]
 			}
 		},
 		{
 			"id": "roads",
-			"type": "line",
 			"source": "toronto",
-			"source-layer": "property-boundaries",
-			"filter": ["==", "$type", "LineString"],
+			"source-layer": "roads",
+			"type": "line",
 			"paint": {
 			  "line-color": "hsl(0, 0%, 100%)",
 			  "line-width": 2
 			}
+		},
+		{
+			"id": "roads-label",
+			"source": "toronto",
+			"source-layer": "roads",
+			"type": "symbol",
+			"layout": {
+				"text-field": "{LINEAR_NAME_FULL}",
+				"text-transform": "uppercase",
+				"text-rotation-alignment": "map",
+				"text-font": [ "montserrat-semibold" ],
+				"text-letter-spacing": 0.2,
+				"symbol-placement": "line",
+				"symbol-spacing": 250,
+				"text-anchor": "center",
+				"text-size": [ "interpolate", [ "exponential", 1.5 ], [ "zoom" ], 10, 0, 20, 30 ]
+			},
+			"paint": {
+				"text-color": "hsl(0, 0%, 30%)",
+				"text-opacity": [ "interpolate", [ "linear" ], [ "zoom" ], 15, 0, 16, 1 ]
+			},
+			"minzoom": 15
+		},
+		{
+			"id": "propertyboundaries-label",
+			"source": "toronto",
+			"source-layer": "propertyboundaries",
+			"type": "symbol",
+			"filter": ["!in", "ADDRESS_NUMBER", "None"],
+			"layout": {
+				"text-field": "{ADDRESS_NUMBER}\n{LINEAR_NAME_FULL}",
+				"text-transform": "uppercase",
+				"text-rotation-alignment": "viewport",
+				"text-font": [ "montserrat-semibold" ],
+				"text-letter-spacing": 0.2,
+				"symbol-placement": "point",
+				"text-anchor": "center",
+				"text-size": [ "interpolate", [ "exponential", 1.5 ], [ "zoom" ], 10, 0, 20, 16 ]
+			},
+			"paint": {
+				"text-color": "hsl(0, 0%, 30%)",
+				"text-opacity": [ "interpolate", [ "linear" ], [ "zoom" ], 15, 0, 16, 1 ]
+			},
+			"minzoom": 15
 		}
 	]
 }

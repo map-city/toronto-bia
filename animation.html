@@ -9,12 +9,17 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	<link rel="stylesheet" href="style.css">
 	<title>Toronto Downtown West</title>
+
+    <style>
+        #actionOverlay { position: absolute; top: 0; left: 0; z-index: 999; background: rgba(255, 255, 255, 0.5); cursor: pointer; border-radius: 50%; width: 100px; height: 100px; margin: 20px; }
+    </style>
 </head>
 
 <body>
 	<div id="map-container">
+        <div id="actionOverlay"></div>
 		<div id="map"></div>
-		<div id="map-toggle"><i class="fas fa-up-right-and-down-left-from-center"></i></div>
+		<!--<div id="map-toggle"><i class="fas fa-up-right-and-down-left-from-center"></i></div>-->
 	</div>
 
 	<script>
@@ -80,25 +85,25 @@
 			// 	//"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
 			// 	'type': 'line',
 			// 	'paint': {
-			// 		'line-color': 'hsl(20, 50%, 50%)',
-			// 		'line-width': 5,
+			// 		'line-color': 'hsl(20, 80%, 50%)',
+			// 		'line-width': 3,
 			// 		'line-opacity': 0.8,
 			// 	}
 			// });
 
-			// Add building outlines
-			map.addLayer({
-				'id': 'buildings-outline',
-				'source': 'toronto_buildings',
-				'source-layer': 'toronto_buildings',
-				'type': 'line',
-				'paint': {
-					'line-color': 'hsl(280, 10%, 40%)',
-					'line-width': 2,
-					'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
-				},
-				'minzoom': 16
-			});
+			// // Add building outlines
+			// map.addLayer({
+			// 	'id': 'buildings-outline',
+			// 	'source': 'toronto_buildings',
+			// 	'source-layer': 'toronto_buildings',
+			// 	'type': 'line',
+			// 	'paint': {
+			// 		'line-color': 'hsl(280, 10%, 40%)',
+			// 		'line-width': 2,
+			// 		'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
+			// 	},
+			// 	'minzoom': 16
+			// });
 
 			// // Add 3d buildings (purple)
 			// map.addLayer({
@@ -291,7 +296,9 @@
 			// });
 
 		});
+</script>
 
+<!-- <script>
 		const mapDiv = document.getElementById('map');
 		const toggleButton = document.getElementById('map-toggle');
 		const icon = toggleButton.querySelector('i');
@@ -377,8 +384,87 @@
 			}
 		});
 
-	</script>
+	</script> -->
 
+	<script>
+		// animation
+		const zoomIncrement = -0.002;
+		const rotateIncrement = 0.1;
+		const latIncrement = 0.000005;
+		const frameInterval = 1000;
+		let frameCounter = 1;
+		let sceneCounter = 1;
+		let actionIndex = Math.floor(Math.random() * 3);
+
+		// pan, zoom, rotate
+		function cycleActions() {
+			switch (actionIndex) {
+				case 0:
+					// Rotate the camera
+					const currentBearing = map.getBearing();
+					map.rotateTo(currentBearing + rotateIncrement, { duration: 0 });
+					break;
+				case 1:
+					// Zoom the camera
+					const currentZoom = map.getZoom();
+					map.setZoom(currentZoom + zoomIncrement, { duration: 0 });
+					break;
+				case 2:
+					// Pan the camera
+					const currentCenter = map.getCenter();
+					map.setCenter([currentCenter.lng, currentCenter.lat + latIncrement], { duration: 0 });
+					break;
+			}
+
+		}
+
+		// animate function
+		function animateFrame() {
+			map.once('idle', () => {
+				const canvas = map.getCanvas();
+				const paddedFrameCounter = String(frameCounter).padStart(4, '0');
+				canvas.toBlob(function (blob) {
+					const url = URL.createObjectURL(blob);
+					const a = document.createElement('a');
+					a.href = url;
+					a.download = `frame_${paddedFrameCounter}.png`;
+					document.body.appendChild(a);
+					a.click();
+					document.body.removeChild(a);
+					URL.revokeObjectURL(url);
+				}, 'image/png');
+			});
+			//actionIndex = 1; //rotate = 0, zoom = 1, pan = 2
+			cycleActions();
+			frameCounter++;
+		}
+
+		// animate button
+		let intervalId = null;
+		document.getElementById('actionOverlay').addEventListener('click', () => {
+			if (intervalId) {
+				clearInterval(intervalId);
+				intervalId = null;
+				let frameCounter = 1;
+				console.log("Animation stopped");
+			} else {
+				intervalId = setInterval(animateFrame, frameInterval);
+				console.log("Animation started");
+			}
+		});
+
+		map.on('click', (e) => {
+			const features = map.queryRenderedFeatures(e.point);
+			if (features.length > 0) {
+				features.forEach((feature, index) => {
+					console.log(`Feature ${index + 1}:`, feature);
+					console.log(`Properties:`, feature.properties); // Log only properties
+				});
+			} else {
+				console.log('No features found at this location.');
+			}
+		});
+	</script>
 </body>
 
 </html>
