@@ -9,12 +9,28 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	<link rel="stylesheet" href="style.css">
 	<title>Toronto Downtown West</title>
+
+	<style>
+		#actionOverlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 999;
+			background: rgba(255, 255, 255, 0.5);
+			cursor: pointer;
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
+			margin: 20px;
+		}
+	</style>
 </head>
 
 <body>
 	<div id="map-container">
+		<div id="actionOverlay"></div>
 		<div id="map"></div>
-		<div id="map-toggle"><i class="fas fa-up-right-and-down-left-from-center"></i></div>
+		<!--<div id="map-toggle"><i class="fas fa-up-right-and-down-left-from-center"></i></div>-->
 	</div>
 
 	<script>
@@ -48,6 +64,18 @@
 			// Set locationData
 			locationData = pointsData.features;
 
+			// Add neighborhood source
+			map.addSource('toronto_neighborhoods', {
+				type: 'vector',
+				tiles: ['https://mapcity.io/toronto-bia/data/toronto_neighborhoods/{z}/{x}/{y}.pbf']
+			});
+
+			// Add neighborhood centroids
+			map.addSource('toronto_neighborhoods_centroids', {
+				'type': 'geojson',
+				'data': 'https://mapcity.io/toronto-bia/data/toronto_neighborhoods_centroids.geojson'
+			});
+
 			// Add buildings source
 			map.addSource('toronto_buildings', {
 				type: 'vector',
@@ -80,8 +108,8 @@
 			// 	//"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
 			// 	'type': 'line',
 			// 	'paint': {
-			// 		'line-color': 'hsl(20, 50%, 50%)',
-			// 		'line-width': 5,
+			// 		'line-color': 'hsl(20, 80%, 50%)',
+			// 		'line-width': 3,
 			// 		'line-opacity': 0.8,
 			// 	}
 			// });
@@ -93,33 +121,86 @@
 				'source-layer': 'toronto_buildings',
 				'type': 'line',
 				'paint': {
-					'line-color': 'hsl(280, 10%, 40%)',
-					'line-width': 2,
+					'line-color': 'hsl(0, 0%, 100%)',
+					'line-width': 1.5,
 					'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
 				},
-				'minzoom': 16
+				'minzoom': 18
 			});
 
-			// // Add 3d buildings (purple)
-			// map.addLayer({
-			// 	'id': 'buildings',
-			// 	'source': 'toronto_buildings',
-			// 	'source-layer': 'toronto_buildings',
-			// 	'type': 'fill-extrusion',
-			// 	'paint': {
-			// 		'fill-extrusion-color': 'hsl(280, 10%, 40%)', // purple
-			// 		//'fill-extrusion-color': 'hsl(0, 0%, 100%)', // white
-			// 		'fill-extrusion-height': [
-			// 			'case',
-			// 			['!=', ['get', 'max_height'], null], ['get', 'max_height'],
-			// 			['!=', ['get', 'avg_height'], null], ['get', 'avg_height'],
-			// 			10
-			// 		],
-			// 		'fill-extrusion-base': 0,
-			// 		'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.7, 17, 0.7, 18, 0]
-			// 	},
-			// 	'minzoom': 15
-			// });
+			// Add 3d buildings (purple)
+			map.addLayer({
+				'id': 'buildings',
+				'source': 'toronto_buildings',
+				'source-layer': 'toronto_buildings',
+				'type': 'fill-extrusion',
+				'paint': {
+					'fill-extrusion-color': 'hsl(0, 0%, 100%)', // white
+					'fill-extrusion-height': [
+						'case',
+						['!=', ['get', 'max_height'], null], ['get', 'max_height'],
+						['!=', ['get', 'avg_height'], null], ['get', 'avg_height'],
+						10
+					],
+					'fill-extrusion-base': 0,
+					'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.5, 17, 0.5, 18, 0]
+				},
+				'minzoom': 15
+			});
+
+			// Add neighborhood fill
+			map.addLayer({
+				'id': 'neighborhoods-fill',
+				'source': 'toronto_neighborhoods',
+				'source-layer': 'toronto_neighborhoods',
+				'type': 'fill',
+				'paint': {
+					'fill-color': '	hsl(0, 0%, 100%)',
+					'fill-opacity': ['interpolate', ['linear'], ['zoom'], 13, 0.4, 14, 0]
+				},
+				"minzoom": 10,
+				"maxzoom": 14
+			});
+
+			// Add neighborhood outline
+			map.addLayer({
+				'id': 'neighborhoods-outline',
+				'source': 'toronto_neighborhoods',
+				'source-layer': 'toronto_neighborhoods',
+				'type': 'line',
+				'paint': {
+					'line-color': '	hsl(0, 0%, 80%)',
+					'line-width': ['interpolate', ['exponential', 1.5], ['zoom'], 11, 1, 18, 20],
+					'line-opacity': ['interpolate', ['linear'], ['zoom'], 13, 0.8, 14, 0]
+				},
+				"minzoom": 10,
+				"maxzoom": 14
+			});
+
+			// Add neighborhood labels
+			map.addLayer({
+				id: 'neighborhoods-label',
+				type: 'symbol',
+				source: 'toronto_neighborhoods_centroids',
+				layout: {
+					'text-field': ['get', 'area_name'],
+					'text-size': ['interpolate', ['exponential', 1.1], ['zoom'], 10, 1, 18, 40],
+					'text-font': ['montserrat-semibold'],
+					'text-max-width': 5,
+					'text-line-height': 1,
+					'text-allow-overlap': true,
+					'text-ignore-placement': true,
+					//'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+					'text-rotation-alignment': 'viewport',
+					'text-pitch-alignment': 'viewport'
+				},
+				paint: {
+					'text-color': 'hsl(0, 0%, 70%)',
+					'text-opacity': ['interpolate', ['linear'], ['zoom'], 10, 0, 11, 1, 13, 1, 14, 0]
+				},
+				"minzoom": 10,
+				"maxzoom": 14
+			});
 
 			// Add cluster halos
 			// map.addLayer({
@@ -211,7 +292,7 @@
 			// 	}
 			// });
 
-			// Add points
+			// // Add points
 			// map.addLayer({
 			// 	id: 'points',
 			// 	type: 'circle',
@@ -291,40 +372,42 @@
 			// });
 
 		});
+	</script>
 
-		const mapDiv = document.getElementById('map');
-		const toggleButton = document.getElementById('map-toggle');
-		const icon = toggleButton.querySelector('i');
+	<script>
+		// const mapDiv = document.getElementById('map');
+		// const toggleButton = document.getElementById('map-toggle');
+		// const icon = toggleButton.querySelector('i');
 
-		let isInset = false; // map starts full screen
+		// let isInset = false; // map starts full screen
 
-		// Set initial icon to "collapse" since map is full screen initially
-		icon.className = 'fas fa-down-left-and-up-right-to-center';
+		// // Set initial icon to "collapse" since map is full screen initially
+		// icon.className = 'fas fa-down-left-and-up-right-to-center';
 
-		toggleButton.addEventListener('click', () => {
-			const center = map.getCenter();
-			const zoom = map.getZoom();
+		// toggleButton.addEventListener('click', () => {
+		// 	const center = map.getCenter();
+		// 	const zoom = map.getZoom();
 
-			isInset = !isInset;
-			mapDiv.classList.toggle('inset', isInset);
+		// 	isInset = !isInset;
+		// 	mapDiv.classList.toggle('inset', isInset);
 
-			// Swap icon to show the action on click:
-			// inset: show expand icon (to go full screen)
-			// full screen: show collapse icon (to go inset)
-			icon.className = isInset
-				? 'fas fa-up-right-and-down-left-from-center'
-				: 'fas fa-down-left-and-up-right-to-center';
+		// 	// Swap icon to show the action on click:
+		// 	// inset: show expand icon (to go full screen)
+		// 	// full screen: show collapse icon (to go inset)
+		// 	icon.className = isInset
+		// 		? 'fas fa-up-right-and-down-left-from-center'
+		// 		: 'fas fa-down-left-and-up-right-to-center';
 
-			setTimeout(() => {
-				map.resize();
-				map.easeTo({
-					center,
-					//zoom: isInset ? 17 : zoom,
-					duration: 100
-				});
-			}, 100); // match CSS transition duration
+		// 	setTimeout(() => {
+		// 		map.resize();
+		// 		map.easeTo({
+		// 			center,
+		// 			//zoom: isInset ? 17 : zoom,
+		// 			duration: 100
+		// 		});
+		// 	}, 100); // match CSS transition duration
 
-		});
+		// });
 
 		// Define your color map
 		const colorsSpectral = {
@@ -359,7 +442,7 @@
 
 		// Generate the expression
 		const categoryColor = ["case"];
-		for (const [type, color] of Object.entries(colorsWiki)) {
+		for (const [type, color] of Object.entries(colorsSpectral)) {
 			categoryColor.push(["==", ["get", "business_type"], type], color);
 		}
 		// Fallback color
@@ -376,9 +459,75 @@
 				console.log('No features found at this location.');
 			}
 		});
-
 	</script>
 
+	<script>
+		// animation
+		const zoomIncrement = -0.002;
+		const rotateIncrement = 0.1;
+		const latIncrement = 0.000005;
+		const frameInterval = 1000;
+		let frameCounter = 1;
+		let sceneCounter = 1;
+		let actionIndex = Math.floor(Math.random() * 3);
+
+		// pan, zoom, rotate
+		function cycleActions() {
+			switch (actionIndex) {
+				case 0:
+					// Rotate the camera
+					const currentBearing = map.getBearing();
+					map.rotateTo(currentBearing + rotateIncrement, { duration: 0 });
+					break;
+				case 1:
+					// Zoom the camera
+					const currentZoom = map.getZoom();
+					map.setZoom(currentZoom + zoomIncrement, { duration: 0 });
+					break;
+				case 2:
+					// Pan the camera
+					const currentCenter = map.getCenter();
+					map.setCenter([currentCenter.lng, currentCenter.lat + latIncrement], { duration: 0 });
+					break;
+			}
+
+		}
+
+		// animate function
+		function animateFrame() {
+			map.once('idle', () => {
+				const canvas = map.getCanvas();
+				const paddedFrameCounter = String(frameCounter).padStart(4, '0');
+				canvas.toBlob(function (blob) {
+					const url = URL.createObjectURL(blob);
+					const a = document.createElement('a');
+					a.href = url;
+					a.download = `frame_${paddedFrameCounter}.png`;
+					document.body.appendChild(a);
+					a.click();
+					document.body.removeChild(a);
+					URL.revokeObjectURL(url);
+				}, 'image/png');
+			});
+			actionIndex = 2; //rotate = 0, zoom = 1, pan = 2
+			cycleActions();
+			frameCounter++;
+		}
+
+		// animate button
+		let intervalId = null;
+		document.getElementById('actionOverlay').addEventListener('click', () => {
+			if (intervalId) {
+				clearInterval(intervalId);
+				intervalId = null;
+				let frameCounter = 1;
+				console.log("Animation stopped");
+			} else {
+				intervalId = setInterval(animateFrame, frameInterval);
+				console.log("Animation started");
+			}
+		});
+	</script>
 </body>
 
 </html>
