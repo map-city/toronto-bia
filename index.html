@@ -114,21 +114,21 @@
 			// 	}
 			// });
 
-			// Add building outlines
-			map.addLayer({
-				'id': 'buildings-outline',
-				'source': 'toronto_buildings',
-				'source-layer': 'toronto_buildings',
-				'type': 'line',
-				'paint': {
-					'line-color': 'hsl(0, 0%, 100%)',
-					'line-width': 1.5,
-					'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
-				},
-				'minzoom': 18
-			});
+			// // Add building outlines
+			// map.addLayer({
+			// 	'id': 'buildings-outline',
+			// 	'source': 'toronto_buildings',
+			// 	'source-layer': 'toronto_buildings',
+			// 	'type': 'line',
+			// 	'paint': {
+			// 		'line-color': 'hsl(0, 0%, 100%)',
+			// 		'line-width': 1.5,
+			// 		'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
+			// 	},
+			// 	'minzoom': 18
+			// });
 
-			// Add 3d buildings (purple)
+			// Add 3d buildings
 			map.addLayer({
 				'id': 'buildings',
 				'source': 'toronto_buildings',

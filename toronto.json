@@ -32,10 +32,10 @@
 			"paint": {
 			  "fill-color": [
 					"case",
-					["in", ["get", "FEATURE_TYPE"], "CONDO"], "hsl(24, 32%, 91%)",
-					["in", ["get", "FEATURE_TYPE"], "CORRIDOR"], "hsl(210, 89%, 90%)",
-					["in", ["get", "FEATURE_TYPE"], "RESERVE"], "hsl(24, 32%, 94%)",
-					["in", ["get", "FEATURE_TYPE"], "COMMON"], "hsl(24, 32%, 97%)",
+					["in", ["get", "FEATURE_TYPE"], "CONDO"], "hsl(24, 32%, 84%)",
+					["in", ["get", "FEATURE_TYPE"], "CORRIDOR"], "hsl(210, 20%, 90%)",
+					["in", ["get", "FEATURE_TYPE"], "RESERVE"], "hsl(24, 32%, 88%)",
+					["in", ["get", "FEATURE_TYPE"], "COMMON"], "hsl(24, 32%, 92%)",
 					"hsl(0, 0%, 95%)"
 				],
 			  "fill-opacity": 1
@@ -94,7 +94,7 @@
 				"text-field": "{ADDRESS_NUMBER}\n{LINEAR_NAME_FULL}",
 				"text-transform": "uppercase",
 				"text-rotation-alignment": "viewport",
-				"text-font": [ "montserrat-semibold" ],
+				"text-font": [ "montserrat-light" ],
 				"text-letter-spacing": 0.2,
 				"symbol-placement": "point",
 				"text-anchor": "center",
