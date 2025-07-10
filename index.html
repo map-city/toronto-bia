@@ -93,7 +93,7 @@
 				'type': 'geojson',
 				'data': pointsData,
 				'cluster': true,
-				'clusterRadius': 30,
+				'clusterRadius': 50,
 				'clusterMaxZoom': maxZoom,
 				'clusterMinPoints': 2,
 				'clusterProperties': {
@@ -148,207 +148,213 @@
 				'minzoom': 15
 			});
 
-			// Add neighborhood fill
-			map.addLayer({
-				'id': 'neighborhoods-fill',
-				'source': 'toronto_neighborhoods',
-				'source-layer': 'toronto_neighborhoods',
-				'type': 'fill',
-				'paint': {
-					'fill-color': '	hsl(0, 0%, 100%)',
-					'fill-opacity': ['interpolate', ['linear'], ['zoom'], 13, 0.4, 14, 0]
-				},
-				"minzoom": 10,
-				"maxzoom": 14
-			});
+			function addNeighborhood(map) {
+				// Add neighborhood fill
+				map.addLayer({
+					'id': 'neighborhoods-fill',
+					'source': 'toronto_neighborhoods',
+					'source-layer': 'toronto_neighborhoods',
+					'type': 'fill',
+					'paint': {
+						'fill-color': 'hsl(0, 0%, 100%)',
+						'fill-opacity': ['interpolate', ['linear'], ['zoom'], 13, 0.4, 14, 0]
+					},
+					"minzoom": 10,
+					"maxzoom": 14
+				});
 
-			// Add neighborhood outline
-			map.addLayer({
-				'id': 'neighborhoods-outline',
-				'source': 'toronto_neighborhoods',
-				'source-layer': 'toronto_neighborhoods',
-				'type': 'line',
-				'paint': {
-					'line-color': '	hsl(0, 0%, 80%)',
-					'line-width': ['interpolate', ['exponential', 1.5], ['zoom'], 11, 1, 18, 20],
-					'line-opacity': ['interpolate', ['linear'], ['zoom'], 13, 0.8, 14, 0]
-				},
-				"minzoom": 10,
-				"maxzoom": 14
-			});
+				// Add neighborhood outline
+				map.addLayer({
+					'id': 'neighborhoods-outline',
+					'source': 'toronto_neighborhoods',
+					'source-layer': 'toronto_neighborhoods',
+					'type': 'line',
+					'paint': {
+						'line-color': 'hsl(0, 0%, 80%)',
+						'line-width': ['interpolate', ['exponential', 1.5], ['zoom'], 11, 1, 18, 20],
+						'line-opacity': ['interpolate', ['linear'], ['zoom'], 13, 0.8, 14, 0]
+					},
+					"minzoom": 10,
+					"maxzoom": 14
+				});
 
-			// Add neighborhood labels
-			map.addLayer({
-				id: 'neighborhoods-label',
-				type: 'symbol',
-				source: 'toronto_neighborhoods_centroids',
-				layout: {
-					'text-field': ['get', 'area_name'],
-					'text-size': ['interpolate', ['exponential', 1.1], ['zoom'], 10, 1, 18, 40],
-					'text-font': ['montserrat-semibold'],
-					'text-max-width': 5,
-					'text-line-height': 1,
-					'text-allow-overlap': true,
-					'text-ignore-placement': true,
-					//'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
-					'text-rotation-alignment': 'viewport',
-					'text-pitch-alignment': 'viewport'
-				},
-				paint: {
-					'text-color': 'hsl(0, 0%, 70%)',
-					'text-opacity': ['interpolate', ['linear'], ['zoom'], 10, 0, 11, 1, 13, 1, 14, 0]
-				},
-				"minzoom": 10,
-				"maxzoom": 14
-			});
+				// Add neighborhood labels
+				map.addLayer({
+					id: 'neighborhoods-label',
+					type: 'symbol',
+					source: 'toronto_neighborhoods_centroids',
+					layout: {
+						'text-field': ['get', 'area_name'],
+						'text-size': ['interpolate', ['exponential', 1.1], ['zoom'], 10, 1, 18, 40],
+						'text-font': ['montserrat-semibold'],
+						'text-max-width': 5,
+						'text-line-height': 1,
+						'text-allow-overlap': true,
+						'text-ignore-placement': true,
+						'text-rotation-alignment': 'viewport',
+						'text-pitch-alignment': 'viewport'
+					},
+					paint: {
+						'text-color': 'hsl(0, 0%, 70%)',
+						'text-opacity': ['interpolate', ['linear'], ['zoom'], 10, 0, 11, 1, 13, 1, 14, 0]
+					},
+					"minzoom": 10,
+					"maxzoom": 14
+				});
+			}
+			addNeighborhood(map);
 
-			// Add cluster halos
-			// map.addLayer({
-			// 	id: 'clusters-halo',
-			// 	type: 'circle',
-			// 	source: 'places',
-			// 	filter: ['has', 'point_count'],
-			// 	paint: {
-			// 		'circle-color': [
-			// 			'step',
-			// 			['get', 'point_count'],
-			// 			'hsl(0, 0%, 100%)',
-			// 			10, 'hsl(0, 0%, 100%)',
-			// 			25, 'hsl(0, 0%, 100%)'
-			// 		],
-			// 		'circle-radius': [
-			// 			'step',
-			// 			['get', 'point_count'],
-			// 			18,
-			// 			10, 22,
-			// 			25, 26
-			// 		],
-			// 		'circle-opacity': 1,
-			// 		'circle-stroke-width': 0,
-			// 		'circle-stroke-color': 'hsl(180, 21%, 5%)',
-			// 	}
-			// });
+			function addPoints(map) {
+				// Add cluster halos
+				map.addLayer({
+					id: 'clusters-halo',
+					type: 'circle',
+					source: 'places',
+					filter: ['has', 'point_count'],
+					paint: {
+						'circle-color': [
+							'step',
+							['get', 'point_count'],
+							'hsl(0, 0%, 100%)',
+							10, 'hsl(0, 0%, 100%)',
+							25, 'hsl(0, 0%, 100%)'
+						],
+						'circle-radius': [
+							'step',
+							['get', 'point_count'],
+							18,
+							10, 22,
+							25, 26
+						],
+						'circle-opacity': 0.6,
+						'circle-stroke-width': 0,
+						'circle-stroke-color': 'hsl(180, 21%, 5%)',
+					}
+				});
 
-			// Add clusters
-			// map.addLayer({
-			// 	id: 'clusters',
-			// 	type: 'circle',
-			// 	source: 'places',
-			// 	filter: ['has', 'point_count'],
-			// 	paint: {
-			// 		'circle-color': [
-			// 			'step',
-			// 			['get', 'point_count'],
-			// 			'hsl(0, 0%, 40%)',
-			// 			10, 'hsl(0, 0%, 40%)',
-			// 			25, 'hsl(0, 0%, 40%)'
-			// 		],
-			// 		'circle-radius': [
-			// 			'step',
-			// 			['get', 'point_count'],
-			// 			10,
-			// 			10, 12,
-			// 			25, 16
-			// 		],
-			// 		'circle-opacity': 1,
-			// 		'circle-stroke-width': 0,
-			// 		'circle-stroke-color': 'hsl(0, 0%, 40%)',
-			// 	}
-			// });
+				// Add clusters
+				map.addLayer({
+					id: 'clusters',
+					type: 'circle',
+					source: 'places',
+					filter: ['has', 'point_count'],
+					paint: {
+						'circle-color': [
+							'step',
+							['get', 'point_count'],
+							'hsl(0, 0%, 100%)',
+							10, 'hsl(0, 0%, 100%)',
+							25, 'hsl(0, 0%, 100%)'
+						],
+						'circle-radius': [
+							'step',
+							['get', 'point_count'],
+							10,
+							10, 12,
+							25, 16
+						],
+						'circle-opacity': 1,
+						'circle-stroke-width': 0.5,
+						'circle-stroke-color': 'hsl(0, 0%, 30%)',
+					}
+				});
 
-			// // Add cluster counts
-			// map.addLayer({
-			// 	id: 'cluster-count',
-			// 	type: 'symbol',
-			// 	source: 'places',
-			// 	filter: ['has', 'point_count'],
-			// 	layout: {
-			// 		'text-field': '{point_count_abbreviated}',
-			// 		'text-font': ['montserrat-semibold'],
-			// 		'text-size': 14,
-			// 		'text-anchor': 'center',
-			// 		'text-offset': [0, 0.01],
-			// 		'text-allow-overlap': true,
-			// 		'text-ignore-placement': true
-			// 	},
-			// 	paint: {
-			// 		'text-color': 'hsl(0, 0%, 100%)'
-			// 	}
-			// });
+				// Add cluster counts
+				map.addLayer({
+					id: 'cluster-count',
+					type: 'symbol',
+					source: 'places',
+					filter: ['has', 'point_count'],
+					layout: {
+						'text-field': '{point_count_abbreviated}',
+						'text-font': ['montserrat-regular'],
+						'text-size': 14,
+						'text-anchor': 'center',
+						'text-offset': [0, 0.01],
+						'text-allow-overlap': true,
+						'text-ignore-placement': true
+					},
+					paint: {
+						'text-color': 'hsl(0, 0%, 30%)'
+					}
+				});
 
-			// Add point halo
-			// map.addLayer({
-			// 	id: 'points-halo',
-			// 	type: 'circle',
-			// 	source: 'places',
-			// 	filter: ['!', ['has', 'point_count']],
-			// 	paint: {
-			// 		'circle-radius': 20,
-			// 		'circle-color': 'hsl(51, 100%, 50%)',
-			// 		'circle-opacity': 0.1,
-			// 		'circle-stroke-width': 0,
-			// 		'circle-stroke-color': 'hsl(0, 0%, 100%)',
-			// 		'circle-pitch-alignment': 'viewport'
-			// 	}
-			// });
+				// // Add point halo
+				// map.addLayer({
+				// 	id: 'points-halo',
+				// 	type: 'circle',
+				// 	source: 'places',
+				// 	filter: ['!', ['has', 'point_count']],
+				// 	paint: {
+				// 		'circle-radius': 20,
+				// 		'circle-color': 'hsl(51, 100%, 50%)',
+				// 		'circle-opacity': 0.6,
+				// 		'circle-stroke-width': 0,
+				// 		'circle-stroke-color': 'hsl(0, 0%, 100%)',
+				// 		'circle-pitch-alignment': 'viewport'
+				// 	}
+				// });
 
-			// // Add points
-			// map.addLayer({
-			// 	id: 'points',
-			// 	type: 'circle',
-			// 	source: 'places',
-			// 	filter: ['!', ['has', 'point_count']],
-			// 	paint: {
-			// 		'circle-radius': 12,
-			// 		'circle-color': categoryColor,
-			// 		'circle-opacity': 1,
-			// 		'circle-stroke-width': 0,
-			// 		'circle-stroke-color': 'hsla(0, 0%, 100%, 0)'
-			// 	}
-			// });
+				// // Add points
+				// map.addLayer({
+				// 	id: 'points',
+				// 	type: 'circle',
+				// 	source: 'places',
+				// 	filter: ['!', ['has', 'point_count']],
+				// 	paint: {
+				// 		'circle-radius': 12,
+				// 		'circle-color': categoryColor,
+				// 		'circle-opacity': 1,
+				// 		'circle-stroke-width': 0,
+				// 		'circle-stroke-color': 'hsla(0, 0%, 100%, 0)'
+				// 	}
+				// });
 
-			// // Add point symbols
-			// map.addLayer({
-			// 	id: 'points-symbols',
-			// 	type: 'symbol',
-			// 	source: 'places',
-			// 	filter: ['!', ['has', 'point_count']],
-			// 	layout: {
-			// 		"icon-size": 0.6,
-			// 		"symbol-placement": "point",
-			// 		"icon-image": ["match", ["get", "business_type"], "restaurants", "icon-restaurant", "retail", "icon-shop", "services", "icon-community", "quick-serve", "icon-doityourself", "night-clubs-entertainment-venues", "icon-nightclub", "accommodations", "icon-town_hall", "bakery", "icon-bakery", "pubs-bars", "icon-bar", "attractions", "icon-monument", "grocery", "icon-greengrocer", "bar", "icon-bar", "comedy", "icon-theatre", "unknown"],
-			// 		"icon-anchor": "center",
-			// 		"icon-allow-overlap": true,
-			// 		"icon-ignore-placement": false,
-			// 		"icon-optional": false
-			// 	},
-			// 	paint: {
-			// 		"icon-opacity": 1,
-			// 		"icon-color": 'hsl(0, 0%, 100%)',
-			// 	}
-			// });
+				// Add point symbols
+				map.addLayer({
+					id: 'points-symbols',
+					type: 'symbol',
+					source: 'places',
+					filter: ['!', ['has', 'point_count']],
+					layout: {
+						"icon-size": 0.6,
+						"symbol-placement": "point",
+						"icon-image": ["match", ["get", "business_type"], "restaurants", "icon-restaurant", "retail", "icon-shop", "services", "icon-community", "quick-serve", "icon-doityourself", "night-clubs-entertainment-venues", "icon-nightclub", "accommodations", "icon-town_hall", "bakery", "icon-bakery", "pubs-bars", "icon-bar", "attractions", "icon-monument", "grocery", "icon-greengrocer", "bar", "icon-bar", "comedy", "icon-theatre", "unknown"],
+						"icon-anchor": "center",
+						"icon-allow-overlap": true,
+						"icon-ignore-placement": false,
+						"icon-optional": false
+					},
+					paint: {
+						"icon-opacity": 0.6,
+						"icon-color": 'hsl(0, 0%, 0%)',
+					}
+				});
 
-			// // Add point labels
-			// map.addLayer({
-			// 	id: 'points-labels',
-			// 	type: 'symbol',
-			// 	source: 'places',
-			// 	filter: ['!', ['has', 'point_count']],
-			// 	layout: {
-			// 		'text-field': '{name}',
-			// 		'text-font': ['montserrat-semibold'],
-			// 		'text-size': 11,
-			// 		'text-line-height': 0.9,
-			// 		'text-offset': [0, 1.6],
-			// 		'text-anchor': 'top'
-			// 	},
-			// 	paint: {
-			// 		'text-color': categoryColor,
-			// 		'text-halo-color': 'hsla(0, 0%, 100%, 0.5)',
-			// 		'text-halo-width': 1
-			// 	},
-			// 	minzoom: maxZoom - 2
-			// });
+				// Add point labels
+				map.addLayer({
+					id: 'points-labels',
+					type: 'symbol',
+					source: 'places',
+					filter: ['!', ['has', 'point_count']],
+					layout: {
+						'text-field': '{name}',
+						'text-font': ['montserrat-regular'],
+						'text-size': 10,
+						'text-line-height': 0.9,
+						'text-offset': [0, 1.6],
+						'text-anchor': 'top'
+					},
+					paint: {
+						//'text-color': categoryColor,
+						'text-color': 'hsla(0, 0%, 30%)',
+						'text-halo-color': 'hsla(0, 0%, 100%, 0.5)',
+						'text-halo-width': 0
+					},
+					minzoom: maxZoom - 2
+				});
+			}
+			addPoints(map);
 
 			map.setLight({
 				'anchor': 'viewport',

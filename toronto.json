@@ -71,34 +71,12 @@
 				"text-field": "{LINEAR_NAME_FULL}",
 				"text-transform": "uppercase",
 				"text-rotation-alignment": "map",
-				"text-font": [ "montserrat-semibold" ],
+				"text-font": [ "montserrat-regular" ],
 				"text-letter-spacing": 0.2,
 				"symbol-placement": "line",
 				"symbol-spacing": 250,
 				"text-anchor": "center",
 				"text-size": [ "interpolate", [ "exponential", 1.5 ], [ "zoom" ], 10, 0, 20, 30 ]
-			},
-			"paint": {
-				"text-color": "hsl(0, 0%, 30%)",
-				"text-opacity": [ "interpolate", [ "linear" ], [ "zoom" ], 15, 0, 16, 1 ]
-			},
-			"minzoom": 15
-		},
-		{
-			"id": "propertyboundaries-label",
-			"source": "toronto",
-			"source-layer": "propertyboundaries",
-			"type": "symbol",
-			"filter": ["!in", "ADDRESS_NUMBER", "None"],
-			"layout": {
-				"text-field": "{ADDRESS_NUMBER}\n{LINEAR_NAME_FULL}",
-				"text-transform": "uppercase",
-				"text-rotation-alignment": "viewport",
-				"text-font": [ "montserrat-light" ],
-				"text-letter-spacing": 0.2,
-				"symbol-placement": "point",
-				"text-anchor": "center",
-				"text-size": [ "interpolate", [ "exponential", 1.5 ], [ "zoom" ], 10, 0, 20, 16 ]
 			},
 			"paint": {
 				"text-color": "hsl(0, 0%, 30%)",
