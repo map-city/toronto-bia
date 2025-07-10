@@ -101,18 +101,18 @@
 				}
 			});
 
-			// // Add bia outline
-			// map.addLayer({
-			// 	'id': 'toronto-bia',
-			// 	'source': 'toronto_bia',
-			// 	//"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
-			// 	'type': 'line',
-			// 	'paint': {
-			// 		'line-color': 'hsl(20, 80%, 50%)',
-			// 		'line-width': 3,
-			// 		'line-opacity': 0.8,
-			// 	}
-			// });
+			// Add bia outline
+			map.addLayer({
+				'id': 'toronto-bia',
+				'source': 'toronto_bia',
+				"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
+				'type': 'line',
+				'paint': {
+					'line-color': 'hsl(200, 50%, 50%)',
+					'line-width': 3,
+					'line-opacity': 0.8,
+				}
+			});
 
 			// // Add building outlines
 			// map.addLayer({
