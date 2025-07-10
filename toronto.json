@@ -47,8 +47,9 @@
 			"source-layer": "propertyboundaries",
 			"type": "line",
 			"paint": {
-				"line-color": "hsl(0, 0%, 80%)",
-				"line-width": ["interpolate", ["linear"], ["zoom"], 13, 0.05, 14, 0.1, 16, 1]
+				"line-color": "hsl(0, 0%, 70%)",
+				"line-width": ["interpolate", ["linear"], ["zoom"], 13, 0, 15, 0.2, 16, 1],
+				"line-opacity": ["interpolate", ["linear"], ["zoom"], 14, 0, 15, 1]
 			}
 		},
 		{
@@ -58,7 +59,7 @@
 			"type": "line",
 			"paint": {
 			  "line-color": "hsl(0, 0%, 100%)",
-			  "line-width": ["interpolate", ["linear"], ["zoom"], 15, 0, 16, 2]
+			  "line-width": ["interpolate", ["linear"], ["zoom"], 15, 0, 16, 2.5]
 			},
 			"minzoom": 15
 		},

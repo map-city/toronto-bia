@@ -51,7 +51,7 @@
 			minZoom: minZoom,
 			maxZoom: maxZoom,
 			bearing: 0,
-			pitch: 25,
+			pitch: 0,
 			hash: true
 		});
 
@@ -205,32 +205,32 @@
 			addNeighborhood(map);
 
 			function addPoints(map) {
-				// Add cluster halos
-				map.addLayer({
-					id: 'clusters-halo',
-					type: 'circle',
-					source: 'places',
-					filter: ['has', 'point_count'],
-					paint: {
-						'circle-color': [
-							'step',
-							['get', 'point_count'],
-							'hsl(0, 0%, 100%)',
-							10, 'hsl(0, 0%, 100%)',
-							25, 'hsl(0, 0%, 100%)'
-						],
-						'circle-radius': [
-							'step',
-							['get', 'point_count'],
-							18,
-							10, 22,
-							25, 26
-						],
-						'circle-opacity': 0.6,
-						'circle-stroke-width': 0,
-						'circle-stroke-color': 'hsl(180, 21%, 5%)',
-					}
-				});
+				// // Add cluster halos
+				// map.addLayer({
+				// 	id: 'clusters-halo',
+				// 	type: 'circle',
+				// 	source: 'places',
+				// 	filter: ['has', 'point_count'],
+				// 	paint: {
+				// 		'circle-color': [
+				// 			'step',
+				// 			['get', 'point_count'],
+				// 			'hsl(0, 0%, 100%)',
+				// 			10, 'hsl(0, 0%, 100%)',
+				// 			25, 'hsl(0, 0%, 100%)'
+				// 		],
+				// 		'circle-radius': [
+				// 			'step',
+				// 			['get', 'point_count'],
+				// 			18,
+				// 			10, 22,
+				// 			25, 26
+				// 		],
+				// 		'circle-opacity': 0.6,
+				// 		'circle-stroke-width': 0,
+				// 		'circle-stroke-color': 'hsl(180, 21%, 5%)',
+				// 	}
+				// });
 
 				// Add clusters
 				map.addLayer({
@@ -249,12 +249,12 @@
 						'circle-radius': [
 							'step',
 							['get', 'point_count'],
-							10,
-							10, 12,
-							25, 16
+							12,
+							10, 16,
+							25, 20
 						],
 						'circle-opacity': 1,
-						'circle-stroke-width': 0.5,
+						'circle-stroke-width': 1,
 						'circle-stroke-color': 'hsl(0, 0%, 30%)',
 					}
 				});
@@ -267,7 +267,7 @@
 					filter: ['has', 'point_count'],
 					layout: {
 						'text-field': '{point_count_abbreviated}',
-						'text-font': ['montserrat-regular'],
+						'text-font': ['montserrat-semibold'],
 						'text-size': 14,
 						'text-anchor': 'center',
 						'text-offset': [0, 0.01],
@@ -326,7 +326,7 @@
 						"icon-optional": false
 					},
 					paint: {
-						"icon-opacity": 0.6,
+						"icon-opacity": 1,
 						"icon-color": 'hsl(0, 0%, 0%)',
 					}
 				});
@@ -339,7 +339,7 @@
 					filter: ['!', ['has', 'point_count']],
 					layout: {
 						'text-field': '{name}',
-						'text-font': ['montserrat-regular'],
+						'text-font': ['montserrat-semibold'],
 						'text-size': 10,
 						'text-line-height': 0.9,
 						'text-offset': [0, 1.6],
