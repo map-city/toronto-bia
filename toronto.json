@@ -4,8 +4,8 @@
 	"metadata": {
 		"maputnik:renderer": "mbgljs"
 	},
-	"glyphs": "https://osm-studio.github.io/assets/fonts/{fontstack}/{range}.pbf",
-	"sprite": "https://osm-studio.github.io/assets/sprites/sprites",
+	"glyphs": "https://mapcity.io/toronto-bia/assets/fonts/{fontstack}/{range}.pbf",
+	"sprite": "https://mapcity.io/toronto-bia/assets/sprites/sprites",
 	"sources": {
 		"osm": {
 			"type": "vector",
