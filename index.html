@@ -28,8 +28,8 @@
 
 <body>
 	<div id="map-container">
-		<div id="actionOverlay"></div>
 		<div id="map"></div>
+		<!--<div id="actionOverlay"></div>-->
 		<!--<div id="map-toggle"><i class="fas fa-up-right-and-down-left-from-center"></i></div>-->
 	</div>
 
@@ -37,7 +37,7 @@
 
 		const locationFile = 'data/directory/downtownwest.geojson';
 		const featureIds = ['concat', ['get', 'name'], '|'];
-		const minZoom = 14;
+		const minZoom = 15;
 		const maxZoom = 18;
 		let locationData;
 		let currentPopup = null;
@@ -47,7 +47,7 @@
 			style: 'toronto.json',
 			center: [-79.3915, 43.64428],
 			pixelRatio: 1,
-			zoom: 15,
+			zoom: 16,
 			minZoom: minZoom,
 			maxZoom: maxZoom,
 			bearing: -16,
@@ -102,19 +102,19 @@
 			});
 
 			function addBuilding(map) {
-				// // Add building outlines
-				// map.addLayer({
-				// 	'id': 'buildings-outline',
-				// 	'source': 'toronto_buildings',
-				// 	'source-layer': 'toronto_buildings',
-				// 	'type': 'line',
-				// 	'paint': {
-				// 		'line-color': 'hsl(0, 0%, 100%)',
-				// 		'line-width': 1.5,
-				// 		'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
-				// 	},
-				// 	'minzoom': 18
-				// });
+				// Add building outlines
+				map.addLayer({
+					'id': 'buildings-outline',
+					'source': 'toronto_buildings',
+					'source-layer': 'toronto_buildings',
+					'type': 'line',
+					'paint': {
+						'line-color': 'hsl(0, 0%, 100%)',
+						'line-width': 1.5,
+						'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
+					},
+					'minzoom': 18
+				});
 
 				// Add 3d buildings
 				map.addLayer({
@@ -123,7 +123,7 @@
 					'source-layer': 'toronto_buildings',
 					'type': 'fill-extrusion',
 					'paint': {
-						'fill-extrusion-color': 'hsl(0, 0%, 100%)', // white
+						'fill-extrusion-color': 'hsl(0, 0%, 100%)',
 						'fill-extrusion-height': [
 							'case',
 							['!=', ['get', 'max_height'], null], ['get', 'max_height'],
@@ -131,26 +131,27 @@
 							10
 						],
 						'fill-extrusion-base': 0,
-						'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.5, 17, 0.5, 18, 0]
+						'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.4, 17, 0.4, 18, 0]
 					},
 					'minzoom': 15
 				});
 			}
-			addBuilding(map);
+			//addBuilding(map);
 
 			function addBia(map) {
-				// // Add bia fill
-				// map.addLayer({
-				// 	'id': 'toronto-bia-fill',
-				// 	'source': 'toronto_bia',
-				// 	'type': 'fill',
-				// 	'paint': {
-				// 		'fill-color': 'hsl(200, 50%, 50%)',
-				// 		'fill-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0.2, 16, 0]
-				// 	},
-				// 	"minzoom": 10,
-				// 	"maxzoom": 16
-				// });
+				// Add bia fill
+				map.addLayer({
+					'id': 'toronto-bia-fill',
+					'source': 'toronto_bia',
+					"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
+					'type': 'fill',
+					'paint': {
+						'fill-color': 'hsl(200, 50%, 50%)',
+						'fill-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0.2, 16, 0]
+					},
+					"minzoom": 15,
+					"maxzoom": 16
+				});
 
 				// Add bia outline
 				map.addLayer({
@@ -165,87 +166,32 @@
 					}
 				});
 
-				// Add bia labels
-				map.addLayer({
-					id: 'toronto-bia-label',
-					type: 'symbol',
-					source: 'toronto_bia',
-					filter: ["in", "AREA_NAME", "Toronto Downtown West"],
-					layout: {
-						'text-field': ['get', 'area_name'],
-						'text-size': ['interpolate', ['exponential', 1.1], ['zoom'], 10, 0, 18, 40],
-						'text-font': ['montserrat-semibold'],
-						'text-max-width': 4,
-						'text-line-height': 1,
-						'text-allow-overlap': true,
-						'text-ignore-placement': true,
-						'text-rotation-alignment': 'viewport',
-						'text-pitch-alignment': 'viewport'
-					},
-					paint: {
-						'text-color': 'hsl(0, 0%, 0%)',
-						'text-opacity': 1
-					}
-				});
+				// // Add bia label
+				// map.addLayer({
+				// 	id: 'toronto-bia-label',
+				// 	type: 'symbol',
+				// 	source: 'toronto_bia',
+				// 	filter: ["in", "AREA_NAME", "Toronto Downtown West"],
+				// 	layout: {
+				// 		'text-field': ['get', 'AREA_NAME'],
+				// 		'text-size': ['interpolate', ['exponential', 1.1], ['zoom'], 10, 0, 18, 40],
+				// 		'text-font': ['montserrat-regular'],
+				// 		'text-max-width': 4,
+				// 		'text-line-height': 1,
+				// 		'text-allow-overlap': true,
+				// 		'text-ignore-placement': true,
+				// 		'text-rotation-alignment': 'viewport',
+				// 		'text-pitch-alignment': 'viewport',
+				// 		'symbol-placement': 'point'
+				// 	},
+				// 	paint: {
+				// 		'text-color': 'hsl(0, 0%, 0%)',
+				// 		'text-opacity': 1
+				// 	}
+				// });
 
 			}
 			addBia(map);
-
-			function addNeighborhood(map) {
-				// Add neighborhood fill
-				map.addLayer({
-					'id': 'neighborhoods-fill',
-					'source': 'toronto_neighborhoods',
-					'source-layer': 'toronto_neighborhoods',
-					'type': 'fill',
-					'paint': {
-						'fill-color': 'hsl(0, 0%, 100%)',
-						'fill-opacity': ['interpolate', ['linear'], ['zoom'], 13, 0.4, 14, 0]
-					},
-					"minzoom": 10,
-					"maxzoom": 14
-				});
-
-				// Add neighborhood outline
-				map.addLayer({
-					'id': 'neighborhoods-outline',
-					'source': 'toronto_neighborhoods',
-					'source-layer': 'toronto_neighborhoods',
-					'type': 'line',
-					'paint': {
-						'line-color': 'hsl(0, 0%, 80%)',
-						'line-width': ['interpolate', ['exponential', 1.5], ['zoom'], 11, 1, 18, 20],
-						'line-opacity': ['interpolate', ['linear'], ['zoom'], 13, 0.8, 14, 0]
-					},
-					"minzoom": 10,
-					"maxzoom": 14
-				});
-
-				// Add neighborhood labels
-				map.addLayer({
-					id: 'neighborhoods-label',
-					type: 'symbol',
-					source: 'toronto_neighborhoods_centroids',
-					layout: {
-						'text-field': ['get', 'area_name'],
-						'text-size': ['interpolate', ['exponential', 1.1], ['zoom'], 10, 1, 18, 40],
-						'text-font': ['montserrat-semibold'],
-						'text-max-width': 5,
-						'text-line-height': 1,
-						'text-allow-overlap': true,
-						'text-ignore-placement': true,
-						'text-rotation-alignment': 'viewport',
-						'text-pitch-alignment': 'viewport'
-					},
-					paint: {
-						'text-color': 'hsl(0, 0%, 70%)',
-						'text-opacity': ['interpolate', ['linear'], ['zoom'], 10, 0, 11, 1, 13, 1, 14, 0]
-					},
-					"minzoom": 10,
-					"maxzoom": 14
-				});
-			}
-			//addNeighborhood(map);
 
 			function addPoints(map) {
 				// // Add cluster halos
@@ -382,10 +328,10 @@
 					filter: ['!', ['has', 'point_count']],
 					layout: {
 						'text-field': '{name}',
-						'text-font': ['montserrat-semibold'],
-						'text-size': 10,
+						'text-font': ['montserrat-regular'],
+						'text-size': 12,
 						'text-line-height': 0.9,
-						'text-offset': [0, 1.6],
+						'text-offset': [0, 1],
 						'text-anchor': 'top'
 					},
 					paint: {
@@ -405,11 +351,6 @@
 				'intensity': 0.5,
 				'position': [1.15, 210, 20]
 			});
-
-			// Force it above all others
-			const allLayerIds = map.getStyle().layers.map(l => l.id);
-			const topLayerId = allLayerIds[allLayerIds.length - 1];
-			map.moveLayer('toronto-bia-label', topLayerId);
 
 			// Add pointer cursor for both points and clusters on hover
 			map.on('mouseenter', ['points-halo', 'clusters-halo'], () => {
