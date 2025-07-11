@@ -306,7 +306,7 @@
 					source: 'places',
 					filter: ['!', ['has', 'point_count']],
 					layout: {
-						"icon-size": 0.5,
+						"icon-size": 0.6,
 						"symbol-placement": "point",
 						"icon-image": ["match", ["get", "business_type"],
 							"restaurants", "restaurant",
@@ -324,8 +324,8 @@
 							"marker"
 						],
 						"icon-anchor": "center",
-						"icon-allow-overlap": false,
-						"icon-ignore-placement": false,
+						"icon-allow-overlap": true,
+						"icon-ignore-placement": true,
 						"icon-optional": false
 					},
 					paint: {
