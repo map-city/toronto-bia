@@ -306,10 +306,10 @@
 					source: 'places',
 					filter: ['!', ['has', 'point_count']],
 					layout: {
-						"icon-size": 0.6,
+						"icon-size": 0.5,
 						"symbol-placement": "point",
 						"icon-image": ["match", ["get", "business_type"],
-							"restaurants", "restaurant",
+							"restaurants", "restaurant-seafood",
 							"retail", "shop",
 							"services", "town-hall",
 							"quick-serve", "fast-food",
@@ -330,7 +330,7 @@
 					},
 					paint: {
 						"icon-opacity": 1,
-						"icon-color": 'hsl(0, 0%, 0%)',
+						"icon-color": 'hsl(0, 0%, 30%)',
 					}
 				});
 
