@@ -164,6 +164,30 @@
 						'line-opacity': 0.8,
 					}
 				});
+
+				// Add bia labels
+				map.addLayer({
+					id: 'toronto-bia-label',
+					type: 'symbol',
+					source: 'toronto_bia',
+					filter: ["in", "AREA_NAME", "Toronto Downtown West"],
+					layout: {
+						'text-field': ['get', 'area_name'],
+						'text-size': ['interpolate', ['exponential', 1.1], ['zoom'], 10, 0, 18, 40],
+						'text-font': ['montserrat-semibold'],
+						'text-max-width': 4,
+						'text-line-height': 1,
+						'text-allow-overlap': true,
+						'text-ignore-placement': true,
+						'text-rotation-alignment': 'viewport',
+						'text-pitch-alignment': 'viewport'
+					},
+					paint: {
+						'text-color': 'hsl(0, 0%, 0%)',
+						'text-opacity': 1
+					}
+				});
+
 			}
 			addBia(map);
 
@@ -381,6 +405,11 @@
 				'intensity': 0.5,
 				'position': [1.15, 210, 20]
 			});
+
+			// Force it above all others
+			const allLayerIds = map.getStyle().layers.map(l => l.id);
+			const topLayerId = allLayerIds[allLayerIds.length - 1];
+			map.moveLayer('toronto-bia-label', topLayerId);
 
 			// Add pointer cursor for both points and clusters on hover
 			map.on('mouseenter', ['points-halo', 'clusters-halo'], () => {
