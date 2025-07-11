@@ -37,7 +37,7 @@
 
 		const locationFile = 'data/directory/downtownwest.geojson';
 		const featureIds = ['concat', ['get', 'name'], '|'];
-		const minZoom = 10;
+		const minZoom = 14;
 		const maxZoom = 18;
 		let locationData;
 		let currentPopup = null;
@@ -45,12 +45,12 @@
 		var map = new maplibregl.Map({
 			container: 'map',
 			style: 'toronto.json',
-			center: [-79.39778, 43.646763],
+			center: [-79.3915, 43.64428],
 			pixelRatio: 1,
 			zoom: 15,
 			minZoom: minZoom,
 			maxZoom: maxZoom,
-			bearing: 0,
+			bearing: -16,
 			pitch: 0,
 			hash: true
 		});
@@ -101,52 +101,71 @@
 				}
 			});
 
-			// Add bia outline
-			map.addLayer({
-				'id': 'toronto-bia',
-				'source': 'toronto_bia',
-				"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
-				'type': 'line',
-				'paint': {
-					'line-color': 'hsl(200, 50%, 50%)',
-					'line-width': 3,
-					'line-opacity': 0.8,
-				}
-			});
+			function addBuilding(map) {
+				// // Add building outlines
+				// map.addLayer({
+				// 	'id': 'buildings-outline',
+				// 	'source': 'toronto_buildings',
+				// 	'source-layer': 'toronto_buildings',
+				// 	'type': 'line',
+				// 	'paint': {
+				// 		'line-color': 'hsl(0, 0%, 100%)',
+				// 		'line-width': 1.5,
+				// 		'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
+				// 	},
+				// 	'minzoom': 18
+				// });
 
-			// // Add building outlines
-			// map.addLayer({
-			// 	'id': 'buildings-outline',
-			// 	'source': 'toronto_buildings',
-			// 	'source-layer': 'toronto_buildings',
-			// 	'type': 'line',
-			// 	'paint': {
-			// 		'line-color': 'hsl(0, 0%, 100%)',
-			// 		'line-width': 1.5,
-			// 		'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
-			// 	},
-			// 	'minzoom': 18
-			// });
+				// Add 3d buildings
+				map.addLayer({
+					'id': 'buildings',
+					'source': 'toronto_buildings',
+					'source-layer': 'toronto_buildings',
+					'type': 'fill-extrusion',
+					'paint': {
+						'fill-extrusion-color': 'hsl(0, 0%, 100%)', // white
+						'fill-extrusion-height': [
+							'case',
+							['!=', ['get', 'max_height'], null], ['get', 'max_height'],
+							['!=', ['get', 'avg_height'], null], ['get', 'avg_height'],
+							10
+						],
+						'fill-extrusion-base': 0,
+						'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.5, 17, 0.5, 18, 0]
+					},
+					'minzoom': 15
+				});
+			}
+			addBuilding(map);
 
-			// Add 3d buildings
-			map.addLayer({
-				'id': 'buildings',
-				'source': 'toronto_buildings',
-				'source-layer': 'toronto_buildings',
-				'type': 'fill-extrusion',
-				'paint': {
-					'fill-extrusion-color': 'hsl(0, 0%, 100%)', // white
-					'fill-extrusion-height': [
-						'case',
-						['!=', ['get', 'max_height'], null], ['get', 'max_height'],
-						['!=', ['get', 'avg_height'], null], ['get', 'avg_height'],
-						10
-					],
-					'fill-extrusion-base': 0,
-					'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.5, 17, 0.5, 18, 0]
-				},
-				'minzoom': 15
-			});
+			function addBia(map) {
+				// // Add bia fill
+				// map.addLayer({
+				// 	'id': 'toronto-bia-fill',
+				// 	'source': 'toronto_bia',
+				// 	'type': 'fill',
+				// 	'paint': {
+				// 		'fill-color': 'hsl(200, 50%, 50%)',
+				// 		'fill-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0.2, 16, 0]
+				// 	},
+				// 	"minzoom": 10,
+				// 	"maxzoom": 16
+				// });
+
+				// Add bia outline
+				map.addLayer({
+					'id': 'toronto-bia',
+					'source': 'toronto_bia',
+					"filter": ["in", "AREA_NAME", "Toronto Downtown West"],
+					'type': 'line',
+					'paint': {
+						'line-color': 'hsl(200, 50%, 50%)',
+						'line-width': 2,
+						'line-opacity': 0.8,
+					}
+				});
+			}
+			addBia(map);
 
 			function addNeighborhood(map) {
 				// Add neighborhood fill
@@ -202,7 +221,7 @@
 					"maxzoom": 14
 				});
 			}
-			addNeighborhood(map);
+			//addNeighborhood(map);
 
 			function addPoints(map) {
 				// // Add cluster halos
@@ -468,71 +487,71 @@
 	</script>
 
 	<script>
-		// animation
-		const zoomIncrement = -0.002;
-		const rotateIncrement = 0.1;
-		const latIncrement = 0.000005;
-		const frameInterval = 1000;
-		let frameCounter = 1;
-		let sceneCounter = 1;
-		let actionIndex = Math.floor(Math.random() * 3);
+		// // animation
+		// const zoomIncrement = -0.002;
+		// const rotateIncrement = 0.1;
+		// const latIncrement = 0.000005;
+		// const frameInterval = 1000;
+		// let frameCounter = 1;
+		// let sceneCounter = 1;
+		// let actionIndex = Math.floor(Math.random() * 3);
 
-		// pan, zoom, rotate
-		function cycleActions() {
-			switch (actionIndex) {
-				case 0:
-					// Rotate the camera
-					const currentBearing = map.getBearing();
-					map.rotateTo(currentBearing + rotateIncrement, { duration: 0 });
-					break;
-				case 1:
-					// Zoom the camera
-					const currentZoom = map.getZoom();
-					map.setZoom(currentZoom + zoomIncrement, { duration: 0 });
-					break;
-				case 2:
-					// Pan the camera
-					const currentCenter = map.getCenter();
-					map.setCenter([currentCenter.lng, currentCenter.lat + latIncrement], { duration: 0 });
-					break;
-			}
+		// // pan, zoom, rotate
+		// function cycleActions() {
+		// 	switch (actionIndex) {
+		// 		case 0:
+		// 			// Rotate the camera
+		// 			const currentBearing = map.getBearing();
+		// 			map.rotateTo(currentBearing + rotateIncrement, { duration: 0 });
+		// 			break;
+		// 		case 1:
+		// 			// Zoom the camera
+		// 			const currentZoom = map.getZoom();
+		// 			map.setZoom(currentZoom + zoomIncrement, { duration: 0 });
+		// 			break;
+		// 		case 2:
+		// 			// Pan the camera
+		// 			const currentCenter = map.getCenter();
+		// 			map.setCenter([currentCenter.lng, currentCenter.lat + latIncrement], { duration: 0 });
+		// 			break;
+		// 	}
 
-		}
+		// }
 
-		// animate function
-		function animateFrame() {
-			map.once('idle', () => {
-				const canvas = map.getCanvas();
-				const paddedFrameCounter = String(frameCounter).padStart(4, '0');
-				canvas.toBlob(function (blob) {
-					const url = URL.createObjectURL(blob);
-					const a = document.createElement('a');
-					a.href = url;
-					a.download = `frame_${paddedFrameCounter}.png`;
-					document.body.appendChild(a);
-					a.click();
-					document.body.removeChild(a);
-					URL.revokeObjectURL(url);
-				}, 'image/png');
-			});
-			actionIndex = 2; //rotate = 0, zoom = 1, pan = 2
-			cycleActions();
-			frameCounter++;
-		}
+		// // animate function
+		// function animateFrame() {
+		// 	map.once('idle', () => {
+		// 		const canvas = map.getCanvas();
+		// 		const paddedFrameCounter = String(frameCounter).padStart(4, '0');
+		// 		canvas.toBlob(function (blob) {
+		// 			const url = URL.createObjectURL(blob);
+		// 			const a = document.createElement('a');
+		// 			a.href = url;
+		// 			a.download = `frame_${paddedFrameCounter}.png`;
+		// 			document.body.appendChild(a);
+		// 			a.click();
+		// 			document.body.removeChild(a);
+		// 			URL.revokeObjectURL(url);
+		// 		}, 'image/png');
+		// 	});
+		// 	actionIndex = 2; //rotate = 0, zoom = 1, pan = 2
+		// 	cycleActions();
+		// 	frameCounter++;
+		// }
 
-		// animate button
-		let intervalId = null;
-		document.getElementById('actionOverlay').addEventListener('click', () => {
-			if (intervalId) {
-				clearInterval(intervalId);
-				intervalId = null;
-				let frameCounter = 1;
-				console.log("Animation stopped");
-			} else {
-				intervalId = setInterval(animateFrame, frameInterval);
-				console.log("Animation started");
-			}
-		});
+		// // animate button
+		// let intervalId = null;
+		// document.getElementById('actionOverlay').addEventListener('click', () => {
+		// 	if (intervalId) {
+		// 		clearInterval(intervalId);
+		// 		intervalId = null;
+		// 		let frameCounter = 1;
+		// 		console.log("Animation stopped");
+		// 	} else {
+		// 		intervalId = setInterval(animateFrame, frameInterval);
+		// 		console.log("Animation started");
+		// 	}
+		// });
 	</script>
 </body>
 

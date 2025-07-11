@@ -32,13 +32,13 @@
 			"paint": {
 			  "fill-color": [
 					"case",
-					["in", ["get", "FEATURE_TYPE"], "CONDO"], "hsl(24, 32%, 84%)",
+					["in", ["get", "FEATURE_TYPE"], "CONDO"], "hsl(24, 32%, 80%)",
 					["in", ["get", "FEATURE_TYPE"], "CORRIDOR"], "hsl(210, 20%, 90%)",
-					["in", ["get", "FEATURE_TYPE"], "RESERVE"], "hsl(24, 32%, 88%)",
-					["in", ["get", "FEATURE_TYPE"], "COMMON"], "hsl(24, 32%, 92%)",
+					["in", ["get", "FEATURE_TYPE"], "RESERVE"], "hsl(24, 32%, 85%)",
+					["in", ["get", "FEATURE_TYPE"], "COMMON"], "hsl(24, 32%, 95%)",
 					"hsl(0, 0%, 95%)"
 				],
-			  "fill-opacity": 1
+			  "fill-opacity": ["interpolate", ["linear"], ["zoom"], 15, 0, 16, 1]
 			}
 		},
 		{
@@ -47,9 +47,9 @@
 			"source-layer": "propertyboundaries",
 			"type": "line",
 			"paint": {
-				"line-color": "hsl(0, 0%, 70%)",
-				"line-width": ["interpolate", ["linear"], ["zoom"], 13, 0, 15, 0.2, 16, 1],
-				"line-opacity": ["interpolate", ["linear"], ["zoom"], 14, 0, 15, 1]
+				"line-color": "hsl(0, 0%, 60%)",
+				"line-width": ["interpolate", ["linear"], ["zoom"], 13, 0, 15, 0.2, 16, 2],
+				"line-opacity": ["interpolate", ["linear"], ["zoom"], 15, 0, 16, 1]
 			}
 		},
 		{
@@ -59,9 +59,9 @@
 			"type": "line",
 			"paint": {
 			  "line-color": "hsl(0, 0%, 100%)",
-			  "line-width": ["interpolate", ["linear"], ["zoom"], 15, 0, 16, 2.5]
+			  "line-width": ["interpolate", ["linear"], ["zoom"], 15, 0, 16, 2]
 			},
-			"minzoom": 15
+			"minzoom": 14
 		},
 		{
 			"id": "roads-label",
