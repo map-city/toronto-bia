@@ -376,106 +376,158 @@
 				map.getCanvas().style.cursor = '';
 			});
 
-// Initial empty GeoJSON source
-map.addSource('animated-places', {
-	type: 'geojson',
-	data: {
-		type: 'FeatureCollection',
-		features: []
-	}
-});
+			// Initial empty GeoJSON source
+			map.addSource('animated-places', {
+				type: 'geojson',
+				data: {
+					type: 'FeatureCollection',
+					features: []
+				}
+			});
 
-map.addLayer({
-	id: 'animated-places',
-	type: 'symbol',
-	source: 'animated-places',
-	layout: {
-		"icon-image": ["match", ["get", "business_type"],
-			"restaurants", "restaurant",
-			"retail", "shop",
-			"services", "town-hall",
-			"quick-serve", "fast-food",
-			"night-clubs-entertainment-venues", "bar",
-			"accommodations", "lodging",
-			"bakery", "bakery",
-			"pubs-bars", "bar",
-			"attractions", "monument",
-			"grocery", "grocery",
-			"bar", "bar",
-			"comedy", "theatre",
-			"marker"
-		],
-		"icon-anchor": "center",
-		"icon-allow-overlap": true,
-		"icon-ignore-placement": true,
-		"icon-optional": false,
-		"symbol-placement": "point",
-		"icon-size": [
-			"interpolate",
-			["linear"],
-			["get", "frame"],
-			0, 2,        // Start large
-			10, 1        // End at normal size after 10 frames
-		]
-	},
-	paint: {
-		"icon-opacity": 1,
-		"icon-color": 'hsl(0, 0%, 30%)'
-	}
-});
+			map.addLayer({
+				id: 'points',
+				type: 'circle',
+				source: 'animated-places',
+				filter: ['!', ['has', 'point_count']],
+				paint: {
+					'circle-radius': [
+						'interpolate',
+						['linear'],
+						['get', 'frame'],
+						0, 35,
+						50, 5
+					],
+					//'circle-color': categoryColor,
+					'circle-color': 'hsl(0, 80%, 60%)',
+					'circle-opacity': 1,
+					'circle-stroke-width': 0,
+					'circle-stroke-color': 'hsla(0, 0%, 100%, 0)'
+				}
+			});
 
-// Full feature set
-const allFeatures = locationData;
+			map.addLayer({
+				id: 'animated-places',
+				type: 'symbol',
+				source: 'animated-places',
+				filter: ['!', ['has', 'point_count']],
+				layout: {
+					"icon-image": ["match", ["get", "business_type"],
+						"restaurants", "restaurant",
+						"retail", "shop",
+						"services", "town-hall",
+						"quick-serve", "fast-food",
+						"night-clubs-entertainment-venues", "bar",
+						"accommodations", "lodging",
+						"bakery", "bakery",
+						"pubs-bars", "bar",
+						"attractions", "monument",
+						"grocery", "grocery",
+						"bar", "bar",
+						"comedy", "theatre",
+						"marker"
+					],
+					"icon-anchor": "center",
+					"icon-allow-overlap": true,
+					"icon-ignore-placement": true,
+					"icon-optional": false,
+					"symbol-placement": "point",
+					"icon-size": [
+						"interpolate",
+						["linear"],
+						["get", "frame"],
+						0, 2,
+						50, 0
+					]
+				},
+				paint: {
+					"icon-opacity": 1,
+					"icon-color": 'hsl(0, 0%, 100%)'
+				}
+			});
 
-// Sort features by name once
-const sortedFeatures = [...allFeatures].sort((a, b) => {
-	const nameA = a.properties.name?.toLowerCase() || '';
-	const nameB = b.properties.name?.toLowerCase() || '';
-	return nameA.localeCompare(nameB);
-});
+			// Add point labels
+			map.addLayer({
+				id: 'points-labels',
+				type: 'symbol',
+				source: 'animated-places',
+				filter: ['!', ['has', 'point_count']],
+				layout: {
+					'text-field': '{name}',
+					'text-font': ['montserrat-regular'],
+					'text-size': [
+						"interpolate",
+						["linear"],
+						["get", "frame"],
+						0, 20,
+						50, 12
+					],
+					'text-line-height': 0.9,
+					'text-offset': [0, 1],
+					'text-anchor': 'top'
+				},
+				paint: {
+					//'text-color': categoryColor,
+					'text-color': 'hsla(0, 0%, 30%)',
+					'text-halo-color': 'hsla(0, 0%, 100%, 0.5)',
+					'text-halo-width': 0
+				},
+				minzoom: maxZoom - 2
+			});
 
-// Animation setup
-let currentIndex = 0;
-const frameLimit = 10;
-const interval = 10; // ms between adding new features
-const animatedFeatures = [];
 
-// Interval loop
-const updateInterval = setInterval(() => {
-	// Add next feature with frame = 0
-	if (currentIndex < sortedFeatures.length) {
-		const next = {
-			...sortedFeatures[currentIndex],
-			properties: {
-				...sortedFeatures[currentIndex].properties,
-				frame: 0
-			}
-		};
-		animatedFeatures.push(next);
-		currentIndex++;
-	}
+			// Full feature set
+			const allFeatures = locationData;
 
-	// Increment all frames (capped)
-	for (const feature of animatedFeatures) {
-		if (feature.properties.frame < frameLimit) {
-			feature.properties.frame++;
-		}
-	}
+			// Sort features by name once
+			const sortedFeatures = [...allFeatures].sort((a, b) => {
+				const nameA = a.properties.name?.toLowerCase() || '';
+				const nameB = b.properties.name?.toLowerCase() || '';
+				return nameA.localeCompare(nameB);
+			});
 
-	// Update source
-	map.getSource('animated-places').setData({
-		type: 'FeatureCollection',
-		features: animatedFeatures
-	});
+			// Animation setup
+			let currentIndex = 0;
+			const frameLimit = 50;
+			const interval = 10;
+			const animatedFeatures = [];
 
-	// Stop when all features are done animating
-	const done = currentIndex >= sortedFeatures.length &&
-		animatedFeatures.every(f => f.properties.frame >= frameLimit);
+			// Interval loop
+			const updateInterval = setInterval(() => {
+				// Add next feature with frame = 0
+				if (currentIndex < sortedFeatures.length) {
+					const next = {
+						...sortedFeatures[currentIndex],
+						properties: {
+							...sortedFeatures[currentIndex].properties,
+							frame: 0
+						}
+					};
+					animatedFeatures.push(next);
+					currentIndex++;
+				}
 
-	if (done) {
-		clearInterval(updateInterval);
-	}
-});
+				// Increment all frames (capped)
+				for (const feature of animatedFeatures) {
+					if (feature.properties.frame < frameLimit) {
+						feature.properties.frame++;
+					}
+				}
+
+				// Update source
+				map.getSource('animated-places').setData({
+					type: 'FeatureCollection',
+					features: animatedFeatures
+				});
+
+				// Stop when all features are done animating
+				const done = currentIndex >= sortedFeatures.length &&
+					animatedFeatures.every(f => f.properties.frame >= frameLimit);
+
+				if (done) {
+					clearInterval(updateInterval);
+				}
+			});
 
 
 		});
@@ -517,7 +569,7 @@ const updateInterval = setInterval(() => {
 
 		// });
 
-		// Define your color map
+		// Define color maps
 		const colorsSpectral = {
 			accommodations: "hsl(338, 86%, 34%)", // #9e0142
 			attractions: "hsl(352, 65%, 55%)",    // #d53e4f
