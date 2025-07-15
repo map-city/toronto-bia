@@ -396,7 +396,7 @@
 						['linear'],
 						['get', 'frame'],
 						0, 35,
-						50, 5
+						10, 5
 					],
 					//'circle-color': categoryColor,
 					'circle-color': 'hsl(0, 80%, 60%)',
@@ -437,7 +437,7 @@
 						["linear"],
 						["get", "frame"],
 						0, 2,
-						50, 0
+						10, 0
 					]
 				},
 				paint: {
@@ -446,34 +446,34 @@
 				}
 			});
 
-			// Add point labels
-			map.addLayer({
-				id: 'points-labels',
-				type: 'symbol',
-				source: 'animated-places',
-				filter: ['!', ['has', 'point_count']],
-				layout: {
-					'text-field': '{name}',
-					'text-font': ['montserrat-regular'],
-					'text-size': [
-						"interpolate",
-						["linear"],
-						["get", "frame"],
-						0, 20,
-						50, 12
-					],
-					'text-line-height': 0.9,
-					'text-offset': [0, 1],
-					'text-anchor': 'top'
-				},
-				paint: {
-					//'text-color': categoryColor,
-					'text-color': 'hsla(0, 0%, 30%)',
-					'text-halo-color': 'hsla(0, 0%, 100%, 0.5)',
-					'text-halo-width': 0
-				},
-				minzoom: maxZoom - 2
-			});
+			// // Add point labels
+			// map.addLayer({
+			// 	id: 'points-labels',
+			// 	type: 'symbol',
+			// 	source: 'animated-places',
+			// 	filter: ['!', ['has', 'point_count']],
+			// 	layout: {
+			// 		'text-field': '{name}',
+			// 		'text-font': ['montserrat-regular'],
+			// 		'text-size': [
+			// 			"interpolate",
+			// 			["linear"],
+			// 			["get", "frame"],
+			// 			0, 20,
+			// 			10, 12
+			// 		],
+			// 		'text-line-height': 0.9,
+			// 		'text-offset': [0, 1],
+			// 		'text-anchor': 'top'
+			// 	},
+			// 	paint: {
+			// 		//'text-color': categoryColor,
+			// 		'text-color': 'hsla(0, 0%, 30%)',
+			// 		'text-halo-color': 'hsla(0, 0%, 100%, 0.5)',
+			// 		'text-halo-width': 0
+			// 	},
+			// 	minzoom: maxZoom - 2
+			// });
 
 
 			// Full feature set
@@ -488,8 +488,8 @@
 
 			// Animation setup
 			let currentIndex = 0;
-			const frameLimit = 50;
-			const interval = 10;
+			const frameLimit = 10;
+			const interval = 100;
 			const animatedFeatures = [];
 
 			// Interval loop
