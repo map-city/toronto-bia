@@ -395,8 +395,8 @@
 						'interpolate',
 						['linear'],
 						['get', 'frame'],
-						0, 35,
-						50, 5
+						0, 30,
+						10, 5
 					],
 					//'circle-color': categoryColor,
 					'circle-color': 'hsl(0, 80%, 60%)',
@@ -436,8 +436,8 @@
 						"interpolate",
 						["linear"],
 						["get", "frame"],
-						0, 2,
-						50, 0
+						0, 1.4,
+						10, 0
 					]
 				},
 				paint: {
@@ -474,61 +474,92 @@
 			// 	},
 			// 	minzoom: maxZoom - 2
 			// });
+			// === Choose one block below to define sortedFeatures ===
 
+			// --- Option A: Animate markers individually (one at a time)
+			// const sortedFeatures = [...locationData].sort((a, b) => {
+			// 	const nameA = a.properties.name?.toLowerCase() || '';
+			// 	const nameB = b.properties.name?.toLowerCase() || '';
+			// 	return nameA.localeCompare(nameB);
+			// });
 
-			// Full feature set
-			const allFeatures = locationData;
+			// --- Option B: Animate by business_type groups (one group per tick)
+			const groups = {};
 
-			// Sort features by name once
-			const sortedFeatures = [...allFeatures].sort((a, b) => {
-				const nameA = a.properties.name?.toLowerCase() || '';
-				const nameB = b.properties.name?.toLowerCase() || '';
-				return nameA.localeCompare(nameB);
-			});
+			for (const feature of locationData) {
+				const type = feature.properties.business_type || 'unknown';
+				if (!groups[type]) groups[type] = [];
+				groups[type].push(feature);
+			}
 
-			// Animation setup
+			const sortedFeatures = Object.entries(groups)
+				.sort((a, b) => a[0].localeCompare(b[0])) // optional: alphabetical by type
+				.map(([_, features]) =>
+					features.sort((a, b) => {
+						const nameA = a.properties.name?.toLowerCase() || '';
+						const nameB = b.properties.name?.toLowerCase() || '';
+						return nameA.localeCompare(nameB);
+					})
+				);
+
+			// === Animation setup ===
 			let currentIndex = 0;
-			const frameLimit = 50;
-			const interval = 100;
+			const frameLimit = 10;
+			const interval = 300;
 			const animatedFeatures = [];
 
-			// Interval loop
+			// === Interval animation loop ===
 			const updateInterval = setInterval(() => {
-				// Add next feature with frame = 0
+				// Add next feature or group of features
 				if (currentIndex < sortedFeatures.length) {
-					const next = {
-						...sortedFeatures[currentIndex],
-						properties: {
-							...sortedFeatures[currentIndex].properties,
-							frame: 0
+					const next = sortedFeatures[currentIndex];
+
+					if (Array.isArray(next)) {
+						// Grouped mode: add whole group at once
+						for (const feature of next) {
+							animatedFeatures.push({
+								...feature,
+								properties: {
+									...feature.properties,
+									frame: 0
+								}
+							});
 						}
-					};
-					animatedFeatures.push(next);
+					} else {
+						// Individual mode: add one feature
+						animatedFeatures.push({
+							...next,
+							properties: {
+								...next.properties,
+								frame: 0
+							}
+						});
+					}
+
 					currentIndex++;
 				}
 
-				// Increment all frames (capped)
+				// Increment animation frame counters
 				for (const feature of animatedFeatures) {
 					if (feature.properties.frame < frameLimit) {
 						feature.properties.frame++;
 					}
 				}
 
-				// Update source
+				// Update GeoJSON source
 				map.getSource('animated-places').setData({
 					type: 'FeatureCollection',
 					features: animatedFeatures
 				});
 
-				// Stop when all features are done animating
+				// Stop when all features have finished animating
 				const done = currentIndex >= sortedFeatures.length &&
 					animatedFeatures.every(f => f.properties.frame >= frameLimit);
 
 				if (done) {
 					clearInterval(updateInterval);
 				}
-			});
-
+			}, interval);
 
 		});
 
