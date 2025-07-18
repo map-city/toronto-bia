@@ -46,7 +46,7 @@
 			container: 'map',
 			style: 'toronto.json',
 			center: [-79.3915, 43.64428],
-			pixelRatio: 2,
+			pixelRatio: 1,
 			zoom: 16,
 			minZoom: minZoom,
 			maxZoom: maxZoom,
@@ -460,7 +460,7 @@
 			// 			["linear"],
 			// 			["get", "frame"],
 			// 			0, 20,
-			// 			50, 12
+			// 			10, 12
 			// 		],
 			// 		'text-line-height': 0.9,
 			// 		'text-offset': [0, 1],
@@ -477,35 +477,34 @@
 			// === Choose one block below to define sortedFeatures ===
 
 			// --- Option A: Animate markers individually (one at a time)
-			// const sortedFeatures = [...locationData].sort((a, b) => {
-			// 	const nameA = a.properties.name?.toLowerCase() || '';
-			// 	const nameB = b.properties.name?.toLowerCase() || '';
-			// 	return nameA.localeCompare(nameB);
-			// });
+			const sortedFeatures = [...locationData].sort((a, b) => {
+				const nameA = a.properties.name?.toLowerCase() || '';
+				const nameB = b.properties.name?.toLowerCase() || '';
+				return nameA.localeCompare(nameB);
+			});
 
 			// --- Option B: Animate by business_type groups (one group per tick)
-			const groups = {};
+			// const groups = {};
 
-			for (const feature of locationData) {
-				const type = feature.properties.business_type || 'unknown';
-				if (!groups[type]) groups[type] = [];
-				groups[type].push(feature);
-			}
-
-			const sortedFeatures = Object.entries(groups)
-				.sort((a, b) => a[0].localeCompare(b[0])) // optional: alphabetical by type
-				.map(([_, features]) =>
-					features.sort((a, b) => {
-						const nameA = a.properties.name?.toLowerCase() || '';
-						const nameB = b.properties.name?.toLowerCase() || '';
-						return nameA.localeCompare(nameB);
-					})
-				);
+			// for (const feature of locationData) {
+			// 	const type = feature.properties.business_type || 'unknown';
+			// 	if (!groups[type]) groups[type] = [];
+			// 	groups[type].push(feature);
+			// }
+			// const sortedFeatures = Object.entries(groups)
+			// 	.sort((a, b) => a[0].localeCompare(b[0])) // optional: alphabetical by type
+			// 	.map(([_, features]) =>
+			// 		features.sort((a, b) => {
+			// 			const nameA = a.properties.name?.toLowerCase() || '';
+			// 			const nameB = b.properties.name?.toLowerCase() || '';
+			// 			return nameA.localeCompare(nameB);
+			// 		})
+			// 	);
 
 			// === Animation setup ===
 			let currentIndex = 0;
 			const frameLimit = 10;
-			const interval = 300;
+			const interval = 30;
 			const animatedFeatures = [];
 
 			// === Interval animation loop ===
