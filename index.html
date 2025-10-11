@@ -35,25 +35,31 @@
 
 	<script>
 
-		const minZoom = 15;
+		const minZoom = 12;
 		const maxZoom = 18;
 
 		var map = new maplibregl.Map({
 			container: 'map',
-			style: 'toronto.json',
+			style: 'darkmode-mapbox.json',
 			center: [-79.3915, 43.64428],
-			pixelRatio: 1,
 			zoom: 16,
 			minZoom: minZoom,
 			maxZoom: maxZoom,
 			bearing: -16,
 			pitch: 0,
-			hash: true
+			pixelRatio: 2,
+			hash: false
 		});
 
 		map.on('load', async () => {
 
-			// Add neighborhood source
+			// Add block centroids
+			map.addSource('toronto_blocks_centroids', {
+				'type': 'geojson',
+				'data': 'https://mapcity.io/toronto-bia/data/toronto_blocks_centroids.geojson'
+			});
+
+			// Add neighborhood
 			map.addSource('toronto_neighborhoods', {
 				type: 'vector',
 				tiles: ['https://mapcity.io/toronto-bia/data/toronto_neighborhoods/{z}/{x}/{y}.pbf']
@@ -71,41 +77,94 @@
 				tiles: ['https://mapcity.io/toronto-bia/data/toronto_buildings/{z}/{x}/{y}.pbf']
 			});
 
-				// Add building outlines
-				map.addLayer({
-					'id': 'buildings-outline',
-					'source': 'toronto_buildings',
-					'source-layer': 'toronto_buildings',
-					'type': 'line',
-					'paint': {
-						'line-color': 'hsl(0, 0%, 100%)',
-						'line-width': 1.5,
-						'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 18, 1]
-					},
-					'minzoom': 18
-				});
-
-				// Add 3d buildings
-				map.addLayer({
-					'id': 'buildings',
-					'source': 'toronto_buildings',
-					'source-layer': 'toronto_buildings',
-					'type': 'fill-extrusion',
-					'paint': {
-						'fill-extrusion-color': 'hsl(0, 0%, 100%)',
-						'fill-extrusion-height': [
-							'case',
-							['!=', ['get', 'max_height'], null], ['get', 'max_height'],
-							['!=', ['get', 'avg_height'], null], ['get', 'avg_height'],
-							10
-						],
-						'fill-extrusion-base': 0,
-						'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.4, 17, 0.4, 18, 0]
-					},
-					'minzoom': 15
-				});
-
+			// Add neighborhood outlines
+			map.addLayer({
+				'id': 'neighborhoods-outlines',
+				'source': 'toronto_neighborhoods',
+				'source-layer': 'toronto_neighborhoods',
+				'type': 'line',
+				'paint': {
+					'line-color': 'hsl(227, 89%, 90%)',
+					'line-width': ['interpolate', ['exponential', 1.5], ['zoom'], 11, 3, 18, 20],
+					'line-opacity': ['interpolate', ['linear'], ['zoom'], 11, 0, 12, 0.1, 14, 0.2, 15, 0]
+				},
+				"minzoom": 11,
+				"maxzoom": 15
 			});
+
+			// Add building fills
+			map.addLayer({
+				'id': 'buildings-fill',
+				'source': 'toronto_buildings',
+				'source-layer': 'toronto_buildings',
+				'type': 'fill',
+				'paint': {
+					'fill-color': 'hsl(233, 15%, 47%)',
+					'fill-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 17, 0.1]
+				},
+				'minzoom': 16
+			});
+
+			// Add building outlines
+			map.addLayer({
+				'id': 'buildings-outline',
+				'source': 'toronto_buildings',
+				'source-layer': 'toronto_buildings',
+				'type': 'line',
+				'paint': {
+					'line-color': 'hsl(233, 15%, 47%)',
+					'line-width': 1,
+					'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 17, 1]
+				},
+				'minzoom': 16
+			});
+
+			// Add 3d buildings
+			// map.addLayer({
+			// 	'id': 'buildings',
+			// 	'source': 'toronto_buildings',
+			// 	'source-layer': 'toronto_buildings',
+			// 	'type': 'fill-extrusion',
+			// 	'paint': {
+			// 		'fill-extrusion-color': 'hsl(0, 0%, 100%)',
+			// 		'fill-extrusion-height': [
+			// 			'case',
+			// 			['!=', ['get', 'max_height'], null], ['get', 'max_height'],
+			// 			['!=', ['get', 'avg_height'], null], ['get', 'avg_height'],
+			// 			10
+			// 		],
+			// 		'fill-extrusion-base': 0,
+			// 		'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.2, 17, 0.2, 18, 0]
+			// 	},
+			// 	'minzoom': 15
+			// });
+
+			// Add neighborhood labels
+			map.addLayer({
+				id: 'neighborhoods-labels',
+				type: 'symbol',
+				source: 'toronto_neighborhoods_centroids',
+				layout: {
+					'text-field': ['get', 'area_name'],
+					'text-size': ['interpolate', ['exponential', 1.1], ['zoom'], 10, 1, 18, 50],
+					'text-font': ['montserrat-regular'],
+					'text-max-width': 5,
+					'text-line-height': 1,
+					'text-allow-overlap': true,
+					'text-ignore-placement': true,
+					//'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+					'text-rotation-alignment': 'viewport',
+					'text-pitch-alignment': 'viewport'
+				},
+				paint: {
+					'text-color': 'hsl(227, 89%, 90%)',
+					'text-opacity': ['interpolate', ['linear'], ['zoom'], 11, 0, 12, 0.8, 14, 0.8, 16, 0]
+				},
+				"minzoom": 11,
+				"maxzoom": 16
+			});
+
+		});
 
 	</script>
 

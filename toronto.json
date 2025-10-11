@@ -4,8 +4,8 @@
 	"metadata": {
 		"maputnik:renderer": "mbgljs"
 	},
-	"glyphs": "https://mapcity.io/toronto-bia/assets/fonts/{fontstack}/{range}.pbf",
-	"sprite": "https://mapcity.io/toronto-bia/assets/sprites/sprites-maki",
+	"glyphs": "https://geographyclub.github.io/toronto-map-meetup/assets/fonts/{fontstack}/{range}.pbf",
+	"sprite": "https://geographyclub.github.io/toronto-map-meetup/assets/sprites/sprites",
 	"sources": {
 		"osm": {
 			"type": "vector",
@@ -21,16 +21,17 @@
 			"id": "background",
 			"type": "background",
 			"paint": {
-				"background-color": "hsl(0, 0%, 95%)"
+				"background-color": "hsl(252, 18%, 27%)"
 			}
 		},
 		{
-			"id": "propertyboundaries",
+			"id": "property-fill",
 			"source": "toronto",
 			"source-layer": "propertyboundaries",
+			"filter": ["in", "FEATURE_TYPE", "CONDO", "RESERVE", "COMMON"],
 			"type": "fill",
 			"paint": {
-			  "fill-color": [
+				"fill-color": [
 					"case",
 					["in", ["get", "FEATURE_TYPE"], "CONDO"], "hsl(24, 32%, 80%)",
 					["in", ["get", "FEATURE_TYPE"], "CORRIDOR"], "hsl(210, 30%, 80%)",
@@ -38,33 +39,56 @@
 					["in", ["get", "FEATURE_TYPE"], "COMMON"], "hsl(24, 32%, 95%)",
 					"hsl(0, 0%, 95%)"
 				],
-			  "fill-opacity": ["interpolate", ["linear"], ["zoom"], 15, 0, 16, 1]
+				"fill-opacity": ["interpolate", ["linear"], ["zoom"], 15, 0, 16, 0.1]
 			}
 		},
 		{
-			"id": "propertyboundaries-line",
+			"id": "property-line",
 			"source": "toronto",
 			"source-layer": "propertyboundaries",
 			"type": "line",
 			"paint": {
-				"line-color": "hsl(0, 0%, 60%)",
+				"line-color": "hsl(233, 15%, 57%)",
 				"line-width": ["interpolate", ["linear"], ["zoom"], 13, 0, 15, 0.2, 16, 1],
 				"line-opacity": ["interpolate", ["linear"], ["zoom"], 15, 0, 16, 1]
 			}
 		},
 		{
-			"id": "roads",
+			"id": "property-circle",
+			"source": "toronto",
+			"source-layer": "propertyboundaries",
+			"type": "circle",
+			"paint": {
+				"circle-radius": [ "interpolate", [ "linear" ], [ "zoom" ], 12, 0, 16, 2 ],
+				"circle-color": "hsl(233, 15%, 57%)",
+				"circle-opacity": 1
+			}
+		},
+		{
+			"id": "centreline",
 			"source": "toronto",
 			"source-layer": "roads",
 			"type": "line",
 			"paint": {
-			  "line-color": "hsl(0, 0%, 100%)",
-			  "line-width": ["interpolate", ["linear"], ["zoom"], 15, 0, 16, 2]
+			  "line-color": "hsl(310, 100%, 90%)",
+			  "line-width": ["interpolate", ["linear"], ["zoom"], 15, 0, 16, 2],
+			  "line-opacity": 0.5
 			},
 			"minzoom": 14
 		},
 		{
-			"id": "roads-label",
+			"id": "centreline-circle",
+			"source": "toronto",
+			"source-layer": "roads",
+			"type": "circle",
+			"paint": {
+				"circle-radius": [ "interpolate", [ "linear" ], [ "zoom" ], 12, 0, 16, 2 ],
+				"circle-color": "hsl(310, 100%, 90%)",
+				"circle-opacity": 0.5
+			}
+		},
+		{
+			"id": "centreline-label",
 			"source": "toronto",
 			"source-layer": "roads",
 			"type": "symbol",
@@ -72,16 +96,37 @@
 				"text-field": "{LINEAR_NAME_FULL}",
 				"text-transform": "uppercase",
 				"text-rotation-alignment": "map",
-				"text-font": [ "montserrat-regular" ],
+				"text-font": [ "aldrich" ],
 				"text-letter-spacing": 0.2,
 				"symbol-placement": "line",
-				"symbol-spacing": [ "interpolate", [ "linear" ], [ "zoom" ], 15, 250, 18, 300 ],
-				"text-anchor": "center",
-				"text-size": [ "interpolate", [ "exponential", 1.5 ], [ "zoom" ], 10, 0, 20, 60 ]
+				"text-anchor": "bottom",
+				"text-size": [ "interpolate", [ "exponential", 1.5 ], [ "zoom" ], 10, 0, 20, 30 ]
 			},
 			"paint": {
-				"text-color": "hsl(0, 0%, 30%)",
+				"text-color": "hsl(310, 100%, 90%)",
 				"text-opacity": [ "interpolate", [ "linear" ], [ "zoom" ], 15, 0, 16, 1 ]
+			},
+			"minzoom": 15
+		},
+		{
+			"id": "poi-label",
+			"source": "osm",
+			"source-layer": "pois",
+			"type": "symbol",
+			"filter": ["has", "name"],
+			"layout": {
+				"text-font": [ "aldrich" ],
+				"text-size": 9,
+				"text-field": ["get", "name"],
+				"text-max-width": 8,
+				"text-line-height": 1,
+				"text-anchor": "top",
+				"text-ignore-placement": false,
+				"text-offset": [0, 1]
+			},
+			"paint": {
+				"text-opacity": [ "interpolate", [ "linear" ], [ "zoom" ], 15, 0, 16, 0.5 ],
+				"text-color": "hsl(227, 89%, 90%)"
 			},
 			"minzoom": 15
 		}
