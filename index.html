@@ -166,6 +166,11 @@
 
 		});
 
+	    map.on('click', (e) => {
+            const renderedFeatures = map.queryRenderedFeatures(e.point);
+            console.log('Rendered features at click:', renderedFeatures);
+        });
+
 	</script>
 
 </body>
