@@ -10,6 +10,10 @@
 		"osm": {
 			"type": "vector",
 			"url": "https://vector.openstreetmap.org/shortbread_v1/tilejson.json"
+		},
+		"toronto_blocks_centroids": {
+			"type": "geojson",
+			"data": "https://mapcity.io/toronto-bia/data/toronto_blocks_centroids.geojson"
 		}
 	},
 	"layers": [

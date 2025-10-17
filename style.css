@@ -39,43 +39,38 @@ body {
     z-index: 1;
 }
 
-#map.inset {
-    width: 150px;
-    height: 150px;
-    top: 10px;
-    right: 10px;
-    border-radius: 50%;
-}
-
-#map-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#map-toggle i {
-    font-size: 18px;
-    color: #333;
+/* General popup styles for all popups */
+.maplibregl-popup-content {
+    background-color: hsla(0, 0%, 100%, 0.1);
+    color: hsl(0, 0%, 100%);
+    box-shadow: none !important;
     pointer-events: none;
+    transform-origin: center;
 }
 
-#map.inset .maplibregl-ctrl-attrib {
-    display: none !important;
+.maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
+    border-top-color: hsla(0, 0%, 100%, 0.1);
 }
 
-.maplibregl-popup {
-    z-index: 900 !important;
-    filter: drop-shadow(2px 2px 2px hsla(0, 0%, 0%, 0.2));
+/* Specific styles for blocks popups */
+.popup-blocks .maplibregl-popup-content {
+    /* transform: perspective(600px) rotateX(-40deg) rotateY(20deg) rotateZ(0deg); */
+    transform: rotateX(-40deg) rotateY(20deg) rotateZ(0deg);
+    transform-style: preserve-3d;
+    transform-origin: bottom center;
+}
+
+.popup-blocks .maplibregl-popup-tip {
+    /* transform: perspective(600px) rotateX(-40deg) rotateY(20deg) rotateZ(0deg); */
+    transform: rotateX(-40deg) rotateY(20deg) rotateZ(0deg);
+    transform-style: preserve-3d;
+    transform-origin: top center;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
 }
 
 h3 {

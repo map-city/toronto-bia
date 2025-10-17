@@ -6,31 +6,13 @@
 	<meta charset="UTF-8" />
 	<script src="https://unpkg.com/maplibre-gl@5.1.0/dist/maplibre-gl.js"></script>
 	<link href="https://unpkg.com/maplibre-gl@5.1.0/dist/maplibre-gl.css" rel="stylesheet" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	<link rel="stylesheet" href="style.css">
 	<title>Toronto Downtown West</title>
-
-	<style>
-		#actionOverlay {
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: 999;
-			background: rgba(255, 255, 255, 0.5);
-			cursor: pointer;
-			border-radius: 50%;
-			width: 100px;
-			height: 100px;
-			margin: 20px;
-		}
-	</style>
 </head>
 
 <body>
 	<div id="map-container">
 		<div id="map"></div>
-		<!--<div id="actionOverlay"></div>-->
-		<!--<div id="map-toggle"><i class="fas fa-up-right-and-down-left-from-center"></i></div>-->
 	</div>
 
 	<script>
@@ -41,136 +23,89 @@
 		var map = new maplibregl.Map({
 			container: 'map',
 			style: 'darkmode-mapbox.json',
-			center: [-79.3915, 43.64428],
-			zoom: 16,
+			center: [-79.389641, 43.648183],
+			zoom: 17,
 			minZoom: minZoom,
 			maxZoom: maxZoom,
-			bearing: -16,
-			pitch: 0,
-			pixelRatio: 2,
-			hash: false
+			bearing: 0,
+			pitch: 35,
+			pixelRatio: 1,
+			hash: true
 		});
 
-		map.on('load', async () => {
+		map.on('load', () => {
 
-			// Add block centroids
-			map.addSource('toronto_blocks_centroids', {
-				'type': 'geojson',
-				'data': 'https://mapcity.io/toronto-bia/data/toronto_blocks_centroids.geojson'
+			map.addSource('toronto_blocks', {
+				type: 'geojson',
+				data: 'data/toronto_blocks_centroids.geojson'
 			});
 
-			// Add neighborhood
-			map.addSource('toronto_neighborhoods', {
-				type: 'vector',
-				tiles: ['https://mapcity.io/toronto-bia/data/toronto_neighborhoods/{z}/{x}/{y}.pbf']
-			});
-
-			// Add neighborhood centroids
-			map.addSource('toronto_neighborhoods_centroids', {
-				'type': 'geojson',
-				'data': 'https://mapcity.io/toronto-bia/data/toronto_neighborhoods_centroids.geojson'
-			});
-
-			// Add buildings source
-			map.addSource('toronto_buildings', {
-				type: 'vector',
-				tiles: ['https://mapcity.io/toronto-bia/data/toronto_buildings/{z}/{x}/{y}.pbf']
-			});
-
-			// Add neighborhood outlines
-			map.addLayer({
-				'id': 'neighborhoods-outlines',
-				'source': 'toronto_neighborhoods',
-				'source-layer': 'toronto_neighborhoods',
-				'type': 'line',
-				'paint': {
-					'line-color': 'hsl(227, 89%, 90%)',
-					'line-width': ['interpolate', ['exponential', 1.5], ['zoom'], 11, 3, 18, 20],
-					'line-opacity': ['interpolate', ['linear'], ['zoom'], 11, 0, 12, 0.1, 14, 0.2, 15, 0]
-				},
-				"minzoom": 11,
-				"maxzoom": 15
-			});
-
-			// Add building fills
-			map.addLayer({
-				'id': 'buildings-fill',
-				'source': 'toronto_buildings',
-				'source-layer': 'toronto_buildings',
-				'type': 'fill',
-				'paint': {
-					'fill-color': 'hsl(233, 15%, 47%)',
-					'fill-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 17, 0.1]
-				},
-				'minzoom': 16
-			});
-
-			// Add building outlines
-			map.addLayer({
-				'id': 'buildings-outline',
-				'source': 'toronto_buildings',
-				'source-layer': 'toronto_buildings',
-				'type': 'line',
-				'paint': {
-					'line-color': 'hsl(233, 15%, 47%)',
-					'line-width': 1,
-					'line-opacity': ["interpolate", ["linear"], ["zoom"], 16, 0, 17, 1]
-				},
-				'minzoom': 16
-			});
-
-			// Add 3d buildings
-			// map.addLayer({
-			// 	'id': 'buildings',
-			// 	'source': 'toronto_buildings',
-			// 	'source-layer': 'toronto_buildings',
-			// 	'type': 'fill-extrusion',
-			// 	'paint': {
-			// 		'fill-extrusion-color': 'hsl(0, 0%, 100%)',
-			// 		'fill-extrusion-height': [
-			// 			'case',
-			// 			['!=', ['get', 'max_height'], null], ['get', 'max_height'],
-			// 			['!=', ['get', 'avg_height'], null], ['get', 'avg_height'],
-			// 			10
-			// 		],
-			// 		'fill-extrusion-base': 0,
-			// 		'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.2, 17, 0.2, 18, 0]
-			// 	},
-			// 	'minzoom': 15
+			// map.addSource('toronto_events', {
+			// 	type: 'geojson',
+			// 	data: 'data/events/downtownwest.geojson'
 			// });
 
-			// Add neighborhood labels
 			map.addLayer({
-				id: 'neighborhoods-labels',
-				type: 'symbol',
-				source: 'toronto_neighborhoods_centroids',
-				layout: {
-					'text-field': ['get', 'area_name'],
-					'text-size': ['interpolate', ['exponential', 1.1], ['zoom'], 10, 1, 18, 50],
-					'text-font': ['montserrat-regular'],
-					'text-max-width': 5,
-					'text-line-height': 1,
-					'text-allow-overlap': true,
-					'text-ignore-placement': true,
-					//'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
-					'text-rotation-alignment': 'viewport',
-					'text-pitch-alignment': 'viewport'
-				},
+				id: 'toronto_blocks',
+				type: 'circle',
+				source: 'toronto_blocks',
 				paint: {
-					'text-color': 'hsl(227, 89%, 90%)',
-					'text-opacity': ['interpolate', ['linear'], ['zoom'], 11, 0, 12, 0.8, 14, 0.8, 16, 0]
-				},
-				"minzoom": 11,
-				"maxzoom": 16
+					'circle-radius': 0,
+					'circle-opacity': 0
+				}
 			});
 
+map.once('idle', () => {
+    const blocksFeatures = map.querySourceFeatures('toronto_blocks');
+    blocksFeatures.forEach(feature => {
+        if (feature.geometry && feature.geometry.coordinates) {
+            const coordinates = feature.geometry.coordinates;
+            let pointsData = feature.properties.points_data;
+            const name = feature.properties.dbuid_ididu;
+            const lineAngle = feature.properties.longest_segment_angle_degrees || 0;
+
+            // If pointsData is a string, parse it as JSON
+            if (typeof pointsData === 'string') {
+                try {
+                    pointsData = JSON.parse(pointsData);
+                } catch (e) {
+                    console.error('Error parsing pointsData:', e);
+                    pointsData = null;
+                }
+            }
+
+            let htmlContent = `<h1>${name}</h1>`;
+            
+            if (pointsData && Array.isArray(pointsData)) {
+                pointsData.forEach((point, index) => {
+                    const nameValue = point['name'] || point.name;
+                    if (nameValue) {
+                        htmlContent += `<p>${nameValue}</p>`;
+                    }
+                });
+            }
+
+            // Only create popup if there's content
+            if (htmlContent !== `<h1>${name}</h1>`) {
+                const popup = new maplibregl.Popup({
+                    closeOnClick: false,
+                    closeButton: false,
+                    anchor: 'bottom',
+                    offset: [0, 0]
+                })
+                    .setLngLat(coordinates)
+                    .setHTML(htmlContent)
+                    .addTo(map);
+                
+                // Add the custom class to the popup element
+                const popupElement = popup.getElement();
+                popupElement.classList.add('popup-blocks');
+            }
+        }
+    });
+});
+
 		});
-
-	    map.on('click', (e) => {
-            const renderedFeatures = map.queryRenderedFeatures(e.point);
-            console.log('Rendered features at click:', renderedFeatures);
-        });
-
 	</script>
 
 </body>
