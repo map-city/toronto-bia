@@ -6,6 +6,7 @@
     <meta charset="UTF-8" />
     <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Toronto Downtown West</title>
 </head>
@@ -35,122 +36,173 @@
 
         map.on('load', () => {
 
-            map.addSource('toronto_blocks', {
-                type: 'geojson',
-                data: 'data/toronto_blocks_centroids.geojson'
-            });
+            // map.addSource('toronto_buildings', {
+            //     type: 'vector',
+            //     tiles: ['https://mapcity.io/toronto-bia/data/toronto_buildings/{z}/{x}/{y}.pbf']
+            // });
 
-            map.addSource('toronto_building_points', {
-                type: 'geojson',
-                data: 'data/toronto_building_points.geojson'
-            });
+            // Add building outlines
+            // map.addLayer({
+            //     'id': 'buildings-outline',
+            //     'source': 'toronto_buildings',
+            //     'source-layer': 'toronto_buildings',
+            //     'type': 'fill',
+            //     'paint': {
+            //         'fill-color': 'hsl(280, 10%, 40%)',
+            //         'fill-opacity': ["interpolate", ["linear"], ["zoom"], 15, 0, 16, 0.1]
+            //     },
+            //     'minzoom': 15
+            // });
 
-            map.addLayer({
-                id: 'toronto_blocks_dummy',
-                type: 'circle',
-                source: 'toronto_blocks',
-                paint: {
-                    'circle-radius': 0,
-                    'circle-opacity': 0
-                }
-            });
+            // // Add 3d buildings
+            // map.addLayer({
+            //     'id': 'buildings',
+            //     'source': 'toronto_buildings',
+            //     'source-layer': 'toronto_buildings',
+            //     'type': 'fill-extrusion',
+            //     'paint': {
+            //         'fill-extrusion-color': 'hsl(252, 18%, 27%)',
+            //         'fill-extrusion-height': [
+            //             'case',
+            //             ['!=', ['get', 'max_height'], null], ['get', 'max_height'],
+            //             ['!=', ['get', 'avg_height'], null], ['get', 'avg_height'],
+            //             10
+            //         ],
+            //         'fill-extrusion-base': 0,
+            //         'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.5, 17, 0.5, 18, 0]
+            //     },
+            //     'minzoom': 15
+            // });
 
-            map.addLayer({
-                id: 'toronto_building_points',
-                type: 'circle',
-                source: 'toronto_building_points',
-                paint: {
-                    'circle-radius': 0,
-                    'circle-opacity': 0
-                }
-            });
+            // Add neighborhood centroids
+            // map.addSource('toronto_neighborhoods_centroids', {
+            //     'type': 'geojson',
+            //     'data': 'https://torontotechweek.github.io/data/toronto_neighborhoods_centroids.geojson'
+            // });
 
-            map.once('idle', () => {
+            // // Add neighborhood labels
+            // map.addLayer({
+            //     id: 'neighborhoods-labels',
+            //     type: 'symbol',
+            //     source: 'toronto_neighborhoods_centroids',
+            //     layout: {
+            //         'text-field': ['get', 'area_name'],
+            //         'text-size': ['interpolate', ['exponential', 1.1], ['zoom'], 10, 1, 18, 50],
+            //         'text-font': ['montserrat-regular'],
+            //         'text-max-width': 5,
+            //         'text-line-height': 1,
+            //         'text-allow-overlap': true,
+            //         'text-ignore-placement': true,
+            //         //'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+            //         'text-rotation-alignment': 'viewport',
+            //         'text-pitch-alignment': 'viewport'
+            //     },
+            //     paint: {
+            //         'text-color': 'hsl(227, 89%, 90%)',
+            //         'text-opacity': ['interpolate', ['linear'], ['zoom'], 12, 0, 13, 1, 18, 1]
+            //     },
+            //     "minzoom": 12,
+            //     "maxzoom": 18
+            // });
 
-                // directory
-                const directoryFeatures = map.querySourceFeatures('toronto_building_points');
-                directoryFeatures.forEach(feature => {
-                    if (feature.geometry && feature.geometry.coordinates) {
-                        const coordinates = feature.geometry.coordinates;
-                        const name = feature.properties.name;
+            // map.addSource('toronto_blocks', {
+            //     type: 'geojson',
+            //     data: 'data/toronto_blocks_centroids.geojson'
+            // });
 
-                        let htmlContent = `<h3>${name}</h3>`;
+            // map.addSource('toronto_building_points', {
+            //     type: 'geojson',
+            //     data: 'data/toronto_building_points.geojson'
+            // });
 
-                        // Only create popup if there's content
-                        const popup = new maplibregl.Popup({
-                            closeOnClick: false,
-                            closeButton: false,
-                            anchor: 'bottom',
-                            offset: [0, 0]
-                        })
-                            .setLngLat(coordinates)
-                            .setHTML(htmlContent)
-                            .addTo(map);
+            // map.addLayer({
+            //     id: 'toronto_blocks_dummy',
+            //     type: 'circle',
+            //     source: 'toronto_blocks',
+            //     paint: {
+            //         'circle-radius': 0,
+            //         'circle-opacity': 0
+            //     }
+            // });
 
-                        // Add the custom class to the popup element
-                        const popupElement = popup.getElement();
-                        popupElement.classList.add('popup-buildings');
-                    }
-                });
+            // map.addLayer({
+            //     id: 'toronto_building_points',
+            //     type: 'circle',
+            //     source: 'toronto_building_points',
+            //     paint: {
+            //         'circle-radius': 0,
+            //         'circle-opacity': 0
+            //     }
+            // });
 
-                // blocks
-                const processedCoordinates = new Set(); // Track processed coordinates
-                const blocksFeatures = map.querySourceFeatures('toronto_blocks');
-                blocksFeatures.forEach(feature => {
-                    if (feature.geometry && feature.geometry.coordinates && feature.properties.points_data) {
-                        const coordinates = feature.geometry.coordinates;
-                        const coordinateKey = coordinates.join(','); // Create a unique key from coordinates
+            // building points
+            fetch('data/toronto_building_points.geojson')
+                .then(response => response.json())
+                .then(geojsonData => {
+                    // Process the GeoJSON data directly
+                    geojsonData.features.forEach(feature => {
+                        if (feature.geometry && feature.geometry.coordinates) {
+                            const coordinates = feature.geometry.coordinates;
+                            const name = feature.properties.name;
 
-                        // Skip if coordinates already processed
-                        if (processedCoordinates.has(coordinateKey)) {
-                            return;
+                            // Create popup
+                            const popup = new maplibregl.Popup({
+                                closeOnClick: false,
+                                closeButton: false,
+                                anchor: 'bottom',
+                                offset: [0, 0]
+                            })
+                                .setLngLat(coordinates)
+                                .setHTML(`<h3>${name}</h3>`)
+                                .addTo(map);
+
+                            // Add the custom class to the popup element
+                            const popupElement = popup.getElement();
+                            popupElement.classList.add('popup-buildings');
                         }
+                    });
+                })
+                .catch(error => console.error('Error loading GeoJSON:', error));
 
-                        // Mark coordinates as processed
-                        processedCoordinates.add(coordinateKey);
+            // block points
+            fetch('data/toronto_blocks_centroids.geojson')
+                .then(response => response.json())
+                .then(geojsonData => {
+                    // Process the GeoJSON data directly
+                    geojsonData.features.forEach(feature => {
+                        if (feature.geometry && feature.geometry.coordinates) {
+                            const coordinates = feature.geometry.coordinates;
+                            const pointsData = feature.properties.points_data;
 
-                        let pointsData = feature.properties.points_data;
-                        const name = feature.properties.dbuid_ididu;
+                            if (pointsData && Array.isArray(pointsData) && pointsData.length > 0) {
+                                let htmlContent = `<h1>DIRECTORY</h1>`;
 
-                        // If pointsData is a string, parse it as JSON
-                        if (typeof pointsData === 'string') {
-                            try {
-                                pointsData = JSON.parse(pointsData);
-                            } catch (e) {
-                                console.error('Error parsing pointsData:', e);
-                                pointsData = null;
+                                pointsData.forEach((point, index) => {
+                                    const nameValue = point['name'] || point.name;
+                                    if (nameValue) {
+                                        htmlContent += `<p>${nameValue}</p>`;
+                                    }
+                                });
+
+                                // Create popup
+                                const popup = new maplibregl.Popup({
+                                    closeOnClick: false,
+                                    closeButton: false,
+                                    anchor: 'bottom',
+                                    offset: [0, 0]
+                                })
+                                    .setLngLat(coordinates)
+                                    .setHTML(htmlContent)
+                                    .addTo(map);
+
+                                // Add the custom class to the popup element
+                                const popupElement = popup.getElement();
+                                popupElement.classList.add('popup-blocks');
                             }
                         }
-
-                        let htmlContent = `<h1>DIRECTORY</h1>`;
-
-                        if (pointsData && Array.isArray(pointsData)) {
-                            pointsData.forEach((point, index) => {
-                                const nameValue = point['name'] || point.name;
-                                if (nameValue) {
-                                    htmlContent += `<p>${nameValue}</p>`;
-                                }
-                            });
-                        }
-
-                        // Only create popup if there's content
-                        const popup = new maplibregl.Popup({
-                            closeOnClick: false,
-                            closeButton: false,
-                            anchor: 'bottom',
-                            offset: [0, 0]
-                        })
-                            .setLngLat(coordinates)
-                            .setHTML(htmlContent)
-                            .addTo(map);
-
-                        // Add the custom class to the popup element
-                        const popupElement = popup.getElement();
-                        popupElement.classList.add('popup-blocks');
-                    }
-                });
-
-            });
+                    });
+                })
+                .catch(error => console.error('Error loading GeoJSON:', error));
 
         });
     </script>
