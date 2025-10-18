@@ -11,7 +11,7 @@ body {
     color: hsl(0, 0%, 20%);
     height: 100vh;
     width: 100vw;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     line-height: 1.4;
 }
@@ -41,19 +41,23 @@ body {
 
 /* General popup styles for all popups */
 .maplibregl-popup-content {
-    background-color: hsla(0, 0%, 100%, 0.1);
+    background: transparent;
     color: hsl(0, 0%, 100%);
     box-shadow: none !important;
     pointer-events: none;
-    transform-origin: center;
 }
 
 .maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
-    border-top-color: hsla(0, 0%, 100%, 0.1);
+    border-top-color: transparent;
 }
 
 /* Specific styles for blocks popups */
 .popup-blocks .maplibregl-popup-content {
+    background: linear-gradient(
+        to bottom,
+        hsla(0, 0%, 100%, 0.1) 0%,
+        hsla(0, 0%, 100%, 0.3) 100%
+    );
     /* transform: perspective(600px) rotateX(-40deg) rotateY(20deg) rotateZ(0deg); */
     transform: rotateX(-40deg) rotateY(20deg) rotateZ(0deg);
     transform-style: preserve-3d;
@@ -61,21 +65,42 @@ body {
 }
 
 .popup-blocks .maplibregl-popup-tip {
+    border-top-color: hsla(0, 0%, 100%, 0.3);
     /* transform: perspective(600px) rotateX(-40deg) rotateY(20deg) rotateZ(0deg); */
     transform: rotateX(-40deg) rotateY(20deg) rotateZ(0deg);
     transform-style: preserve-3d;
     transform-origin: top center;
 }
 
+.popup-directory .maplibregl-popup-content {
+    background-color: hsla(252, 18%, 27%, 0.5);
+    transform: rotateX(-40deg) rotateY(20deg) rotateZ(0deg);
+    transform-style: preserve-3d;
+    transform-origin: bottom center;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    color: hsl(316, 79%, 54%);
+}
+
+.popup-directory img {
+    width: 50px;
+    object-fit: cover;
+}
+
 h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
+    font-size: 12px;
     font-weight: 600;
 }
 
 h3 {
-    font-family: 'Montserrat', sans-serif;
     font-size: 10px;
     font-weight: 600;
-    letter-spacing: 0px;
+    line-height: 1;
+}
+
+p {
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 1;
 }

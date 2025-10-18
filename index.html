@@ -2,111 +2,159 @@
 <html>
 
 <head>
-	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-	<meta charset="UTF-8" />
-	<script src="https://unpkg.com/maplibre-gl@5.1.0/dist/maplibre-gl.js"></script>
-	<link href="https://unpkg.com/maplibre-gl@5.1.0/dist/maplibre-gl.css" rel="stylesheet" />
-	<link rel="stylesheet" href="style.css">
-	<title>Toronto Downtown West</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <title>Toronto Downtown West</title>
 </head>
 
 <body>
-	<div id="map-container">
-		<div id="map"></div>
-	</div>
+    <div id="map-container">
+        <div id="map"></div>
+    </div>
 
-	<script>
+    <script>
 
-		const minZoom = 12;
-		const maxZoom = 18;
+        const minZoom = 12;
+        const maxZoom = 18;
 
-		var map = new maplibregl.Map({
-			container: 'map',
-			style: 'darkmode-mapbox.json',
-			center: [-79.389641, 43.648183],
-			zoom: 17,
-			minZoom: minZoom,
-			maxZoom: maxZoom,
-			bearing: 0,
-			pitch: 35,
-			pixelRatio: 1,
-			hash: true
-		});
+        var map = new maplibregl.Map({
+            container: 'map',
+            style: 'darkmode-mapbox.json',
+            center: [-79.389641, 43.648183],
+            zoom: 17,
+            minZoom: minZoom,
+            maxZoom: maxZoom,
+            bearing: 0,
+            pitch: 30,
+            pixelRatio: 1,
+            hash: true
+        });
 
-		map.on('load', () => {
+        map.on('load', () => {
 
-			map.addSource('toronto_blocks', {
-				type: 'geojson',
-				data: 'data/toronto_blocks_centroids.geojson'
-			});
+            map.addSource('toronto_blocks', {
+                type: 'geojson',
+                data: 'data/toronto_blocks_centroids.geojson'
+            });
 
-			// map.addSource('toronto_events', {
-			// 	type: 'geojson',
-			// 	data: 'data/events/downtownwest.geojson'
-			// });
+            map.addSource('downtownwest_directory', {
+                type: 'geojson',
+                data: 'data/directory/downtownwest.geojson'
+            });
 
-			map.addLayer({
-				id: 'toronto_blocks',
-				type: 'circle',
-				source: 'toronto_blocks',
-				paint: {
-					'circle-radius': 0,
-					'circle-opacity': 0
-				}
-			});
-
-map.once('idle', () => {
-    const blocksFeatures = map.querySourceFeatures('toronto_blocks');
-    blocksFeatures.forEach(feature => {
-        if (feature.geometry && feature.geometry.coordinates) {
-            const coordinates = feature.geometry.coordinates;
-            let pointsData = feature.properties.points_data;
-            const name = feature.properties.dbuid_ididu;
-            const lineAngle = feature.properties.longest_segment_angle_degrees || 0;
-
-            // If pointsData is a string, parse it as JSON
-            if (typeof pointsData === 'string') {
-                try {
-                    pointsData = JSON.parse(pointsData);
-                } catch (e) {
-                    console.error('Error parsing pointsData:', e);
-                    pointsData = null;
+            map.addLayer({
+                id: 'toronto_blocks_dummy',
+                type: 'circle',
+                source: 'toronto_blocks',
+                paint: {
+                    'circle-radius': 0,
+                    'circle-opacity': 0
                 }
-            }
+            });
 
-            let htmlContent = `<h1>${name}</h1>`;
-            
-            if (pointsData && Array.isArray(pointsData)) {
-                pointsData.forEach((point, index) => {
-                    const nameValue = point['name'] || point.name;
-                    if (nameValue) {
-                        htmlContent += `<p>${nameValue}</p>`;
+            map.addLayer({
+                id: 'downtownwest_directory_dummy',
+                type: 'circle',
+                source: 'downtownwest_directory',
+                paint: {
+                    'circle-radius': 0,
+                    'circle-opacity': 0
+                }
+            });
+
+            map.once('idle', () => {
+
+                // directory
+                const directoryFeatures = map.querySourceFeatures('downtownwest_directory');
+                directoryFeatures.forEach(feature => {
+                    if (feature.geometry && feature.geometry.coordinates) {
+                        const coordinates = feature.geometry.coordinates;
+                        const name = feature.properties.name;
+                        const img = feature.properties.img
+
+                        let htmlContent = `<img src="${img}">`;
+
+                        // Only create popup if there's content
+                        const popup = new maplibregl.Popup({
+                            closeOnClick: false,
+                            closeButton: false,
+                            anchor: 'bottom',
+                            offset: [0, 0]
+                        })
+                            .setLngLat(coordinates)
+                            .setHTML(htmlContent)
+                            .addTo(map);
+
+                        // Add the custom class to the popup element
+                        const popupElement = popup.getElement();
+                        popupElement.classList.add('popup-directory');
                     }
                 });
-            }
 
-            // Only create popup if there's content
-            if (htmlContent !== `<h1>${name}</h1>`) {
-                const popup = new maplibregl.Popup({
-                    closeOnClick: false,
-                    closeButton: false,
-                    anchor: 'bottom',
-                    offset: [0, 0]
-                })
-                    .setLngLat(coordinates)
-                    .setHTML(htmlContent)
-                    .addTo(map);
-                
-                // Add the custom class to the popup element
-                const popupElement = popup.getElement();
-                popupElement.classList.add('popup-blocks');
-            }
-        }
-    });
-});
+                // blocks
+                const processedCoordinates = new Set(); // Track processed coordinates
+                const blocksFeatures = map.querySourceFeatures('toronto_blocks');
+                blocksFeatures.forEach(feature => {
+                    if (feature.geometry && feature.geometry.coordinates && feature.properties.points_data) {
+                        const coordinates = feature.geometry.coordinates;
+                        const coordinateKey = coordinates.join(','); // Create a unique key from coordinates
 
-		});
-	</script>
+                        // Skip if coordinates already processed
+                        if (processedCoordinates.has(coordinateKey)) {
+                            return;
+                        }
+
+                        // Mark coordinates as processed
+                        processedCoordinates.add(coordinateKey);
+
+                        let pointsData = feature.properties.points_data;
+                        const name = feature.properties.dbuid_ididu;
+
+                        // If pointsData is a string, parse it as JSON
+                        if (typeof pointsData === 'string') {
+                            try {
+                                pointsData = JSON.parse(pointsData);
+                            } catch (e) {
+                                console.error('Error parsing pointsData:', e);
+                                pointsData = null;
+                            }
+                        }
+
+                        let htmlContent = `<h1>DIRECTORY</h1>`;
+
+                        if (pointsData && Array.isArray(pointsData)) {
+                            pointsData.forEach((point, index) => {
+                                const nameValue = point['name'] || point.name;
+                                if (nameValue) {
+                                    htmlContent += `<p>${nameValue}</p>`;
+                                }
+                            });
+                        }
+
+                        // Only create popup if there's content
+                        const popup = new maplibregl.Popup({
+                            closeOnClick: false,
+                            closeButton: false,
+                            anchor: 'bottom',
+                            offset: [0, 0]
+                        })
+                            .setLngLat(coordinates)
+                            .setHTML(htmlContent)
+                            .addTo(map);
+
+                        // Add the custom class to the popup element
+                        const popupElement = popup.getElement();
+                        popupElement.classList.add('popup-blocks');
+                    }
+                });
+
+            });
+
+        });
+    </script>
 
 </body>
 
