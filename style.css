@@ -72,18 +72,19 @@ body {
     transform-origin: top center;
 }
 
-.popup-directory .maplibregl-popup-content {
-    background-color: hsla(252, 18%, 27%, 0.5);
+/* Specific styles for building popups */
+.popup-buildings .maplibregl-popup-content {
+    background: linear-gradient(
+        to bottom,
+        hsla(0, 0%, 100%, 0.1) 0%,
+        hsla(0, 0%, 100%, 0.3) 100%
+    );
     transform: rotateX(-40deg) rotateY(20deg) rotateZ(0deg);
     transform-style: preserve-3d;
     transform-origin: bottom center;
-    margin: 0;
-    padding: 0;
-    width: 100px;
-    color: hsl(316, 79%, 54%);
 }
 
-.popup-directory img {
+.popup-buildings img {
     width: 50px;
     object-fit: cover;
 }

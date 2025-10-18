@@ -40,9 +40,9 @@
                 data: 'data/toronto_blocks_centroids.geojson'
             });
 
-            map.addSource('downtownwest_directory', {
+            map.addSource('toronto_building_points', {
                 type: 'geojson',
-                data: 'data/directory/downtownwest.geojson'
+                data: 'data/toronto_building_points.geojson'
             });
 
             map.addLayer({
@@ -56,9 +56,9 @@
             });
 
             map.addLayer({
-                id: 'downtownwest_directory_dummy',
+                id: 'toronto_building_points',
                 type: 'circle',
-                source: 'downtownwest_directory',
+                source: 'toronto_building_points',
                 paint: {
                     'circle-radius': 0,
                     'circle-opacity': 0
@@ -68,14 +68,13 @@
             map.once('idle', () => {
 
                 // directory
-                const directoryFeatures = map.querySourceFeatures('downtownwest_directory');
+                const directoryFeatures = map.querySourceFeatures('toronto_building_points');
                 directoryFeatures.forEach(feature => {
                     if (feature.geometry && feature.geometry.coordinates) {
                         const coordinates = feature.geometry.coordinates;
                         const name = feature.properties.name;
-                        const img = feature.properties.img
 
-                        let htmlContent = `<img src="${img}">`;
+                        let htmlContent = `<h3>${name}</h3>`;
 
                         // Only create popup if there's content
                         const popup = new maplibregl.Popup({
@@ -90,7 +89,7 @@
 
                         // Add the custom class to the popup element
                         const popupElement = popup.getElement();
-                        popupElement.classList.add('popup-directory');
+                        popupElement.classList.add('popup-buildings');
                     }
                 });
 
