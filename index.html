@@ -6,7 +6,9 @@
     <meta charset="UTF-8" />
     <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Toronto Downtown West</title>
 </head>
@@ -107,41 +109,21 @@
 
             // map.addSource('toronto_blocks', {
             //     type: 'geojson',
-            //     data: 'data/toronto_blocks_centroids.geojson'
+            //     data: 'data/toronto_block_centroids.geojson'
             // });
 
-            // map.addSource('toronto_building_points', {
+            // map.addSource('toronto_building_centroids', {
             //     type: 'geojson',
-            //     data: 'data/toronto_building_points.geojson'
-            // });
-
-            // map.addLayer({
-            //     id: 'toronto_blocks_dummy',
-            //     type: 'circle',
-            //     source: 'toronto_blocks',
-            //     paint: {
-            //         'circle-radius': 0,
-            //         'circle-opacity': 0
-            //     }
-            // });
-
-            // map.addLayer({
-            //     id: 'toronto_building_points',
-            //     type: 'circle',
-            //     source: 'toronto_building_points',
-            //     paint: {
-            //         'circle-radius': 0,
-            //         'circle-opacity': 0
-            //     }
+            //     data: 'data/toronto_building_centroids.geojson'
             // });
 
             // building points
-            fetch('data/toronto_building_points.geojson')
+            fetch('data/toronto_building_centroids.geojson')
                 .then(response => response.json())
                 .then(geojsonData => {
                     // Process the GeoJSON data directly
                     geojsonData.features.forEach(feature => {
-                        if (feature.geometry && feature.geometry.coordinates) {
+                        if (feature.geometry && feature.geometry.coordinates && feature.properties.name) {
                             const coordinates = feature.geometry.coordinates;
                             const name = feature.properties.name;
 
@@ -165,40 +147,38 @@
                 .catch(error => console.error('Error loading GeoJSON:', error));
 
             // block points
-            fetch('data/toronto_blocks_centroids.geojson')
+            fetch('data/toronto_block_centroids.geojson')
                 .then(response => response.json())
                 .then(geojsonData => {
                     // Process the GeoJSON data directly
                     geojsonData.features.forEach(feature => {
-                        if (feature.geometry && feature.geometry.coordinates) {
+                        if (feature.geometry && feature.geometry.coordinates && feature.properties.points && Array.isArray(feature.properties.points) && feature.properties.points.length > 0) {
                             const coordinates = feature.geometry.coordinates;
-                            const pointsData = feature.properties.points_data;
+                            const pointsData = feature.properties.points;
 
-                            if (pointsData && Array.isArray(pointsData) && pointsData.length > 0) {
-                                let htmlContent = `<h1>DIRECTORY</h1>`;
+                            let htmlContent = `<h1>DIRECTORY</h1>`;
 
-                                pointsData.forEach((point, index) => {
-                                    const nameValue = point['name'] || point.name;
-                                    if (nameValue) {
-                                        htmlContent += `<p>${nameValue}</p>`;
-                                    }
-                                });
+                            pointsData.forEach((point, index) => {
+                                const nameValue = point['name'] || point.name;
+                                if (nameValue) {
+                                    htmlContent += `<p>${nameValue}</p>`;
+                                }
+                            });
 
-                                // Create popup
-                                const popup = new maplibregl.Popup({
-                                    closeOnClick: false,
-                                    closeButton: false,
-                                    anchor: 'bottom',
-                                    offset: [0, 0]
-                                })
-                                    .setLngLat(coordinates)
-                                    .setHTML(htmlContent)
-                                    .addTo(map);
+                            // Create popup
+                            const popup = new maplibregl.Popup({
+                                closeOnClick: false,
+                                closeButton: false,
+                                anchor: 'bottom',
+                                offset: [0, 0]
+                            })
+                                .setLngLat(coordinates)
+                                .setHTML(htmlContent)
+                                .addTo(map);
 
-                                // Add the custom class to the popup element
-                                const popupElement = popup.getElement();
-                                popupElement.classList.add('popup-blocks');
-                            }
+                            // Add the custom class to the popup element
+                            const popupElement = popup.getElement();
+                            popupElement.classList.add('popup-blocks');
                         }
                     });
                 })
